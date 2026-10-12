@@ -483,6 +483,80 @@ tr.pick .sub-t { color: var(--accent); }
   .lim-row { grid-template-columns: 110px minmax(0, 1fr) 60px; }
 }
 
+/* Section 5 */
+.jr { display: grid; gap: 14px; }
+.jr-steps { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 6px; position: relative; }
+.jr-steps button { font: inherit; font-size: 13.5px; display: flex; gap: 8px; align-items: center; padding: 10px 12px; border-radius: 8px; border: 1px solid var(--rule); background: var(--surface); color: var(--fg); cursor: pointer; text-align: left; transition: border-color .15s; }
+.jr-steps button span { display: grid; place-items: center; width: 22px; height: 22px; flex: none; border-radius: 50%; background: var(--accent-soft); color: var(--accent); font-family: var(--font-mono); font-size: 11.5px; }
+.jr-steps button:hover { border-color: var(--accent); }
+.jr-steps button[aria-selected="true"] { background: var(--accent); border-color: var(--accent); color: var(--surface); }
+.jr-steps button[aria-selected="true"] span { background: var(--surface); color: var(--accent); }
+.jr-panel { display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 24px; padding: 20px; background: var(--tint); border-radius: 10px; align-items: start; }
+.jr-text { display: grid; gap: 8px; font-size: 14.5px; line-height: 1.55; }
+.jr-text ul { margin: 0; padding-left: 18px; display: grid; gap: 4px; }
+.jr-text .lbl:not(:first-child) { margin-top: 6px; }
+.phone { border: 8px solid var(--fg); border-radius: 26px; background: var(--surface); overflow: hidden; max-width: 280px; box-shadow: 0 16px 30px -22px var(--fg); }
+.ph-bar { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); padding: 10px 14px; border-bottom: 1px solid var(--rule); }
+.ph-body { padding: 14px; display: grid; gap: 8px; min-height: 220px; align-content: start; }
+.ph-k { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); }
+.ph-big { font-family: var(--font-display); font-weight: 700; font-size: 22px; line-height: 1.15; }
+.ph-s { font-size: 12.5px; color: var(--muted); line-height: 1.45; }
+.ph-row { display: flex; justify-content: space-between; gap: 8px; font-size: 12.5px; padding: 6px 0; border-bottom: 1px solid var(--rule); }
+.ph-row b { font-family: var(--font-mono); font-weight: 500; }
+.ph-pill { justify-self: start; font-family: var(--font-mono); font-size: 11px; padding: 4px 10px; border-radius: 999px; }
+.ph-pill.ok { background: var(--accent-soft); color: var(--accent); }
+.ph-btn { justify-self: start; font-size: 12.5px; font-weight: 600; padding: 8px 14px; border-radius: 8px; background: var(--accent); color: var(--surface); }
+.ph-offer { display: grid; gap: 8px; padding: 12px; border-radius: 10px; background: var(--accent-soft); border: 1px solid var(--accent); }
+.ph-meter { height: 8px; border-radius: 4px; background: var(--tint); overflow: hidden; }
+.ph-meter i { display: block; height: 100%; background: var(--accent); }
+.scope { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.scope-col { border-radius: 10px; padding: 16px 18px; border: 1px solid var(--rule); background: var(--surface); display: grid; gap: 10px; align-content: start; }
+.scope-col.in { border-color: var(--accent); background: var(--accent-soft); }
+.scope-col.in .lbl { color: var(--accent); }
+.scope-col.out { background: var(--tint); }
+.scope-col ul { margin: 0; padding-left: 18px; display: grid; gap: 7px; font-size: 14px; line-height: 1.45; }
+.ue { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; background: var(--tint); border-radius: 10px; padding: 16px; }
+.ue-out { display: grid; gap: 8px; align-content: start; background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: 18px; }
+.ue-row { display: flex; justify-content: space-between; gap: 12px; font-size: 14.5px; padding: 8px 0; border-bottom: 1px solid var(--rule); }
+.ue-row b { font-family: var(--font-mono); font-weight: 500; font-variant-numeric: tabular-nums; color: var(--accent); }
+.ue-row.cost b { color: var(--gap); }
+.ue-total { display: grid; gap: 2px; padding-top: 8px; }
+.ue-total span { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.ue-total b { font-family: var(--font-display); font-size: 38px; font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; line-height: 1.1; }
+.ue-total b.neg { color: var(--gap); }
+.ue-note { font-size: 13.5px; color: var(--muted); line-height: 1.5; padding: 10px 12px; background: var(--tint); border-radius: 6px; }
+.ns { background: var(--hero-bg); color: var(--hero-fg); border-radius: 12px; padding: 22px 24px; display: grid; gap: 8px; }
+.ns .lbl { color: var(--hero-accent); }
+.ns-name { font-family: var(--font-display); font-weight: 700; font-size: clamp(22px, 3vw, 28px); line-height: 1.15; }
+.ns-def { font-size: 15px; line-height: 1.55; color: var(--hero-muted); max-width: 70ch; }
+.ns-target { display: flex; flex-wrap: wrap; gap: 10px; align-items: baseline; font-weight: 600; font-size: 16px; padding-top: 8px; border-top: 1px solid rgba(255,255,255,.2); }
+.ns-target span { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--hero-accent); font-weight: 400; }
+.metric-cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.mcol { display: grid; gap: 8px; align-content: start; }
+.mcol.guard .lbl { color: var(--gap); }
+.m { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 10px; padding: 12px 14px; background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; }
+.m b { font-size: 14px; font-weight: 600; }
+.m span { grid-column: 1; font-size: 12.5px; color: var(--muted); line-height: 1.4; }
+.m em { grid-column: 2; grid-row: 1 / span 2; align-self: center; font-style: normal; font-family: var(--font-mono); font-size: 12px; color: var(--accent); background: var(--accent-soft); padding: 3px 8px; border-radius: 999px; white-space: nowrap; }
+.mcol.guard .m em { color: var(--gap); background: var(--gap-soft); }
+.tl { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0; position: relative; }
+.tl::before { content: ""; position: absolute; left: 8px; right: 8px; top: 9px; height: 2px; background: var(--rule); }
+.tl-item { position: relative; display: grid; gap: 4px; align-content: start; padding: 26px 12px 0 0; }
+.tl-item::before { content: ""; position: absolute; top: 3px; left: 0; width: 14px; height: 14px; border-radius: 50%; background: var(--surface); border: 2px solid var(--accent); }
+.tl-item.key::before { background: var(--accent); }
+.tl-when { font-family: var(--font-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.04em; }
+.tl-item b { font-family: var(--font-display); font-weight: 500; font-size: 16px; }
+.tl-item p { font-size: 13.5px; color: var(--muted); line-height: 1.45; }
+@media (max-width: 900px) {
+  .jr-steps { display: flex; overflow-x: auto; scrollbar-width: none; }
+  .jr-steps button { flex: 0 0 auto; }
+  .jr-panel, .ue, .scope, .metric-cols { grid-template-columns: minmax(0, 1fr); }
+  .phone { margin: 0 auto; width: 100%; }
+  .tl { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+  .tl::before { left: 6px; right: auto; top: 0; bottom: 0; width: 2px; height: auto; }
+  .tl-item { padding: 0 0 0 28px; }
+}
+
 /* Paging */
 .pager { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; padding-top: 28px; border-top: 1px solid var(--rule); margin-top: 8px; }
 .pg { display: grid; gap: 4px; padding: 18px 20px; border: 1px solid var(--rule); border-radius: 8px; background: var(--surface); text-decoration: none; color: var(--fg); transition: border-color .15s, background .15s; }
@@ -541,7 +615,7 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
       <div><dt>Prepared by</dt><dd>Mustafa Tariq</dd></div>
       <div><dt>Prepared for</dt><dd>Venn hiring team</dd></div>
       <div><dt>Date</dt><dd>October 2026</dd></div>
-      <div><dt>Status</dt><dd>Sections 1–4 of 5 published</dd></div>
+      <div><dt>Status</dt><dd>All 5 sections published</dd></div>
     </dl>
   </div>
 </header>
@@ -563,7 +637,9 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
       <li class="has-sub"><a href="#recommend" data-nav="recommend"><span class="num">04</span><span>Recommendation</span></a>
         <ol class="subnav"><li><a href="#r-rec" data-subnav="r-rec"><span class="num">4.1</span><span>The recommendation</span></a></li><li><a href="#r-why" data-subnav="r-why"><span class="num">4.2</span><span>Why credit, why now</span></a></li><li><a href="#r-form" data-subnav="r-form"><span class="num">4.3</span><span>Choosing the form</span></a></li><li><a href="#r-plan" data-subnav="r-plan"><span class="num">4.4</span><span>Sequencing</span></a></li><li><a href="#r-risks" data-subnav="r-risks"><span class="num">4.5</span><span>Risks and decisions</span></a></li></ol>
       </li>
-      <li><span class="soon"><span class="num">05</span><span>Deep dive<small>In progress</small></span></span></li>
+      <li class="has-sub"><a href="#deepdive" data-nav="deepdive"><span class="num">05</span><span>Deep dive</span></a>
+        <ol class="subnav"><li><a href="#d-problem" data-subnav="d-problem"><span class="num">5.1</span><span>Problem and users</span></a></li><li><a href="#d-journey" data-subnav="d-journey"><span class="num">5.2</span><span>Customer journey</span></a></li><li><a href="#d-mvp" data-subnav="d-mvp"><span class="num">5.3</span><span>MVP scope</span></a></li><li><a href="#d-econ" data-subnav="d-econ"><span class="num">5.4</span><span>Unit economics</span></a></li><li><a href="#d-metrics" data-subnav="d-metrics"><span class="num">5.5</span><span>Metrics</span></a></li><li><a href="#d-risks" data-subnav="d-risks"><span class="num">5.6</span><span>Risks and experiments</span></a></li><li><a href="#d-launch" data-subnav="d-launch"><span class="num">5.7</span><span>Launch plan</span></a></li></ol>
+      </li>
       <li class="navsep"><a href="#sources" data-nav="sources"><span class="num">&rarr;</span><span>Sources</span></a></li>
     </ol>
   </nav>
@@ -581,7 +657,7 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
         <li><a class="step done" href="#market"><i>Step 2 · Done</i><b>Customer and market</b><span>The ICP's jobs and the alternatives they use</span><em>Open section &rarr;</em></a></li>
         <li><a class="step done" href="#evaluate"><i>Step 3 · Done</i><b>Evaluate options</b><span>Score the three requests on shared criteria</span><em>Open section &rarr;</em></a></li>
         <li><a class="step done" href="#recommend"><i>Step 4 · Done</i><b>Decide</b><span>Pick one bet and make the case</span><em>Open section &rarr;</em></a></li>
-        <li><div class="step now" aria-disabled="true"><i>Step 5 · In progress</i><b>Deep dive</b><span>Problem, MVP, risks, metrics, rollout</span><em>Coming soon</em></div></li>
+        <li><a class="step done" href="#deepdive"><i>Step 5 · Done</i><b>Deep dive</b><span>Problem, MVP, risks, metrics, rollout</span><em>Open section &rarr;</em></a></li>
       </ol>
       <p class="prose muted">Facts are linked to their sources. Hypotheses are labelled as hypotheses; they are what I would validate with Venn's internal data in my first weeks.</p>
       <div class="pager"><span></span><a class="pg next" href="#venn"><small>Next section &rarr;</small><b>01 · Understanding Venn</b></a></div>
@@ -1693,7 +1769,298 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
           </ol>
         </div>
       </div>
-      <div class="pager"><a class="pg prev" href="#r-plan"><small>&larr; Previous</small><b>4.4 · Sequencing</b></a><div class="pg next off" aria-disabled="true"><small>Next section · In progress</small><b>05 · Deep dive</b></div></div>
+      <div class="pager"><a class="pg prev" href="#r-plan"><small>&larr; Previous</small><b>4.4 · Sequencing</b></a><a class="pg next" href="#deepdive"><small>Next section &rarr;</small><b>05 · Deep dive</b></a></div>
+      </div>
+    </section>
+
+    <!-- 05 Deep dive -->
+    <section class="part" id="deepdive">
+      <div class="part-head">
+        <p class="eyebrow">05 · Deep dive</p>
+        <h2>How I'd build and launch Venn Charge</h2>
+      </div>
+      <nav class="substep" aria-label="Section 5 parts"><a href="#d-problem" data-subnav="d-problem"><span>5.1</span>Problem</a><a href="#d-journey" data-subnav="d-journey"><span>5.2</span>Journey</a><a href="#d-mvp" data-subnav="d-mvp"><span>5.3</span>MVP</a><a href="#d-econ" data-subnav="d-econ"><span>5.4</span>Economics</a><a href="#d-metrics" data-subnav="d-metrics"><span>5.5</span>Metrics</a><a href="#d-risks" data-subnav="d-risks"><span>5.6</span>Risks</a><a href="#d-launch" data-subnav="d-launch"><span>5.7</span>Launch</a></nav>
+
+      <div class="sub" id="d-problem" data-sub>
+      <div class="block">
+        <h3><span class="subnum">5.1</span>The problem and who has it</h3>
+        <div class="req-ask">
+          <p class="lbl">Problem statement</p>
+          <p>Growing Canadian businesses that bank with Venn can only spend on their Venn cards what they have already deposited. When spend outgrows the balance they keep with Venn, purchases are declined or moved to another provider's card. They lose control and visibility, and Venn loses the spend.</p>
+        </div>
+        <div class="segments">
+          <article class="seg">
+            <div><h4>The founder</h4><p class="who">Primary user · cross-border founder, 2–20 staff</p></div>
+            <dl>
+              <div><dt>Today</dt><dd>Tops up the Venn account before big ad or software bills; keeps an Amex for overflow</dd></div>
+              <div><dt>Wants</dt><dd>"Let me spend now and pay when revenue lands, without paperwork."</dd></div>
+              <div class="pick"><dt>Success for them</dt><dd>No declined cards and no top-ups</dd></div>
+            </dl>
+          </article>
+          <article class="seg">
+            <div><h4>The controller</h4><p class="who">Primary user · finance-led scale-up, 30–100 staff</p></div>
+            <dl>
+              <div><dt>Today</dt><dd>Splits spend across Venn and a bank or Float card; reconciles two feeds</dd></div>
+              <div><dt>Wants</dt><dd>"One card program, one statement, one sync to QuickBooks."</dd></div>
+              <div class="pick"><dt>Success for them</dt><dd>All team spend on one platform</dd></div>
+            </dl>
+          </article>
+          <article class="seg">
+            <div><h4>The cardholder</h4><p class="who">Secondary user · employee with a Venn card</p></div>
+            <dl>
+              <div><dt>Today</dt><dd>Gets declined when the company balance runs low; uses a personal card and claims it back</dd></div>
+              <div><dt>Wants</dt><dd>"My card just works, within the limits my manager set."</dd></div>
+              <div class="pick"><dt>Success for them</dt><dd>Nothing changes, except fewer declines</dd></div>
+            </dl>
+          </article>
+        </div>
+        <div class="tbl">
+          <table>
+            <thead><tr><th>User story</th><th>Acceptance criteria</th></tr></thead>
+            <tbody>
+              <tr><td>As a founder, I want to see that I'm pre-approved for Charge and my limit</td><td>Offer shows the limit, repayment date and that there's no interest or personal guarantee</td></tr>
+              <tr><td>As a founder, I want to accept in one step, keeping my existing cards</td><td>Acceptance takes under a minute; card numbers and controls are unchanged</td></tr>
+              <tr><td>As a controller, I want to see what's owed and when it will be debited</td><td>Statement balance, due date and the debit account are visible on the home screen</td></tr>
+              <tr><td>As a controller, I want statements to sync to QuickBooks or Xero</td><td>Charge transactions sync with the same rules as today's card spend</td></tr>
+              <tr><td>As a cardholder, I want my card to work even when the balance is low</td><td>Authorizations check available credit, not only the cash balance</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="pager"><a class="pg prev" href="#r-risks"><small>&larr; Previous section</small><b>04 · Recommendation</b></a><a class="pg next" href="#d-journey"><small>Next &rarr;</small><b>5.2 · Customer journey</b></a></div>
+      </div>
+
+      <div class="sub" id="d-journey" data-sub>
+      <div class="block">
+        <h3><span class="subnum">5.2</span>The customer journey</h3>
+        <p class="prose">Six moments, from pre-approval to a limit that grows. Click a step to see what the customer sees and what happens behind it.</p>
+        <div class="jr" id="jr">
+          <div class="jr-steps" role="tablist" aria-label="Journey steps">
+            <button type="button" role="tab" id="jt-1" aria-controls="jp-1" aria-selected="true"><span>1</span>Pre-qualify</button>
+            <button type="button" role="tab" id="jt-2" aria-controls="jp-2" aria-selected="false" tabindex="-1"><span>2</span>Offer</button>
+            <button type="button" role="tab" id="jt-3" aria-controls="jp-3" aria-selected="false" tabindex="-1"><span>3</span>Spend</button>
+            <button type="button" role="tab" id="jt-4" aria-controls="jp-4" aria-selected="false" tabindex="-1"><span>4</span>Statement</button>
+            <button type="button" role="tab" id="jt-5" aria-controls="jp-5" aria-selected="false" tabindex="-1"><span>5</span>Auto-pay</button>
+            <button type="button" role="tab" id="jt-6" aria-controls="jp-6" aria-selected="false" tabindex="-1"><span>6</span>Limit grows</button>
+          </div>
+
+          <div class="jr-panel" role="tabpanel" id="jp-1" aria-labelledby="jt-1">
+            <div class="phone"><div class="ph-bar">Behind the scenes</div><div class="ph-body"><p class="ph-k">Eligibility check · nightly</p><div class="ph-row"><span>Account age</span><b>&ge; 6 months</b></div><div class="ph-row"><span>90-day avg balance</span><b>$30K</b></div><div class="ph-row"><span>Monthly inflows</span><b>$80K</b></div><div class="ph-row"><span>Declines for low funds</span><b>4 last month</b></div><div class="ph-pill ok">Pre-qualified · $60K</div></div></div>
+            <div class="jr-text"><p class="lbl">What happens</p><p>A nightly job scores existing customers on account age, balance history, inflows and card behaviour. No customer action and no credit inquiry.</p><p class="lbl">Edge cases</p><ul><li>Recent large outflows or returned payments exclude a customer until the next review.</li><li>Customers with low-funds declines are prioritized: they feel the ceiling most.</li></ul></div>
+          </div>
+          <div class="jr-panel" role="tabpanel" id="jp-2" aria-labelledby="jt-2" hidden>
+            <div class="phone"><div class="ph-bar">Venn · Home</div><div class="ph-body"><div class="ph-offer"><p class="ph-k">New · Venn Charge</p><p class="ph-big">You're pre-approved for $60,000</p><p class="ph-s">Spend now, pay in full on the 1st. No interest. No personal guarantee.</p><span class="ph-btn">Review and accept</span></div><p class="ph-s">Your cards and limits stay the same.</p></div></div>
+            <div class="jr-text"><p class="lbl">What happens</p><p>An in-app card on the home screen and an email to the account owner. Accepting shows plain-language terms: limit, cycle, debit account, what happens if a payment fails.</p><p class="lbl">Edge cases</p><ul><li>Only owners and admins can accept.</li><li>Customers can decline; the offer can be revisited from Settings.</li></ul></div>
+          </div>
+          <div class="jr-panel" role="tabpanel" id="jp-3" aria-labelledby="jt-3" hidden>
+            <div class="phone"><div class="ph-bar">Venn · Cards</div><div class="ph-body"><p class="ph-k">Available to spend</p><p class="ph-big">$48,200</p><div class="ph-meter"><i style="width:20%"></i></div><div class="ph-row"><span>Charge limit</span><b>$60,000</b></div><div class="ph-row"><span>Spent this cycle</span><b>$11,800</b></div><div class="ph-row"><span>Pays on</span><b>Nov 1 from CAD</b></div></div></div>
+            <div class="jr-text"><p class="lbl">What happens</p><p>Card authorizations check available credit instead of the cash balance. Existing per-card limits, departments and approvals still apply.</p><p class="lbl">Edge cases</p><ul><li>USD purchases convert at Venn FX rates, as today.</li><li>Refunds credit the current cycle.</li></ul></div>
+          </div>
+          <div class="jr-panel" role="tabpanel" id="jp-4" aria-labelledby="jt-4" hidden>
+            <div class="phone"><div class="ph-bar">Venn · Statement</div><div class="ph-body"><p class="ph-k">October statement</p><p class="ph-big">$43,610</p><div class="ph-row"><span>Auto-pay date</span><b>Nov 1</b></div><div class="ph-row"><span>From</span><b>CAD account</b></div><div class="ph-row"><span>CAD balance now</span><b>$52,900</b></div><div class="ph-pill ok">Covered</div></div></div>
+            <div class="jr-text"><p class="lbl">What happens</p><p>The statement closes monthly. Five days before auto-pay, the customer sees the amount, the account it comes from, and whether the balance covers it.</p><p class="lbl">Edge cases</p><ul><li>If the balance won't cover it, Venn prompts a top-up before the due date.</li><li>Statements sync to QuickBooks and Xero.</li></ul></div>
+          </div>
+          <div class="jr-panel" role="tabpanel" id="jp-5" aria-labelledby="jt-5" hidden>
+            <div class="phone"><div class="ph-bar">Venn · Activity</div><div class="ph-body"><p class="ph-k">Nov 1</p><div class="ph-row"><span>Venn Charge payment</span><b>&minus;$43,610</b></div><div class="ph-pill ok">Paid in full</div><p class="ph-s">If a payment fails: retry in 2 days, then cards pause until paid.</p></div></div>
+            <div class="jr-text"><p class="lbl">What happens</p><p>The full statement is debited from the Venn account. Because Venn holds the account, it sees the balance in real time and can act early.</p><p class="lbl">Edge cases</p><ul><li>Failed payment: automatic retry, then cards pause, then a collections workflow.</li><li>A customer can pay early at any time to free up their limit.</li></ul></div>
+          </div>
+          <div class="jr-panel" role="tabpanel" id="jp-6" aria-labelledby="jt-6" hidden>
+            <div class="phone"><div class="ph-bar">Venn · Charge</div><div class="ph-body"><p class="ph-k">Good news</p><p class="ph-big">Your limit is now $80,000</p><p class="ph-s">Based on 3 months of on-time payments and your Venn cash flow.</p><span class="ph-btn">See what changed</span></div></div>
+            <div class="jr-text"><p class="lbl">What happens</p><p>Limits are reviewed monthly. On-time payments and higher balances or inflows raise them; falling balances lower them, with notice.</p><p class="lbl">Edge cases</p><ul><li>Limit decreases never drop below what's already been spent this cycle.</li><li>A visible path to a higher limit encourages keeping money in Venn.</li></ul></div>
+          </div>
+        </div>
+        <p class="assume">Screens are low-fidelity sketches to show content and flow, not final design.</p>
+      </div>
+      <div class="pager"><a class="pg prev" href="#d-problem"><small>&larr; Previous</small><b>5.1 · Problem and users</b></a><a class="pg next" href="#d-mvp"><small>Next &rarr;</small><b>5.3 · MVP scope</b></a></div>
+      </div>
+
+      <div class="sub" id="d-mvp" data-sub>
+      <div class="block">
+        <h3><span class="subnum">5.3</span>MVP scope</h3>
+        <p class="prose">The MVP proves one thing: existing customers will move more spend onto Venn when the balance ceiling is removed, and repay reliably. Everything else waits.</p>
+        <div class="scope">
+          <div class="scope-col in">
+            <p class="lbl">In the MVP</p>
+            <ul>
+              <li><b>Eligibility rules</b> on balance history, inflows and account age</li>
+              <li><b>In-app offer and acceptance</b> with plain-language terms</li>
+              <li><b>Authorization against available credit</b>, keeping all card controls</li>
+              <li><b>Monthly statement and auto-pay</b> from the Venn account</li>
+              <li><b>Failed-payment handling:</b> retry, pause cards, collections queue</li>
+              <li><b>Risk console:</b> exposure view, limit changes, freeze</li>
+              <li><b>Accounting sync</b> for Charge transactions and statements</li>
+            </ul>
+          </div>
+          <div class="scope-col out">
+            <p class="lbl">Not in the MVP</p>
+            <ul>
+              <li>Cash-flow underwriting model (Phase 2)</li>
+              <li>USD Charge and multi-currency statements</li>
+              <li>Applications from new customers</li>
+              <li>Custom payment terms (15-day, 60-day)</li>
+              <li>Revolving balances or interest</li>
+              <li>Charge-specific rewards</li>
+            </ul>
+          </div>
+          <div class="scope-col dep">
+            <p class="lbl">Dependencies</p>
+            <ul>
+              <li><b>Issuing partner:</b> credit program approval and terms</li>
+              <li><b>Funding:</b> balance-sheet capital for beta receivables</li>
+              <li><b>Risk:</b> eligibility rules, loss budget, limit policy</li>
+              <li><b>Legal and compliance:</b> cardholder terms and disclosures</li>
+              <li><b>Support:</b> playbooks for statements and failed payments</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="pager"><a class="pg prev" href="#d-journey"><small>&larr; Previous</small><b>5.2 · Customer journey</b></a><a class="pg next" href="#d-econ"><small>Next &rarr;</small><b>5.4 · Unit economics</b></a></div>
+      </div>
+
+      <div class="sub" id="d-econ" data-sub>
+      <div class="block">
+        <h3><span class="subnum">5.4</span>Unit economics</h3>
+        <p class="prose">Charge creates revenue from new spend, but it costs capital to fund statements until they're paid, and some customers won't pay. Adjust the inputs to see when a Charge customer is profitable.</p>
+        <div class="ue" id="ue">
+          <div class="calc">
+            <div class="seg-ctl small" role="radiogroup" aria-label="Customer plan">
+              <button type="button" role="radio" data-uplan="plus" aria-checked="true">Plus · cashback capped at $25K</button>
+              <button type="button" role="radio" data-uplan="pro" aria-checked="false">Pro · uncapped cashback</button>
+            </div>
+            <label for="u-base">Card spend today (prepaid) <output data-u="base"></output></label>
+            <input type="range" id="u-base" data-uk="base" min="5000" max="150000" step="5000" value="30000">
+            <label for="u-spend">Card spend with Charge <output data-u="spend"></output></label>
+            <input type="range" id="u-spend" data-uk="spend" min="5000" max="300000" step="5000" value="50000">
+            <label for="u-cap">Cost of capital <output data-u="cap"></output></label>
+            <input type="range" id="u-cap" data-uk="cap" min="4" max="14" step="0.5" value="8">
+            <label for="u-loss">Annual loss rate on credit extended <output data-u="loss"></output></label>
+            <input type="range" id="u-loss" data-uk="loss" min="0" max="10" step="0.5" value="2">
+            <p class="assume">Assumptions: Venn keeps 1.5% interchange (Section 1.2); statements are outstanding about 17 days on average; credit extended is spend above today's balance-funded spend. All illustrative, to be replaced with Venn's data.</p>
+          </div>
+          <div class="ue-out">
+            <div class="ue-row"><span>Extra interchange, net of cashback</span><b data-u="rev"></b></div>
+            <div class="ue-row cost"><span>Cost of funding statements</span><b data-u="capc"></b></div>
+            <div class="ue-row cost"><span>Expected credit losses</span><b data-u="lossc"></b></div>
+            <div class="ue-total"><span>Contribution per Charge customer, per year</span><b data-u="net"></b></div>
+            <p class="ue-note" data-u="note"></p>
+          </div>
+        </div>
+        <aside class="big-insight compact" aria-label="Key insight">
+          <p class="bi-eyebrow">Key insight · Unit economics</p>
+          <p class="bi-head">Charge pays on Plus, where cashback is capped, but is thin on Pro, where it isn't.</p>
+          <p class="bi-so"><span>So</span>Before scaling, test Charge-specific rewards (for example, full cashback on balance-backed spend and less above it) and treat retention against Float and Ramp as part of the return.</p>
+        </aside>
+      </div>
+      <div class="pager"><a class="pg prev" href="#d-mvp"><small>&larr; Previous</small><b>5.3 · MVP scope</b></a><a class="pg next" href="#d-metrics"><small>Next &rarr;</small><b>5.5 · Metrics</b></a></div>
+      </div>
+
+      <div class="sub" id="d-metrics" data-sub>
+      <div class="block">
+        <h3><span class="subnum">5.5</span>How we'll measure success</h3>
+        <div class="ns">
+          <p class="lbl">North-star metric</p>
+          <p class="ns-name">Incremental card spend per Charge customer</p>
+          <p class="ns-def">Monthly card spend of customers offered Charge, minus a randomized holdout group that wasn't. It captures both the growth and the ARPU goal, and it can't be gamed by limits nobody uses.</p>
+          <p class="ns-target"><span>Beta target</span>+30% vs holdout by month 3 (proposed)</p>
+        </div>
+        <div class="metric-cols">
+          <div class="mcol">
+            <p class="lbl">Input metrics</p>
+            <div class="m"><b>Offer acceptance</b><span>Share of pre-qualified customers who accept</span><em>&ge; 40%</em></div>
+            <div class="m"><b>Activation</b><span>Accepters with a Charge purchase within 14 days</span><em>&ge; 70%</em></div>
+            <div class="m"><b>Limit utilization</b><span>Average share of limit used per cycle</span><em>&ge; 50%</em></div>
+            <div class="m"><b>Spend above balance</b><span>Share of Charge spend beyond the cash balance</span><em>Tracked</em></div>
+          </div>
+          <div class="mcol">
+            <p class="lbl">Company outcomes</p>
+            <div class="m"><b>Active businesses</b><span>Retention of Charge cohort vs holdout</span><em>Higher</em></div>
+            <div class="m"><b>ARPU</b><span>Revenue per Charge customer vs holdout</span><em>Higher</em></div>
+            <div class="m"><b>Upgrades</b><span>Moves from Essentials or Plus to Pro</span><em>Tracked</em></div>
+          </div>
+          <div class="mcol guard">
+            <p class="lbl">Guardrails</p>
+            <div class="m"><b>Delinquency</b><span>Statements 30+ days unpaid, % of receivables</span><em>&le; 1%</em></div>
+            <div class="m"><b>Net losses</b><span>Write-offs against the agreed loss budget</span><em>Within budget</em></div>
+            <div class="m"><b>Auto-pay failures</b><span>Share of statements needing a retry</span><em>&le; 2%</em></div>
+            <div class="m"><b>Deposits</b><span>Average balance of Charge cohort</span><em>&ge; baseline</em></div>
+          </div>
+        </div>
+        <p class="assume">Targets are proposals for the beta, to be set with Venn's risk and finance teams.</p>
+      </div>
+      <div class="pager"><a class="pg prev" href="#d-econ"><small>&larr; Previous</small><b>5.4 · Unit economics</b></a><a class="pg next" href="#d-risks"><small>Next &rarr;</small><b>5.6 · Risks and experiments</b></a></div>
+      </div>
+
+      <div class="sub" id="d-risks" data-sub>
+      <div class="block">
+        <h3><span class="subnum">5.6</span>Risks and experiments</h3>
+        <p class="prose">A pre-mortem: it's six months after launch and Charge has failed. These are the most likely reasons, how we'd spot them early, and what we'd do.</p>
+        <div class="tbl">
+          <table>
+            <thead><tr><th>Why it failed</th><th>Early signal</th><th>Response</th></tr></thead>
+            <tbody>
+              <tr><td>Customers didn't need it (H1 false)</td><td>Few low-funds declines in the data; low acceptance</td><td>Caught at Gate A, before building</td></tr>
+              <tr><td>The offer wasn't compelling</td><td>Acceptance under 40%</td><td>Test limit size, copy and placement</td></tr>
+              <tr><td>Customers accepted but didn't spend more</td><td>Low utilization; no lift vs holdout</td><td>Interview non-users; target customers with declines first</td></tr>
+              <tr><td>Losses spiked</td><td>Delinquency above 1%; falling balances</td><td>Tighten eligibility; daily limit reviews; pause new offers</td></tr>
+              <tr><td>The partner moved slowly</td><td>No signed terms by month 2</td><td>Escalate early; explore a second issuer</td></tr>
+              <tr><td>Operations couldn't keep up</td><td>Support tickets per customer rising</td><td>Self-serve statements; collections playbook before beta</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="req-grid two">
+          <div class="req-box">
+            <p class="lbl">Experiment 1 · Incrementality</p>
+            <p>Randomly hold back 20% of pre-qualified customers from the offer. Compare spend, retention and deposits over 90 days. This is the only way to know Charge caused the lift.</p>
+          </div>
+          <div class="req-box">
+            <p class="lbl">Experiment 2 · Limit sizing</p>
+            <p>Test two limit multiples (1.5x and 2x balance) on similar customers. Measure the spend gained per dollar of exposure, which tells risk where to set Phase 2 limits.</p>
+          </div>
+        </div>
+      </div>
+      <div class="pager"><a class="pg prev" href="#d-metrics"><small>&larr; Previous</small><b>5.5 · Metrics</b></a><a class="pg next" href="#d-launch"><small>Next &rarr;</small><b>5.7 · Launch plan</b></a></div>
+      </div>
+
+      <div class="sub" id="d-launch" data-sub>
+      <div class="block">
+        <h3><span class="subnum">5.7</span>Launch plan and my first 90 days</h3>
+        <div class="tl">
+          <div class="tl-item"><span class="tl-when">Month 0–2</span><b>Validate</b><p>Data pull on H1 and H4; partner terms; risk policy and loss budget. Gate A.</p></div>
+          <div class="tl-item"><span class="tl-when">Month 2–4</span><b>Build the MVP</b><p>Eligibility, offer, authorization, statements, auto-pay, risk console.</p></div>
+          <div class="tl-item"><span class="tl-when">Month 4</span><b>Internal pilot</b><p>Venn's own team and friendly customers; test statements and failed payments end to end.</p></div>
+          <div class="tl-item"><span class="tl-when">Month 4–6</span><b>Beta in waves</b><p>A first wave of pre-qualified Plus and Pro customers, then a larger second wave, each with a holdout.</p></div>
+          <div class="tl-item key"><span class="tl-when">Month 6</span><b>Gate B review</b><p>Lift vs holdout, losses vs budget, unit economics. Decide on Phase 2.</p></div>
+        </div>
+        <div class="req-grid two">
+          <div class="req-box">
+            <p class="lbl">Team</p>
+            <ul>
+              <li>PM (me), a designer and a squad of about five engineers across cards, ledger and mobile</li>
+              <li>A credit risk lead and a data analyst, embedded from day one</li>
+              <li>Partner management, legal and compliance, and a support lead as close collaborators</li>
+            </ul>
+          </div>
+          <div class="req-box">
+            <p class="lbl">My first 90 days</p>
+            <ul>
+              <li><b>Days 1–30:</b> run the H1–H5 data pulls; interview 20 customers with low-funds declines; map the partner's credit requirements.</li>
+              <li><b>Days 31–60:</b> agree the risk policy and loss budget; write the MVP spec; pass Gate A.</li>
+              <li><b>Days 61–90:</b> build sprint underway; holdout design signed off; beta cohort selected.</li>
+            </ul>
+          </div>
+        </div>
+        <aside class="big-insight" aria-label="Summary">
+          <p class="bi-eyebrow">In summary</p>
+          <p class="bi-head">Venn has built the cheapest way for Canadian businesses to hold and move money. Venn Charge lets them spend it too.</p>
+          <div class="bi-points">
+            <div><b>The bet</b><p>A balance-anchored charge card for existing customers, pre-approved in the app.</p></div>
+            <div><b>The why</b><p>It uncaps Venn's biggest revenue lever and closes the gap every rival has filled.</p></div>
+            <div><b>The proof</b><p>A gated rollout with a holdout, so every next step is earned with data.</p></div>
+          </div>
+          <p class="bi-so"><span>Thank you</span>I'd welcome the chance to pressure-test these assumptions with Venn's own data.</p>
+        </aside>
+      </div>
+      <div class="pager"><a class="pg prev" href="#d-risks"><small>&larr; Previous</small><b>5.6 · Risks and experiments</b></a><a class="pg next" href="#sources"><small>Next &rarr;</small><b>Sources</b></a></div>
       </div>
     </section>
 
@@ -1728,7 +2095,7 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
           <li><a href="https://floatfinancial.com/corporate-cards/charge" target="_blank" rel="noopener">Float Charge product page</a></li>
         </ul>
       </div>
-      <div class="pager"><a class="pg prev" href="#r-risks"><small>&larr; Previous</small><b>04 · Recommendation</b></a><span></span></div>
+      <div class="pager"><a class="pg prev" href="#d-launch"><small>&larr; Previous</small><b>05 · Deep dive</b></a><a class="pg next" href="#approach"><small>Back to start &rarr;</small><b>00 · Approach</b></a></div>
     </section>
   </main>
 </div>
@@ -2033,6 +2400,55 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
     st[inp.dataset.lk] = parseFloat(inp.value);
     inp.addEventListener('input', function () { st[inp.dataset.lk] = parseFloat(inp.value); render(); });
   });
+  render();
+})();
+</script>
+<script>
+(function () {
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.jr-steps [role="tab"]'));
+  function sel(t, f) {
+    tabs.forEach(function (x) { var on = x === t; x.setAttribute('aria-selected', on ? 'true' : 'false'); x.tabIndex = on ? 0 : -1; document.getElementById(x.getAttribute('aria-controls')).hidden = !on; });
+    if (f) t.focus();
+  }
+  tabs.forEach(function (t, i) {
+    t.addEventListener('click', function () { sel(t); });
+    t.addEventListener('keydown', function (e) { var d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0; if (!d) return; e.preventDefault(); sel(tabs[(i + d + tabs.length) % tabs.length], true); });
+  });
+
+  var ue = document.getElementById('ue');
+  if (!ue) return;
+  var st = { plan: 'plus' };
+  function money(n) { var r = Math.round(n); return (r < 0 ? '\u2212$' : '$') + Math.abs(r).toLocaleString('en-CA'); }
+  function k(n) { return '$' + Math.round(n / 1000) + 'K'; }
+  function render() {
+    if (st.spend < st.base) st.spend = st.base;
+    document.getElementById('u-spend').value = st.spend;
+    var cap = st.plan === 'plus' ? 25000 : Infinity, share = 0.015;
+    function net(sp) { return sp * share - Math.min(sp, cap) * 0.01; }
+    var rev = (net(st.spend) - net(st.base)) * 12;
+    var outstanding = st.spend * 17 / 30;
+    var capc = outstanding * st.cap / 100;
+    var lossc = Math.max(0, st.spend - st.base) * st.loss / 100;
+    var tot = rev - capc - lossc;
+    ue.querySelector('[data-u="base"]').textContent = k(st.base) + '/mo';
+    ue.querySelector('[data-u="spend"]').textContent = k(st.spend) + '/mo';
+    ue.querySelector('[data-u="cap"]').textContent = st.cap.toFixed(1) + '%';
+    ue.querySelector('[data-u="loss"]').textContent = st.loss.toFixed(1) + '%';
+    ue.querySelector('[data-u="rev"]').textContent = '+' + money(rev);
+    ue.querySelector('[data-u="capc"]').textContent = '\u2212' + money(capc);
+    ue.querySelector('[data-u="lossc"]').textContent = '\u2212' + money(lossc);
+    var t = ue.querySelector('[data-u="net"]'); t.textContent = money(tot); t.classList.toggle('neg', tot < 0);
+    var be = outstanding ? (rev - lossc) / outstanding * 100 : 0;
+    ue.querySelector('[data-u="note"]').textContent = tot >= 0
+      ? 'Profitable. It stays positive up to a cost of capital of about ' + Math.max(0, be).toFixed(1) + '%.'
+      : (be > 0 ? 'Loss-making. It would need a cost of capital below ' + be.toFixed(1) + '%, more extra spend, or lower cashback on Charge spend.' : 'Loss-making at any cost of capital: the extra interchange does not cover expected losses. Lower cashback or tighter limits are needed.');
+  }
+  ue.querySelectorAll('input[type="range"]').forEach(function (inp) {
+    st[inp.dataset.uk] = parseFloat(inp.value);
+    inp.addEventListener('input', function () { st[inp.dataset.uk] = parseFloat(inp.value); render(); });
+  });
+  var pl = Array.prototype.slice.call(ue.querySelectorAll('[data-uplan]'));
+  pl.forEach(function (b) { b.addEventListener('click', function () { pl.forEach(function (o) { o.setAttribute('aria-checked', o === b ? 'true' : 'false'); }); st.plan = b.dataset.uplan; render(); }); });
   render();
 })();
 </script>
