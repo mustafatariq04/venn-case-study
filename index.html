@@ -22,6 +22,10 @@
   --partial-soft: rgba(196, 135, 20, 0.13);
   --gap: #b1362e;
   --gap-soft: rgba(177, 54, 46, 0.08);
+  --hero-bg: #0b3a2c;
+  --hero-fg: #eef6f2;
+  --hero-muted: #a9c9bb;
+  --hero-accent: #7fe0b8;
   --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
   --font-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
@@ -32,6 +36,7 @@
     --accent: #52c49c; --accent-soft: rgba(82, 196, 156, 0.12);
     --partial: #e3ac4b; --partial-soft: rgba(227, 172, 75, 0.14);
     --gap: #e47a70; --gap-soft: rgba(228, 122, 112, 0.10);
+    --hero-bg: #133f31; --hero-fg: #eef6f2; --hero-muted: #a9c9bb; --hero-accent: #7fe0b8;
     color-scheme: dark;
   }
 }
@@ -40,6 +45,7 @@
   --accent: #52c49c; --accent-soft: rgba(82, 196, 156, 0.12);
   --partial: #e3ac4b; --partial-soft: rgba(227, 172, 75, 0.14);
   --gap: #e47a70; --gap-soft: rgba(228, 122, 112, 0.10);
+  --hero-bg: #133f31; --hero-fg: #eef6f2; --hero-muted: #a9c9bb; --hero-accent: #7fe0b8;
   color-scheme: dark;
 }
 
@@ -227,6 +233,74 @@ td .sub { display: block; font-weight: 400; font-size: 13px; color: var(--muted)
   .segments, .insight { grid-template-columns: minmax(0, 1fr); }
 }
 
+/* Revenue module */
+.rev { border: 1px solid var(--rule); border-radius: 10px; background: var(--surface); padding: 18px; display: grid; gap: 16px; min-width: 0; }
+.rev-plan { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
+.rev-label, .mix-head span { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.seg-ctl { display: inline-flex; flex-wrap: wrap; gap: 4px; padding: 4px; background: var(--tint); border-radius: 8px; }
+.seg-ctl button { font: inherit; font-size: 13px; border: 0; background: transparent; color: var(--fg); padding: 6px 12px; border-radius: 6px; cursor: pointer; }
+.seg-ctl button[aria-checked="true"] { background: var(--surface); color: var(--accent); font-weight: 600; box-shadow: 0 1px 2px rgba(0,0,0,.12); }
+.seg-ctl.small button { font-size: 12.5px; padding: 5px 10px; }
+.rev-tabs { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; }
+.rev-tabs button { font: inherit; text-align: left; display: grid; gap: 4px; padding: 12px 14px; border-radius: 8px; border: 1px solid var(--rule); background: var(--bg); color: var(--fg); cursor: pointer; transition: border-color .15s, background .15s, transform .15s; min-width: 0; }
+.rev-tabs button span { font-size: 13.5px; font-weight: 500; }
+.rev-tabs button b { font-family: var(--font-mono); font-size: 16px; font-weight: 500; font-variant-numeric: tabular-nums; color: var(--muted); }
+.rev-tabs button:hover { border-color: var(--accent); transform: translateY(-1px); }
+.rev-tabs button[aria-selected="true"] { background: var(--accent); border-color: var(--accent); color: var(--surface); }
+.rev-tabs button[aria-selected="true"] b { color: var(--surface); }
+.rev-hint { font-size: 12.5px; color: var(--muted); margin-top: -8px; }
+.rev-panel { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 20px; padding: 18px; border-radius: 8px; background: var(--tint); }
+.rev-explain { display: grid; gap: 12px; align-content: start; font-size: 14.5px; line-height: 1.55; }
+.flow { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; counter-reset: f; }
+.flow li { counter-increment: f; position: relative; padding: 10px 12px 10px 40px; background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; font-size: 14px; }
+.flow li::before { content: counter(f); position: absolute; left: 12px; top: 10px; width: 18px; height: 18px; border-radius: 50%; background: var(--accent-soft); color: var(--accent); font-family: var(--font-mono); font-size: 11px; display: grid; place-items: center; }
+.flow li + li::after { content: ""; position: absolute; left: 20px; top: -7px; width: 1px; height: 8px; background: var(--accent); }
+.flag { font-size: 13.5px; padding: 10px 12px; border-radius: 8px; background: var(--gap-soft); color: var(--gap); border: 1px solid var(--gap); }
+.calc { display: grid; gap: 10px; align-content: start; background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: 16px; }
+.calc label { display: flex; justify-content: space-between; gap: 10px; font-size: 13.5px; font-weight: 500; }
+.calc output { font-family: var(--font-mono); font-size: 13px; color: var(--accent); font-variant-numeric: tabular-nums; }
+.calc input[type="range"] { width: 100%; accent-color: var(--accent); margin: 0 0 6px; }
+.calc-note { font-size: 14px; color: var(--muted); }
+.calc-out { margin-top: 6px; padding-top: 12px; border-top: 1px solid var(--rule); display: grid; gap: 2px; }
+.calc-out span { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.calc-out b { font-family: var(--font-display); font-size: 34px; font-weight: 700; line-height: 1.1; font-variant-numeric: tabular-nums; color: var(--accent); }
+.calc-out b.neg { color: var(--gap); }
+.calc-out small { font-size: 12.5px; color: var(--muted); }
+.assume { font-size: 12px; line-height: 1.5; color: var(--muted); }
+.mix { display: grid; gap: 10px; border-top: 1px solid var(--rule); padding-top: 16px; }
+.mix-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+.mix-head b { font-family: var(--font-display); font-size: 22px; font-variant-numeric: tabular-nums; }
+.mix-rows { display: grid; gap: 4px; }
+.mix-row { font: inherit; display: grid; grid-template-columns: 140px minmax(0, 1fr) 84px; gap: 12px; align-items: center; padding: 6px 8px; border: 0; border-radius: 6px; background: transparent; color: var(--fg); cursor: pointer; text-align: left; }
+.mix-row:hover, .mix-row.on { background: var(--tint); }
+.mix-row span { font-size: 13.5px; }
+.mix-row i { display: block; height: 12px; border-radius: 3px; background: var(--tint); overflow: hidden; }
+.mix-row em { display: block; height: 100%; background: var(--accent); border-radius: 3px; transition: width .25s; }
+.mix-row em.neg { background: var(--gap); }
+.mix-row b { font-family: var(--font-mono); font-size: 13px; font-weight: 500; text-align: right; font-variant-numeric: tabular-nums; }
+.mix-row b.neg { color: var(--gap); }
+
+/* Big insight */
+.big-insight { background: var(--hero-bg); color: var(--hero-fg); border-radius: 12px; padding: 28px 30px; display: grid; gap: 18px; }
+.bi-eyebrow { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--hero-accent); }
+.bi-head { font-family: var(--font-display); font-weight: 700; font-size: clamp(22px, 3vw, 30px); line-height: 1.15; text-wrap: balance; max-width: 30ch; }
+.bi-points { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.bi-points div { display: grid; gap: 6px; align-content: start; border-top: 1px solid rgba(255,255,255,.2); padding-top: 12px; }
+.bi-points b { font-family: var(--font-display); font-size: 26px; font-weight: 700; color: var(--hero-accent); line-height: 1.1; font-variant-numeric: tabular-nums; }
+.bi-points p { font-size: 14px; line-height: 1.5; color: var(--hero-muted); }
+.bi-so { display: flex; gap: 12px; align-items: baseline; font-size: 17px; line-height: 1.5; font-weight: 500; padding: 14px 16px; background: rgba(255,255,255,.08); border-radius: 8px; }
+.bi-so span { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--hero-accent); flex: none; }
+.big-insight.compact { padding: 22px 24px; gap: 12px; }
+.big-insight.compact .bi-head { font-size: clamp(19px, 2.4vw, 24px); }
+@media (max-width: 900px) {
+  .rev-tabs { display: flex; overflow-x: auto; scrollbar-width: none; }
+  .rev-tabs button { flex: 0 0 auto; min-width: 140px; }
+  .rev-panel { grid-template-columns: minmax(0, 1fr); padding: 14px; }
+  .bi-points { grid-template-columns: minmax(0, 1fr); }
+  .mix-row { grid-template-columns: 110px minmax(0, 1fr) 72px; }
+  .big-insight { padding: 22px 18px; }
+}
+
 /* Paging */
 .pager { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; padding-top: 28px; border-top: 1px solid var(--rule); margin-top: 8px; }
 .pg { display: grid; gap: 4px; padding: 18px 20px; border: 1px solid var(--rule); border-radius: 8px; background: var(--surface); text-decoration: none; color: var(--fg); transition: border-color .15s, background .15s; }
@@ -383,21 +457,153 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
 
       <div class="block">
         <h3 id="v-model">How Venn makes money</h3>
-        <p class="prose">Venn earns when money sits in it, moves through it, or is spent on its cards. Monthly fees are the smallest lever; the free plan exists to bring balances and transactions onto the platform.</p>
-        <div class="tbl model">
-          <table>
-            <thead><tr><th>Revenue stream</th><th>Public pricing signal</th><th>Grows with</th></tr></thead>
-            <tbody>
-              <tr><td>FX spread</td><td class="num">0.45% / 0.35% / 0.25% by plan</td><td>Cross-border volume</td></tr>
-              <tr><td>Card interchange</td><td>Venn returns 1% cashback, capped at $5K and $25K monthly spend on the two lower plans</td><td>Card spend</td></tr>
-              <tr><td>Net interest on deposits</td><td>Pays 2% on CAD and USD; a promotion offers up to 3.5% on net-new balances</td><td>Balances held</td></tr>
-              <tr><td>Subscriptions</td><td class="num">$0 / $40 / $100 per month, custom above</td><td>Users, controls, team size</td></tr>
-              <tr><td>Payment fees</td><td>Wires $6–10; EFT $2 on the free plan; invoice card payments 2.9% + $0.20</td><td>Payment volume</td></tr>
-            </tbody>
-          </table>
+        <p class="prose">Venn earns when money sits in it, moves through it, or is spent on its cards. Click a revenue stream to see how it turns into revenue, then adjust the example customer to see what drives it.</p>
+
+        <div class="rev" id="rev">
+          <div class="rev-plan">
+            <span class="rev-label">Example customer's plan</span>
+            <div class="seg-ctl" role="radiogroup" aria-label="Plan">
+              <button type="button" role="radio" data-plan="ess" aria-checked="false">Essentials · $0</button>
+              <button type="button" role="radio" data-plan="plus" aria-checked="true">Plus · $40/mo</button>
+              <button type="button" role="radio" data-plan="pro" aria-checked="false">Pro · $100/mo</button>
+            </div>
+          </div>
+
+          <div class="rev-tabs" role="tablist" aria-label="Revenue streams">
+            <button type="button" role="tab" id="t-fx" aria-controls="p-fx" aria-selected="true"><span>FX spread</span><b data-out="fx">$0</b></button>
+            <button type="button" role="tab" id="t-card" aria-controls="p-card" aria-selected="false" tabindex="-1"><span>Card interchange</span><b data-out="card">$0</b></button>
+            <button type="button" role="tab" id="t-int" aria-controls="p-int" aria-selected="false" tabindex="-1"><span>Net interest</span><b data-out="int">$0</b></button>
+            <button type="button" role="tab" id="t-sub" aria-controls="p-sub" aria-selected="false" tabindex="-1"><span>Subscriptions</span><b data-out="sub">$0</b></button>
+            <button type="button" role="tab" id="t-fee" aria-controls="p-fee" aria-selected="false" tabindex="-1"><span>Payment fees</span><b data-out="fee">$0</b></button>
+          </div>
+          <p class="rev-hint">Figures are Venn's estimated annual revenue from the example customer.</p>
+
+          <!-- FX -->
+          <div class="rev-panel" role="tabpanel" id="p-fx" aria-labelledby="t-fx">
+            <div class="rev-explain">
+              <ol class="flow">
+                <li>Customer converts CAD and USD, or pays a foreign vendor</li>
+                <li>Venn adds a <b data-out="fxrate">0.35%</b> markup to the mid-market rate</li>
+                <li>Venn keeps that markup on every dollar converted</li>
+              </ol>
+              <p><b>Pricing:</b> 0.45% on Essentials, 0.35% on Plus, 0.25% on Pro. Big 5 banks charge 2–3%.</p>
+              <p><b>Why it matters:</b> FX is Venn's moat against the banks and its largest lever for cross-border customers. Anything that keeps those customers active compounds it.</p>
+            </div>
+            <div class="calc">
+              <label for="in-fx">Monthly FX volume <output data-show="fxVol"></output></label>
+              <input type="range" id="in-fx" data-key="fxVol" min="0" max="500000" step="5000" value="40000">
+              <div class="calc-out"><span>Venn earns per year</span><b data-out="fx">$0</b><small data-out="fxnote"></small></div>
+            </div>
+          </div>
+
+          <!-- Card -->
+          <div class="rev-panel" role="tabpanel" id="p-card" aria-labelledby="t-card" hidden>
+            <div class="rev-explain">
+              <ol class="flow">
+                <li>An employee pays with a Venn Mastercard</li>
+                <li>The merchant pays interchange, about 2% on commercial Mastercards, to the card issuer</li>
+                <li>Venn receives a share, returns 1% cashback, and keeps the rest</li>
+              </ol>
+              <p><b>Pricing:</b> 1% cashback, on the first $5K of monthly spend on Essentials, $25K on Plus, unlimited on Pro.</p>
+              <p><b>Why it matters:</b> this lever has a ceiling. On a pre-funded card, a customer can only spend what they have deposited. A credit or charge card removes that ceiling.</p>
+              <p class="flag" data-out="ceiling" hidden></p>
+            </div>
+            <div class="calc">
+              <label for="in-card">Monthly card spend <output data-show="cardSpend"></output></label>
+              <input type="range" id="in-card" data-key="cardSpend" min="0" max="200000" step="2500" value="20000">
+              <label for="in-share">Venn's share of interchange <output data-show="share"></output></label>
+              <input type="range" id="in-share" data-key="share" min="1" max="2" step="0.05" value="1.5">
+              <p class="assume">Assumption: Venn's share is not public. Commercial Mastercard interchange is about 2.0% (<a href="https://www.td.com/content/dam/tdct/document/pdf/business-banking/oct-2025-interchange-rates-english-general-business.pdf" target="_blank" rel="noopener">TD rate chart</a>), and the issuer and processor take part of it.</p>
+              <div class="calc-out"><span>Venn earns per year</span><b data-out="card">$0</b><small data-out="cardnote"></small></div>
+            </div>
+          </div>
+
+          <!-- Interest -->
+          <div class="rev-panel" role="tabpanel" id="p-int" aria-labelledby="t-int" hidden>
+            <div class="rev-explain">
+              <ol class="flow">
+                <li>Customer keeps a balance in Venn</li>
+                <li>Funds sit in trust at BMO and earn interest for Venn</li>
+                <li>Venn keeps the gap between what it earns and what it pays the customer</li>
+              </ol>
+              <p><b>Pricing:</b> Venn pays 2% on CAD and USD balances, and up to 3.5% on net-new balances under its current promotion.</p>
+              <p><b>Why it matters:</b> with the Bank of Canada policy rate at 2.25%, paying 2% leaves a thin margin, and the 3.5% promotion runs at a loss. Deposits are a tool to win and keep customers, and the funding base for anything credit-related, more than a profit centre.</p>
+            </div>
+            <div class="calc">
+              <label for="in-bal">Average balance <output data-show="balance"></output></label>
+              <input type="range" id="in-bal" data-key="balance" min="0" max="1000000" step="10000" value="150000">
+              <label for="in-earn">Rate Venn earns on deposits <output data-show="earn"></output></label>
+              <input type="range" id="in-earn" data-key="earn" min="1.5" max="3" step="0.05" value="2.25">
+              <div class="seg-ctl small" role="radiogroup" aria-label="Rate Venn pays">
+                <button type="button" role="radio" data-pay="2" aria-checked="true">Pays 2% (standard)</button>
+                <button type="button" role="radio" data-pay="3.5" aria-checked="false">Pays 3.5% (promotion)</button>
+              </div>
+              <p class="assume">Assumption: Venn's yield from its partner bank is not public. The default uses the Bank of Canada policy rate (2.25%, held on Sept 2, 2026) as a ceiling.</p>
+              <div class="calc-out"><span>Venn earns per year</span><b data-out="int">$0</b><small data-out="intnote"></small></div>
+            </div>
+          </div>
+
+          <!-- Subscriptions -->
+          <div class="rev-panel" role="tabpanel" id="p-sub" aria-labelledby="t-sub" hidden>
+            <div class="rev-explain">
+              <ol class="flow">
+                <li>Customer outgrows the free plan: more users, controls or volume</li>
+                <li>Upgrades to Plus at $40 or Pro at $100 a month</li>
+                <li>Venn earns a fixed monthly fee</li>
+              </ol>
+              <p><b>Pricing:</b> $0 / $40 / $100 a month, with custom pricing above. Paid plans unlock lower FX rates, higher cashback caps, free local transfers and more users.</p>
+              <p><b>Why it matters:</b> it is capped at $1,200 a year below Custom, the smallest lever. Plans exist mainly to deepen the money flows above. Reimbursements, currently Custom-only, could become an upgrade driver.</p>
+            </div>
+            <div class="calc">
+              <p class="calc-note">Change the plan at the top of this module to compare.</p>
+              <div class="calc-out"><span>Venn earns per year</span><b data-out="sub">$0</b><small>Plan fee only</small></div>
+            </div>
+          </div>
+
+          <!-- Fees -->
+          <div class="rev-panel" role="tabpanel" id="p-fee" aria-labelledby="t-fee" hidden>
+            <div class="rev-explain">
+              <ol class="flow">
+                <li>Customer sends a wire or a local transfer</li>
+                <li>Venn charges a per-payment fee that depends on the plan</li>
+                <li>Venn keeps the fee, minus what the payment rail costs</li>
+              </ol>
+              <p><b>Pricing:</b> international wires $10 / $8 / $6; local transfers $2 on Essentials, free on paid plans; Interac e-Transfer always free.</p>
+              <p><b>Why it matters:</b> small per customer and already being given away on paid plans. Payment volume matters more for the FX and engagement it brings than for the fees.</p>
+            </div>
+            <div class="calc">
+              <label for="in-wire">International wires per month <output data-show="wires"></output></label>
+              <input type="range" id="in-wire" data-key="wires" min="0" max="40" step="1" value="4">
+              <label for="in-eft">Local transfers per month <output data-show="efts"></output></label>
+              <input type="range" id="in-eft" data-key="efts" min="0" max="100" step="5" value="20">
+              <div class="calc-out"><span>Venn earns per year</span><b data-out="fee">$0</b><small>Gross fees, before rail costs</small></div>
+            </div>
+          </div>
+
+          <div class="mix">
+            <div class="mix-head"><span>Example customer · Venn's annual revenue by stream</span><b data-out="total">$0</b></div>
+            <div class="mix-rows">
+              <button type="button" class="mix-row" data-go="fx"><span>FX spread</span><i><em data-bar="fx"></em></i><b data-out="fx">$0</b></button>
+              <button type="button" class="mix-row" data-go="card"><span>Card interchange</span><i><em data-bar="card"></em></i><b data-out="card">$0</b></button>
+              <button type="button" class="mix-row" data-go="int"><span>Net interest</span><i><em data-bar="int"></em></i><b data-out="int">$0</b></button>
+              <button type="button" class="mix-row" data-go="sub"><span>Subscriptions</span><i><em data-bar="sub"></em></i><b data-out="sub">$0</b></button>
+              <button type="button" class="mix-row" data-go="fee"><span>Payment fees</span><i><em data-bar="fee"></em></i><b data-out="fee">$0</b></button>
+            </div>
+            <p class="assume">Illustrative only. Pricing is Venn's public pricing; the interchange share and deposit yield are my assumptions, adjustable above.</p>
+          </div>
         </div>
-        <p class="prose"><b>What this tells me:</b> ARPU depends on balances, card spend and FX volume, not seats. The plan structure is a deliberate ladder: lower FX rates, higher cashback caps and more controls pull customers up as they grow. A new product should be judged on whether it puts more of a customer's money flows through Venn.</p>
-        <p class="src">Source: <a href="https://www.venn.ca/pricing" target="_blank" rel="noopener">Venn pricing</a></p>
+
+        <aside class="big-insight" aria-label="Key insight">
+          <p class="bi-eyebrow">Key insight · Business model</p>
+          <p class="bi-head">Venn makes money when money moves, and its biggest growth lever is capped.</p>
+          <div class="bi-points">
+            <div><b data-out="flowshare">–</b><p>of the example customer's revenue comes from FX and card spend. Revenue follows money flow, not seats.</p></div>
+            <div><b>~0.25%</b><p>is the most Venn can keep on deposits at today's rates. The 3.5% promotion loses money: deposits buy loyalty, not profit.</p></div>
+            <div><b>Balance = limit</b><p>Card spend, the lever that grows with a customer's business, can never exceed what they've deposited.</p></div>
+          </div>
+          <p class="bi-so"><span>So</span>The next product should be judged by one question: does it bring more of a customer's money flow onto Venn?</p>
+        </aside>
+        <p class="src">Sources: <a href="https://www.venn.ca/pricing" target="_blank" rel="noopener">Venn pricing</a>, <a href="https://www.td.com/content/dam/tdct/document/pdf/business-banking/oct-2025-interchange-rates-english-general-business.pdf" target="_blank" rel="noopener">TD interchange rate chart</a>, <a href="https://myperch.io/homeowners/bank-of-canada-interest-rate-announcement-september-2-2026/" target="_blank" rel="noopener">Bank of Canada decision, Sept 2026</a></p>
       </div>
 
       <div class="block">
@@ -690,7 +896,11 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
           <li>Business credit cards cost an average of <b>19%</b> interest, against 11% for lines of credit.</li>
           <li>Approval rates were high (<b>90.9%</b> for debt financing) and rise with firm size.</li>
         </ul>
-        <p class="prose"><b>What this tells me:</b> most of Venn's customers want the convenience of a credit card more than the borrowing. A charge card paid in full each month (spend now, settle from the Venn account later, no revolving interest) fits that need, and fits Venn's balance-driven model.</p>
+        <aside class="big-insight compact" aria-label="Key insight">
+          <p class="bi-eyebrow">Key insight · Credit demand</p>
+          <p class="bi-head">Customers want the convenience of a credit card more than the borrowing.</p>
+          <p class="bi-so"><span>So</span>A charge card paid in full each month (spend now, settle from the Venn account later, no revolving interest) fits that need and fits Venn's balance-driven model.</p>
+        </aside>
         <p class="src">Source: <a href="https://ised-isde.canada.ca/site/sme-research-statistics/en/node/421" target="_blank" rel="noopener">ISED, Survey on Financing and Growth of SMEs 2023</a></p>
       </div>
 
@@ -737,6 +947,8 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
           <li><a href="https://www.fintech.ca/2026/07/28/ramp-brings-finance-platform-to-canada/" target="_blank" rel="noopener">Ramp launches in Canada (fintech.ca)</a></li>
           <li><a href="https://ramp.com/en-ca/corporate-cards" target="_blank" rel="noopener">Ramp Canada corporate cards</a></li>
           <li><a href="https://risepeople.com/blog/what-is-the-best-payroll-software-in-canada/" target="_blank" rel="noopener">Best payroll software in Canada, 2026 (Rise People)</a></li>
+          <li><a href="https://www.td.com/content/dam/tdct/document/pdf/business-banking/oct-2025-interchange-rates-english-general-business.pdf" target="_blank" rel="noopener">TD Merchant Solutions interchange rate chart</a></li>
+          <li><a href="https://myperch.io/homeowners/bank-of-canada-interest-rate-announcement-september-2-2026/" target="_blank" rel="noopener">Bank of Canada holds at 2.25%, Sept 2, 2026 (Perch)</a></li>
         </ul>
       </div>
       <div class="pager"><a class="pg prev" href="#market"><small>&larr; Previous</small><b>02 · Customer and market</b></a><span></span></div>
@@ -791,6 +1003,103 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
   panels.forEach(function (p) { p.hidden = p.id !== pid; });
   navLinks.forEach(function (a) { a.classList.toggle('on', a.dataset.nav === pid); });
   if (start && start !== pid) { var el = document.getElementById(start); if (el) el.scrollIntoView(); }
+})();
+</script>
+<script>
+(function () {
+  var root = document.getElementById('rev');
+  if (!root) return;
+  var plans = {
+    ess:  { name: 'Essentials', fx: 0.0045, cap: 5000, sub: 0, wire: 10, eft: 2 },
+    plus: { name: 'Plus', fx: 0.0035, cap: 25000, sub: 480, wire: 8, eft: 0 },
+    pro:  { name: 'Pro', fx: 0.0025, cap: Infinity, sub: 1200, wire: 6, eft: 0 }
+  };
+  var st = { plan: 'plus', pay: 2, fxVol: 40000, cardSpend: 20000, share: 1.5, balance: 150000, earn: 2.25, wires: 4, efts: 20 };
+  var keys = ['fx', 'card', 'int', 'sub', 'fee'];
+  function money(n) { var r = Math.round(n); return (r < 0 ? '\u2212$' : '$') + Math.abs(r).toLocaleString('en-CA'); }
+  function k(n) { return n >= 1000000 ? '$' + (n / 1e6).toFixed(n % 1e6 ? 2 : 0) + 'M' : '$' + Math.round(n).toLocaleString('en-CA'); }
+  function calc() {
+    var P = plans[st.plan];
+    var cashSpend = Math.min(st.cardSpend, P.cap);
+    return {
+      fx: st.fxVol * 12 * P.fx,
+      card: st.cardSpend * 12 * st.share / 100 - cashSpend * 12 * 0.01,
+      int: st.balance * (st.earn - st.pay) / 100,
+      sub: P.sub,
+      fee: (st.wires * P.wire + st.efts * P.eft) * 12
+    };
+  }
+  function setAll(sel, fn) { root.ownerDocument.querySelectorAll(sel).forEach(fn); }
+  function render() {
+    var P = plans[st.plan], r = calc();
+    var total = keys.reduce(function (a, x) { return a + r[x]; }, 0);
+    var max = Math.max.apply(null, keys.map(function (x) { return Math.abs(r[x]); })) || 1;
+    keys.forEach(function (x) {
+      setAll('[data-out="' + x + '"]', function (el) { el.textContent = money(r[x]); el.classList.toggle('neg', r[x] < 0); });
+      setAll('[data-bar="' + x + '"]', function (el) { el.style.width = (Math.abs(r[x]) / max * 100) + '%'; el.classList.toggle('neg', r[x] < 0); });
+    });
+    setAll('[data-out="total"]', function (el) { el.textContent = money(total); });
+    setAll('[data-out="fxrate"]', function (el) { el.textContent = (P.fx * 100).toFixed(2) + '%'; });
+    var pos = keys.reduce(function (a, x) { return a + Math.max(0, r[x]); }, 0) || 1;
+    var flow = Math.max(0, r.fx) + Math.max(0, r.card);
+    setAll('[data-out="flowshare"]', function (el) { el.textContent = Math.round(flow / pos * 100) + '%'; });
+    setAll('[data-out="fxnote"]', function (el) { el.textContent = k(st.fxVol * 12) + ' converted a year at ' + (P.fx * 100).toFixed(2) + '% on ' + P.name; });
+    var cb = Math.min(st.cardSpend, P.cap) * 12 * 0.01;
+    setAll('[data-out="cardnote"]', function (el) { el.textContent = money(st.cardSpend * 12 * st.share / 100) + ' interchange minus ' + money(cb) + ' cashback'; });
+    setAll('[data-out="intnote"]', function (el) { el.textContent = 'Earns ' + st.earn.toFixed(2) + '%, pays ' + st.pay + '% on ' + k(st.balance); });
+    setAll('[data-out="ceiling"]', function (el) {
+      var over = st.cardSpend > st.balance;
+      el.hidden = !over;
+      if (over) el.textContent = 'Prepaid ceiling: this customer wants to spend ' + k(st.cardSpend) + ' a month but holds ' + k(st.balance) + '. On a pre-funded card, the extra spend goes to another provider.';
+    });
+    setAll('[data-show]', function (el) {
+      var key = el.dataset.show, v = st[key];
+      el.textContent = (key === 'share' || key === 'earn') ? v.toFixed(2) + '%' : (key === 'wires' || key === 'efts') ? String(v) : k(v);
+    });
+  }
+  root.querySelectorAll('input[type="range"]').forEach(function (inp) {
+    st[inp.dataset.key] = parseFloat(inp.value);
+    inp.addEventListener('input', function () { st[inp.dataset.key] = parseFloat(inp.value); render(); });
+  });
+  function radio(group, attr, cb) {
+    group.forEach(function (b) {
+      b.addEventListener('click', function () {
+        group.forEach(function (o) { o.setAttribute('aria-checked', o === b ? 'true' : 'false'); });
+        cb(b.getAttribute(attr)); render();
+      });
+    });
+  }
+  radio(Array.prototype.slice.call(root.querySelectorAll('[data-plan]')), 'data-plan', function (v) { st.plan = v; });
+  radio(Array.prototype.slice.call(root.querySelectorAll('[data-pay]')), 'data-pay', function (v) { st.pay = parseFloat(v); });
+
+  var tabs = Array.prototype.slice.call(root.querySelectorAll('[role="tab"]'));
+  function select(id, focus) {
+    tabs.forEach(function (t) {
+      var on = t.id === 't-' + id;
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+      if (on && focus) t.focus();
+    });
+    root.querySelectorAll('.mix-row').forEach(function (m) { m.classList.toggle('on', m.dataset.go === id); });
+  }
+  tabs.forEach(function (t, i) {
+    t.addEventListener('click', function () { select(t.id.slice(2)); });
+    t.addEventListener('keydown', function (e) {
+      var d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+      if (!d) return;
+      e.preventDefault();
+      select(tabs[(i + d + tabs.length) % tabs.length].id.slice(2), true);
+    });
+  });
+  root.querySelectorAll('.mix-row').forEach(function (m) {
+    m.addEventListener('click', function () {
+      select(m.dataset.go);
+      document.getElementById('t-' + m.dataset.go).scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  });
+  select('fx');
+  render();
 })();
 </script>
 </body>
