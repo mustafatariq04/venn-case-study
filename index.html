@@ -557,6 +557,18 @@ tr.pick .sub-t { color: var(--accent); }
   .tl-item { padding: 0 0 0 28px; }
 }
 
+/* Overview */
+.big-insight.exec .bi-head { font-size: clamp(22px, 2.8vw, 29px); max-width: 40ch; }
+#approach .block h3 { font-size: 22px; }
+.ns-target small { display: block; width: 100%; font-family: var(--font-mono); font-size: 11.5px; font-weight: 400; color: var(--hero-muted); letter-spacing: 0.02em; }
+
+.qmap { display: grid; gap: 6px; margin-top: 4px; }
+.qmap a { display: grid; grid-template-columns: 44px minmax(0, 1fr) auto; gap: 12px; align-items: center; padding: 10px 14px; border: 1px solid var(--rule); border-radius: 8px; background: var(--surface); color: var(--fg); text-decoration: none; transition: border-color .15s; }
+.qmap a:hover { border-color: var(--accent); }
+.qmap span { font-family: var(--font-mono); font-size: 12px; color: var(--accent); background: var(--accent-soft); border-radius: 4px; padding: 2px 0; text-align: center; }
+.qmap b { font-weight: 500; font-size: 14.5px; }
+.qmap em { font-style: normal; font-family: var(--font-mono); font-size: 12px; color: var(--muted); }
+
 /* Paging */
 .pager { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; padding-top: 28px; border-top: 1px solid var(--rule); margin-top: 8px; }
 .pg { display: grid; gap: 4px; padding: 18px 20px; border: 1px solid var(--rule); border-radius: 8px; background: var(--surface); text-decoration: none; color: var(--fg); transition: border-color .15s, background .15s; }
@@ -615,7 +627,7 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
       <div><dt>Prepared by</dt><dd>Mustafa Tariq</dd></div>
       <div><dt>Prepared for</dt><dd>Venn hiring team</dd></div>
       <div><dt>Date</dt><dd>October 2026</dd></div>
-      <div><dt>Status</dt><dd>All 5 sections published</dd></div>
+      <div><dt>Format</dt><dd>1-minute summary, then 5 sections</dd></div>
     </dl>
   </div>
 </header>
@@ -624,7 +636,7 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
   <nav class="index" aria-label="Sections">
     <p class="navlabel">Contents</p>
     <ol>
-      <li><a href="#approach" class="on" data-nav="approach"><span class="num">00</span><span>Approach</span></a></li>
+      <li><a href="#approach" class="on" data-nav="approach"><span class="num">00</span><span>Overview</span></a></li>
       <li class="has-sub"><a href="#venn" data-nav="venn"><span class="num">01</span><span>Understanding Venn</span></a>
         <ol class="subnav"><li><a href="#v-snapshot" data-subnav="v-snapshot"><span class="num">1.1</span><span>Snapshot</span></a></li><li><a href="#v-model" data-subnav="v-model"><span class="num">1.2</span><span>Business model</span></a></li><li><a href="#v-lens" data-subnav="v-lens"><span class="num">1.3</span><span>Mercury + Ramp lens</span></a></li><li><a href="#v-strengths" data-subnav="v-strengths"><span class="num">1.4</span><span>Strengths</span></a></li><li><a href="#v-goals" data-subnav="v-goals"><span class="num">1.5</span><span>Goals</span></a></li><li><a href="#v-hyp" data-subnav="v-hyp"><span class="num">1.6</span><span>Hypotheses</span></a></li><li><a href="#v-criteria" data-subnav="v-criteria"><span class="num">1.7</span><span>Criteria</span></a></li></ol>
       </li>
@@ -648,18 +660,38 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
     <!-- 00 Approach -->
     <section class="part" id="approach">
       <div class="part-head">
-        <p class="eyebrow">00 · Approach</p>
-        <h2>How I approached this case</h2>
+        <p class="eyebrow">00 · Overview</p>
+        <h2>The short version</h2>
       </div>
+      <aside class="big-insight exec" aria-label="Executive summary">
+        <p class="bi-eyebrow">The answer in one minute</p>
+        <p class="bi-head">Build Venn Charge: a charge card for existing customers, with limits based on the money they already keep and move through Venn, paid in full each month.</p>
+        <div class="bi-points">
+          <div><b>Why credit</b><p>Card spend is the revenue stream that grows with each customer, and a pre-funded card caps it at the cash on hand. Float, Loop and Ramp all offer credit; Venn doesn't.</p></div>
+          <div><b>Why this form</b><p>A charge card paid in full gives customers the convenience they want without revolving debt. Underwriting on Venn's own balance data keeps risk bounded and sign-up instant.</p></div>
+          <div><b>What else</b><p>Reimbursements ship alongside as a quick win. Payroll comes later, through an embedded partner, once more customers use Venn as their main account.</p></div>
+        </div>
+        <p class="bi-so"><span>How</span>A gated rollout: validate in two months, beta with a randomized holdout by month six, and scale only on proven lift and losses within budget.</p>
+      </aside>
+      <div class="block">
+        <h3>How I got there</h3>
       <p class="lead">I treated this as a real prioritization decision: understand the business first, then let that understanding set the criteria for choosing what to build. Each step feeds the next, so the recommendation traces back to evidence rather than preference.</p>
       <ol class="steps">
-        <li><a class="step done" href="#venn"><i>Step 1 · Done</i><b>Understand Venn</b><span>What it does, how it earns, what it does well</span><em>Open section &rarr;</em></a></li>
-        <li><a class="step done" href="#market"><i>Step 2 · Done</i><b>Customer and market</b><span>The ICP's jobs and the alternatives they use</span><em>Open section &rarr;</em></a></li>
-        <li><a class="step done" href="#evaluate"><i>Step 3 · Done</i><b>Evaluate options</b><span>Score the three requests on shared criteria</span><em>Open section &rarr;</em></a></li>
-        <li><a class="step done" href="#recommend"><i>Step 4 · Done</i><b>Decide</b><span>Pick one bet and make the case</span><em>Open section &rarr;</em></a></li>
-        <li><a class="step done" href="#deepdive"><i>Step 5 · Done</i><b>Deep dive</b><span>Problem, MVP, risks, metrics, rollout</span><em>Open section &rarr;</em></a></li>
+        <li><a class="step done" href="#venn"><i>Step 1</i><b>Understand Venn</b><span>What it does, how it earns, what it does well</span><em>Open section &rarr;</em></a></li>
+        <li><a class="step done" href="#market"><i>Step 2</i><b>Customer and market</b><span>The ICP's jobs and the alternatives they use</span><em>Open section &rarr;</em></a></li>
+        <li><a class="step done" href="#evaluate"><i>Step 3</i><b>Evaluate options</b><span>Score the three requests on shared criteria</span><em>Open section &rarr;</em></a></li>
+        <li><a class="step done" href="#recommend"><i>Step 4</i><b>Decide</b><span>Pick one bet and make the case</span><em>Open section &rarr;</em></a></li>
+        <li><a class="step done" href="#deepdive"><i>Step 5</i><b>Deep dive</b><span>Problem, MVP, risks, metrics, rollout</span><em>Open section &rarr;</em></a></li>
       </ol>
-      <p class="prose muted">Facts are linked to their sources. Hypotheses are labelled as hypotheses; they are what I would validate with Venn's internal data in my first weeks.</p>
+      <p class="prose muted">Facts are linked to their sources, and hypotheses are labelled as such: they are what I would validate with Venn's internal data in my first weeks. Each section opens with its key finding. Sliders and green buttons are interactive, so you can test my assumptions yourself.</p>
+        <div class="qmap">
+          <p class="lbl">Where each case question is answered</p>
+          <a href="#e-credit"><span>Q1</span><b>Comment on each request</b><em>3.2–3.4</em></a>
+          <a href="#e-matrix"><span>Q2</span><b>Value to Venn and link to the long-term strategy</b><em>3.2–3.5</em></a>
+          <a href="#r-rec"><span>Q3</span><b>Pick one opportunity</b><em>4.1–4.3</em></a>
+          <a href="#d-problem"><span>Q4</span><b>Deep dive on the approach</b><em>5.1–5.7</em></a>
+        </div>
+      </div>
       <div class="pager"><span></span><a class="pg next" href="#venn"><small>Next section &rarr;</small><b>01 · Understanding Venn</b></a></div>
     </section>
 
@@ -674,7 +706,7 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
       <div class="sub" id="v-snapshot" data-sub>
       <div class="finding">
         <p class="eyebrow">Key finding</p>
-        <p>Everything Venn does well is about moving and holding a customer's money more cheaply than a bank. What it doesn't yet do is fund spend beyond what a customer has deposited. Rob described Venn as Mercury plus Ramp; Venn has Mercury's core and Ramp's surface, but not Ramp's credit engine.</p>
+        <p>Everything Venn does well is about moving and holding a customer's money more cheaply than a bank. What it doesn't yet do is fund spend beyond what a customer has deposited. Venn has been described to me as "Mercury plus Ramp": it has Mercury's banking core and Ramp's spend surface, but not the engine behind Ramp, which is credit.</p>
       </div>
 
       <div class="block">
@@ -686,13 +718,13 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
             <ul>
               <li><b>Global accounts</b><span>CAD, USD, GBP and EUR accounts, opened in minutes, CDIC-eligible</span></li>
               <li><b>US banking</b><span>A US-domiciled USD account with local ACH, no SWIFT fees</span></li>
-              <li><b>Interest on balances</b><span>2% on CAD and USD, up to 3.5% on a current promotion</span></li>
+              <li><b>Interest on balances</b><span>2% on CAD and USD; a promotion pays 2.75% (CAD) and 3% (USD) on new deposits</span></li>
             </ul>
           </article>
           <article class="prod">
             <p class="prod-group">Payments</p>
             <ul>
-              <li><b>Global transfers</b><span>200+ countries in 30+ currencies at 0.25–0.45% FX</span></li>
+              <li><b>Global transfers</b><span>180+ countries in 30+ currencies at 0.25–0.45% FX</span></li>
               <li><b>Accounts payable</b><span>Bill pay, multi-step approvals, bulk payments, invoice forwarding</span></li>
               <li><b>Invoices</b><span>Multi-currency invoices paid by card, bank transfer or pre-authorized debit</span></li>
             </ul>
@@ -722,7 +754,7 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
         <p class="src">Sources: <a href="https://www.venn.ca/" target="_blank" rel="noopener">venn.ca</a>, <a href="https://www.venn.ca/pricing" target="_blank" rel="noopener">Venn pricing</a>, <a href="https://www.venn.ca/fall-2026" target="_blank" rel="noopener">Fall 2026 updates</a>, <a href="https://www.businesswire.com/news/home/20250226330289/en/Venn-Formerly-Vault-Raises-$21.5M-to-be-the-All-In-One-Financial-Platform-for-Canadian-Businesses" target="_blank" rel="noopener">BusinessWire</a></p>
       </div>
 
-      <div class="pager"><a class="pg prev" href="#approach"><small>&larr; Previous section</small><b>00 · Approach</b></a><a class="pg next" href="#v-model"><small>Next &rarr;</small><b>1.2 · Business model</b></a></div>
+      <div class="pager"><a class="pg prev" href="#approach"><small>&larr; Previous section</small><b>00 · Overview</b></a><a class="pg next" href="#v-model"><small>Next &rarr;</small><b>1.2 · Business model</b></a></div>
       </div>
 
       <div class="sub" id="v-model" data-sub>
@@ -757,7 +789,7 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
                 <li>Venn adds a <b data-out="fxrate">0.35%</b> markup to the mid-market rate</li>
                 <li>Venn keeps that markup on every dollar converted</li>
               </ol>
-              <p><b>Pricing:</b> 0.45% on Essentials, 0.35% on Plus, 0.25% on Pro. Big 5 banks charge 2–3%.</p>
+              <p><b>Pricing:</b> 0.45% on Essentials, 0.35% on Plus, 0.25% on Pro. Venn cites 2–3% at the Big 5 banks.</p>
               <p><b>Why it matters:</b> FX is Venn's moat against the banks and its largest lever for cross-border customers. Anything that keeps those customers active compounds it.</p>
             </div>
             <div class="calc">
@@ -776,7 +808,7 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
                 <li>Venn receives a share, returns 1% cashback, and keeps the rest</li>
               </ol>
               <p><b>Pricing:</b> 1% cashback, on the first $5K of monthly spend on Essentials, $25K on Plus, unlimited on Pro.</p>
-              <p><b>Why it matters:</b> this lever has a ceiling. On a pre-funded card, a customer can only spend what they have deposited. A credit or charge card removes that ceiling.</p>
+              <p><b>Why it matters:</b> this lever has a ceiling. On a pre-funded card, every purchase must be covered by cash already in Venn. A credit or charge card removes that ceiling.</p>
               <p class="flag" data-out="ceiling" hidden></p>
             </div>
             <div class="calc">
@@ -793,23 +825,27 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
           <div class="rev-panel" role="tabpanel" id="p-int" aria-labelledby="t-int" hidden>
             <div class="rev-explain">
               <ol class="flow">
-                <li>Customer keeps a balance in Venn</li>
-                <li>Funds sit in trust at BMO and earn interest for Venn</li>
-                <li>Venn keeps the gap between what it earns and what it pays the customer</li>
+                <li>Customer keeps CAD and USD balances in Venn</li>
+                <li>Funds held in trust at Venn's partner bank earn interest for Venn</li>
+                <li>Venn keeps the gap between what it earns and the 2% it pays</li>
               </ol>
-              <p><b>Pricing:</b> Venn pays 2% on CAD and USD balances, and up to 3.5% on net-new balances under its current promotion.</p>
-              <p><b>Why it matters:</b> with the Bank of Canada policy rate at 2.25%, paying 2% leaves a thin margin, and the 3.5% promotion runs at a loss. Deposits are a tool to win and keep customers, and the funding base for anything credit-related, more than a profit centre.</p>
+              <p><b>Pricing:</b> Venn pays 2% on CAD and USD balances. Its Interest Boost pays 2.75% (CAD) and 3% (USD) on net-new deposits made by Oct 15, 2026, through July 2027.</p>
+              <p><b>Why it matters:</b> the margin depends on the currency. With the Bank of Canada at 2.25% and the US Federal Reserve at 3.75–4.00%, paying 2% leaves at most about 0.25% on CAD but up to about 1.75% on USD. USD balances, which cross-border customers bring, are the valuable ones; the CAD boost runs at a loss.</p>
             </div>
             <div class="calc">
-              <label for="in-bal">Average balance <output data-show="balance"></output></label>
-              <input type="range" id="in-bal" data-key="balance" min="0" max="1000000" step="10000" value="150000">
-              <label for="in-earn">Rate Venn earns on deposits <output data-show="earn"></output></label>
-              <input type="range" id="in-earn" data-key="earn" min="1.5" max="3" step="0.05" value="2.25">
+              <label for="in-cad">Average CAD balance <output data-show="cad"></output></label>
+              <input type="range" id="in-cad" data-key="cad" min="0" max="1000000" step="10000" value="100000">
+              <label for="in-usd">Average USD balance (in CAD) <output data-show="usd"></output></label>
+              <input type="range" id="in-usd" data-key="usd" min="0" max="1000000" step="10000" value="50000">
+              <label for="in-earnc">Rate Venn earns on CAD <output data-show="earnC"></output></label>
+              <input type="range" id="in-earnc" data-key="earnC" min="1.5" max="3" step="0.05" value="2.25">
+              <label for="in-earnu">Rate Venn earns on USD <output data-show="earnU"></output></label>
+              <input type="range" id="in-earnu" data-key="earnU" min="2.5" max="4.5" step="0.05" value="3.75">
               <div class="seg-ctl small" role="radiogroup" aria-label="Rate Venn pays">
-                <button type="button" role="radio" data-pay="2" aria-checked="true">Pays 2% (standard)</button>
-                <button type="button" role="radio" data-pay="3.5" aria-checked="false">Pays 3.5% (promotion)</button>
+                <button type="button" role="radio" data-boost="0" aria-checked="true">Standard: pays 2%</button>
+                <button type="button" role="radio" data-boost="1" aria-checked="false">Boost: 2.75% CAD, 3% USD</button>
               </div>
-              <p class="assume">Assumption: Venn's yield from its partner bank is not public. The default uses the Bank of Canada policy rate (2.25%, held on Sept 2, 2026) as a ceiling.</p>
+              <p class="assume">Assumption: Venn's yield from its partner bank isn't public. Defaults use policy rates as ceilings: Bank of Canada 2.25% (held Sept 2, 2026) and the low end of the Fed's 3.75–4.00% range (Sept 17, 2026). The Boost option applies boosted rates to the whole balance, for illustration.</p>
               <div class="calc-out"><span>Venn earns per year</span><b data-out="int">$0</b><small data-out="intnote"></small></div>
             </div>
           </div>
@@ -852,7 +888,7 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
           </div>
 
           <div class="mix">
-            <div class="mix-head"><span>Example customer · Venn's annual revenue by stream</span><b data-out="total">$0</b></div>
+            <div class="mix-head"><span>Illustrative Plus customer · Venn's annual revenue by stream</span><b data-out="total">$0</b></div>
             <div class="mix-rows">
               <button type="button" class="mix-row" data-go="fx"><span>FX spread</span><i><em data-bar="fx"></em></i><b data-out="fx">$0</b></button>
               <button type="button" class="mix-row" data-go="card"><span>Card interchange</span><i><em data-bar="card"></em></i><b data-out="card">$0</b></button>
@@ -869,12 +905,12 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
           <p class="bi-head">Venn makes money when money moves, and its biggest growth lever is capped.</p>
           <div class="bi-points">
             <div><b data-out="flowshare">–</b><p>of the example customer's revenue comes from FX and card spend. Revenue follows money flow, not seats.</p></div>
-            <div><b>~0.25%</b><p>is the most Venn can keep on deposits at today's rates. The 3.5% promotion loses money: deposits buy loyalty, not profit.</p></div>
+            <div><b>0.25% vs 1.75%</b><p>is roughly the most Venn keeps on CAD vs USD balances at today's rates. Deposits pay mainly through USD, which cross-border customers bring.</p></div>
             <div><b>Balance = limit</b><p>Card spend, the lever that grows with a customer's business, can never exceed what they've deposited.</p></div>
           </div>
           <p class="bi-so"><span>So</span>The next product should be judged by one question: does it bring more of a customer's money flow onto Venn?</p>
         </aside>
-        <p class="src">Sources: <a href="https://www.venn.ca/pricing" target="_blank" rel="noopener">Venn pricing</a>, <a href="https://www.td.com/content/dam/tdct/document/pdf/business-banking/oct-2025-interchange-rates-english-general-business.pdf" target="_blank" rel="noopener">TD interchange rate chart</a>, <a href="https://myperch.io/homeowners/bank-of-canada-interest-rate-announcement-september-2-2026/" target="_blank" rel="noopener">Bank of Canada decision, Sept 2026</a></p>
+        <p class="src">Sources: <a href="https://www.venn.ca/pricing" target="_blank" rel="noopener">Venn pricing</a>, <a href="https://www.td.com/content/dam/tdct/document/pdf/business-banking/oct-2025-interchange-rates-english-general-business.pdf" target="_blank" rel="noopener">TD interchange rate chart</a>, <a href="https://www.bankofcanada.ca/core-functions/monetary-policy/key-interest-rate/" target="_blank" rel="noopener">Bank of Canada policy rate</a>, <a href="https://www.federalreserve.gov/monetarypolicy/openmarket.htm" target="_blank" rel="noopener">Federal Reserve target range</a>, <a href="https://www.venn.ca/interest-boost" target="_blank" rel="noopener">Venn Interest Boost</a></p>
       </div>
 
       <div class="pager"><a class="pg prev" href="#v-snapshot"><small>&larr; Previous</small><b>1.1 · Snapshot</b></a><a class="pg next" href="#v-lens"><small>Next &rarr;</small><b>1.3 · Mercury + Ramp lens</b></a></div>
@@ -897,7 +933,7 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
               <text class="t-body" x="38" y="97">CAD, USD, GBP, EUR; local US ACH</text>
               <rect class="has" x="20" y="128" width="328" height="60" rx="8"/>
               <text class="t-name" x="38" y="154">Yield on balances</text>
-              <text class="t-body" x="38" y="173">2% base, promotion up to 3.5%</text>
+              <text class="t-body" x="38" y="173">2% base; boost to 2.75% CAD, 3% USD</text>
               <rect class="has" x="20" y="204" width="328" height="60" rx="8"/>
               <text class="t-name" x="38" y="230">Domestic and global transfers</text>
               <text class="t-body" x="38" y="249">30+ currencies, free Interac e-Transfer</text>
@@ -957,8 +993,8 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
             <button type="button" role="tab" class="sw-tile" id="sw-t-onb" aria-controls="sw-p-onb" aria-selected="false" tabindex="-1"><i>Easier</i><b>Frictionless onboarding</b><span>Under 5 minutes</span></button>
             <button type="button" role="tab" class="sw-tile" id="sw-t-plat" aria-controls="sw-p-plat" aria-selected="false" tabindex="-1"><i>Easier</i><b>One platform instead of five tools</b><span>Accounts to accounting</span></button>
             <button type="button" role="tab" class="sw-tile" id="sw-t-ctrl" aria-controls="sw-p-ctrl" aria-selected="false" tabindex="-1"><i>Easier</i><b>Spend controls teams adopt</b><span>Limits, approvals, AI receipts</span></button>
-            <button type="button" role="tab" class="sw-tile" id="sw-t-ship" aria-controls="sw-p-ship" aria-selected="false" tabindex="-1"><i>Momentum</i><b>Shipping velocity</b><span>35+ updates in 2026</span></button>
-            <button type="button" role="tab" class="sw-tile" id="sw-t-dep" aria-controls="sw-p-dep" aria-selected="false" tabindex="-1"><i>Momentum</i><b>Aggressive deposit growth</b><span>2% base, 3.5% promo</span></button>
+            <button type="button" role="tab" class="sw-tile" id="sw-t-ship" aria-controls="sw-p-ship" aria-selected="false" tabindex="-1"><i>Momentum</i><b>Shipping velocity</b><span>30+ updates in 2026</span></button>
+            <button type="button" role="tab" class="sw-tile" id="sw-t-dep" aria-controls="sw-p-dep" aria-selected="false" tabindex="-1"><i>Momentum</i><b>Aggressive deposit growth</b><span>2% base; 3% USD boost</span></button>
             <button type="button" role="tab" class="sw-tile" id="sw-t-up" aria-controls="sw-p-up" aria-selected="false" tabindex="-1"><i>Momentum</i><b>Moving upmarket</b><span>SSO, roles, ERP</span></button>
           </div>
           <div class="sw-panel" role="tabpanel" id="sw-p-fx" aria-labelledby="sw-t-fx">
@@ -969,7 +1005,7 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
           <div class="sw-panel" role="tabpanel" id="sw-p-rails" aria-labelledby="sw-t-rails" hidden>
             <div><p class="lbl">Evidence</p><p>A US-domiciled USD account with local ACH. Big 5 USD accounts are Canada-based and SWIFT-only.</p></div>
             <div><p class="lbl so">So what</p><p>A structural advantage banks can't copy quickly, and a reason to make Venn the primary operating account.</p></div>
-            <div><p class="lbl">Link to the three requests</p><div class="rels"><span class="rel ok"><b>Supports · Payroll</b>the step that makes Venn the primary account</span></div></div>
+            <div><p class="lbl">Link to the three requests</p><div class="rels"><span class="rel ok"><b>Supports · Credit cards</b>USD card spend can settle from a real USD account</span></div></div>
           </div>
           <div class="sw-panel" role="tabpanel" id="sw-p-onb" aria-labelledby="sw-t-onb" hidden>
             <div><p class="lbl">Evidence</p><p>Sign-up in under 5 minutes with no personal credit check or guarantee. Banks take 1–2 weeks.</p></div>
@@ -987,24 +1023,19 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
             <div><p class="lbl">Link to the three requests</p><div class="rels"><span class="rel ok"><b>Supports · Credit cards</b>plugs into existing controls</span><span class="rel ok"><b>Supports · Reimbursements</b>reuses receipts and approvals</span></div></div>
           </div>
           <div class="sw-panel" role="tabpanel" id="sw-p-ship" aria-labelledby="sw-t-ship" hidden>
-            <div><p class="lbl">Evidence</p><p>35+ updates in 2026, including an AI assistant, iOS and Android apps, SSO, multi-entity and bulk payments.</p></div>
+            <div><p class="lbl">Evidence</p><p>30+ updates in 2026, including an AI assistant, iOS and Android apps, SSO, multi-entity and bulk payments.</p></div>
             <div><p class="lbl so">So what</p><p>The team can ship. The constraint on the next bet is regulatory and capital risk, not engineering speed.</p></div>
             <div><p class="lbl">Link to the three requests</p><div class="rels"><span class="rel none">Neutral: not a deciding factor between the three</span></div></div>
           </div>
           <div class="sw-panel" role="tabpanel" id="sw-p-dep" aria-labelledby="sw-t-dep" hidden>
-            <div><p class="lbl">Evidence</p><p>2% base interest, a promotion up to 3.5%, and no minimum balance.</p></div>
-            <div><p class="lbl so">So what</p><p>Balances are treated as a strategic asset. They are also the cash-flow data a future credit product would underwrite on.</p></div>
+            <div><p class="lbl">Evidence</p><p>2% base interest, an Interest Boost of 2.75% (CAD) and 3% (USD) on new deposits, and no minimum balance.</p></div>
+            <div><p class="lbl so">So what</p><p>Balances are a strategic asset: USD balances earn Venn a real margin, and balance history is the data a credit product would underwrite on.</p></div>
             <div><p class="lbl">Link to the three requests</p><div class="rels"><span class="rel ok"><b>Supports · Credit cards</b>cash-flow data to underwrite on</span><span class="rel ok"><b>Supports · Payroll</b>brings recurring deposits</span></div></div>
           </div>
           <div class="sw-panel" role="tabpanel" id="sw-p-up" aria-labelledby="sw-t-up" hidden>
             <div><p class="lbl">Evidence</p><p>Mid-market and enterprise offerings, SSO, custom roles and custom ERP integrations.</p></div>
-            <div><p class="lbl so">So what</p><p>Larger customers spend more than they keep on deposit, which makes the prepaid ceiling more visible.</p></div>
+            <div><p class="lbl so">So what</p><p>Larger customers are the likeliest to spend beyond the cash they keep in Venn (H1), so the prepaid ceiling bites harder.</p></div>
             <div><p class="lbl">Link to the three requests</p><div class="rels"><span class="rel ok"><b>Supports · Credit cards</b>larger firms outspend their balances</span><span class="rel ok"><b>Supports · Payroll</b>expected by finance-led teams</span></div></div>
-          </div>
-          <div class="tally">
-            <p class="lbl">Strengths each request would build on</p>
-            <div class="tl-row"><span>Credit cards</span><i><em style="width:100%"></em></i><b>4 of 8</b></div><div class="tl-row"><span>Reimbursements</span><i><em style="width:50%"></em></i><b>2 of 8</b></div><div class="tl-row"><span>Payroll</span><i><em style="width:100%"></em></i><b>4 of 8</b></div>
-            <p class="assume">Credit cards also carry one watch-out: underwriting must not slow Venn's 5-minute onboarding.</p>
           </div>
         </div>
         <aside class="big-insight compact" aria-label="Key insight">
@@ -1025,7 +1056,7 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
         <ul class="bullets">
           <li><b>Active businesses:</b> at least one revenue-generating transaction in a month. A sign-up that never funds or spends doesn't count.</li>
           <li><b>ARPU:</b> grown by deepening product adoption, meaning more balances, spend and payment flows per customer.</li>
-          <li><b>ICP:</b> Canadian-incorporated, 2–100 employees, outside Quebec. I assume the Quebec exclusion reflects its distinct language and regulatory requirements; that is a hypothesis.</li>
+          <li><b>ICP:</b> Canadian-incorporated, 2–100 employees, outside Quebec. Quebec likely needs its own effort: money-services businesses there need a separate licence under the province's <a href="https://www.legisquebec.gouv.qc.ca/en/document/cs/E-12.000001" target="_blank" rel="noopener">Money-Services Businesses Act</a>, plus French-language service. Ramp's Canadian launch also excludes Quebec.</li>
           <li><b>Long-term strategy:</b> the default banking and finance platform for Canadian businesses, 10x better and 10x cheaper than the status quo.</li>
         </ul>
       </div>
@@ -1040,8 +1071,8 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
         <ol class="hyps2">
           <li class="hyp">
             <span class="hnum">H1</span>
-            <div class="hbody"><b>The prepaid ceiling is costing card spend.</b><p>Customers keep only part of their operating cash in Venn, so card spend is capped below real demand.</p></div>
-            <div class="htest"><p class="lbl">How I'd test it</p><p>Card spend relative to balance, and declines caused by insufficient funds.</p></div>
+            <div class="hbody"><b>The prepaid ceiling is costing card spend.</b><p>Every purchase must be covered by cash already in Venn. Customers who keep most of their cash elsewhere, or whose big bills land before revenue, get declined or move the spend to another card.</p></div>
+            <div class="htest"><p class="lbl">How I'd test it</p><p>Card spend relative to balance, top-ups before large bills, and declines for insufficient funds.</p></div>
             <div class="hinf"><p class="lbl">Informs</p><span class="pill ok">Credit cards</span></div>
           </li>
           <li class="hyp">
@@ -1111,7 +1142,7 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
 
       <div class="block">
         <h3><span class="subnum">2.1</span>Market size</h3>
-        <p class="prose">Venn's ICP covers almost every Canadian employer business outside Quebec. Using Canada's official business counts, the core of that market is roughly 340,000 businesses.</p>
+        <p class="prose">Venn's ICP (2–100 employees, outside Quebec) covers most Canadian employer businesses. Using official business counts, the core of that market, firms with 5–99 employees, is roughly 340,000 businesses.</p>
         <dl class="stats">
           <div><dt>Small employer businesses</dt><dd class="big">1.08M</dd><dd class="muted">Businesses with 1–99 employees in Canada, December 2024</dd></div>
           <div><dt>In Quebec</dt><dd class="big">21.2%</dd><dd class="muted">Share of those businesses Venn does not serve today</dd></div>
@@ -1161,7 +1192,7 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
             <dl>
               <div><dt>Main jobs</dt><dd>Get paid in USD, pay global vendors and contractors, avoid FX fees, keep runway visible</dd></div>
               <div><dt>Stack today</dt><dd>Venn for FX and USD; often a bank or Amex card for software and ad spend</dd></div>
-              <div><dt>Pain with Venn today</dt><dd>Pre-funding cards ties up cash that could sit earning interest; ad and software bills arrive before revenue does</dd></div>
+              <div><dt>Pain with Venn today</dt><dd>Must top up Venn before big ad and software bills, which often land before revenue does</dd></div>
               <div class="pick"><dt>Request that matters most</dt><dd>Credit cards</dd></div>
             </dl>
           </article>
@@ -1214,15 +1245,15 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
       <div class="sub" id="m-comp" data-sub>
       <div class="block">
         <h3><span class="subnum">2.4</span>Competitive landscape</h3>
-        <p class="prose">Venn competes with the Big 5 on banking and with spend platforms on cards. In the spend category, Venn is the only major player that funds cards from deposits alone.</p>
+        <p class="prose">Venn competes with the Big 5 on banking and with spend platforms on cards. Of the spend platforms below, Venn is the only one that limits card spend to the cash a customer has deposited.</p>
         <div class="tbl comp">
           <table>
             <thead><tr><th>Player</th><th>How card spend is funded</th><th>Overlap with the three requests</th><th>What changed recently</th></tr></thead>
             <tbody>
-              <tr><td>Venn<span class="sub">Banking + spend platform</span></td><td>Pre-funded: limit equals balance held</td><td>Reimbursements on the Custom plan only</td><td>35+ product updates in 2026</td></tr>
-              <tr><td><a href="https://www.businesswire.com/news/home/20260126794495/en/Float-Secures-Close-to-%24100M-in-Funding-to-Unlock-Over-%241.5B-in-Spending-Power-for-Canadian-Businesses" target="_blank" rel="noopener">Float</a><span class="sub">Canadian spend platform, 7,000+ businesses</span></td><td>Charge card, limits up to $3M, no personal guarantee</td><td>Credit cards, reimbursements</td><td>Close to CA$100M in debt facilities (Jan 2026) to extend more credit; pays 3–4% on balances</td></tr>
+              <tr><td>Venn<span class="sub">Banking + spend platform</span></td><td>Pre-funded: limit equals balance held</td><td>Reimbursements on the Custom plan only</td><td>30+ product updates in 2026</td></tr>
+              <tr><td><a href="https://www.businesswire.com/news/home/20260126794495/en/Float-Secures-Close-to-%24100M-in-Funding-to-Unlock-Over-%241.5B-in-Spending-Power-for-Canadian-Businesses" target="_blank" rel="noopener">Float</a><span class="sub">Canadian spend platform, 6,000+ businesses</span></td><td>Charge card, limits up to $3M, no personal guarantee</td><td>Credit cards, reimbursements</td><td>Close to CA$100M in debt facilities (Jan 2026) to extend more credit; pays 3–4% on balances</td></tr>
               <tr><td><a href="https://www.businesswire.com/news/home/20241211306162/en/Loop-Launches-Canada%E2%80%99s-First-Multi-Currency-Credit-Card-for-SMEs" target="_blank" rel="noopener">Loop</a><span class="sub">Canadian cross-border platform</span></td><td>Multi-currency credit card issued with EQ Bank</td><td>Credit cards</td><td>Launched the card in Dec 2024, aimed at the same cross-border SMBs Venn wins on FX</td></tr>
-              <tr><td><a href="https://www.fintech.ca/2026/07/28/ramp-brings-finance-platform-to-canada/" target="_blank" rel="noopener">Ramp</a><span class="sub">US spend leader</span></td><td>Cards underwritten on the business, no personal guarantee</td><td>Credit cards, reimbursements; payroll through partners</td><td>Fully launched in Canada in July 2026 with a Toronto office; excludes Quebec and Saskatchewan</td></tr>
+              <tr><td><a href="https://www.fintech.ca/2026/07/28/ramp-brings-finance-platform-to-canada/" target="_blank" rel="noopener">Ramp</a><span class="sub">US spend leader</span></td><td>Cards underwritten on the business, no personal guarantee</td><td>Credit cards, reimbursements</td><td>Fully launched in Canada in July 2026 and is opening a Toronto office; excludes Quebec and Saskatchewan</td></tr>
               <tr><td>Big 5 banks<span class="sub">RBC, TD, BMO, CIBC, Scotiabank</span></td><td>Business credit cards and credit lines, bundled with accounts</td><td>Credit</td><td>Still the default; FX spreads of 2–3%</td></tr>
               <tr><td><a href="https://risepeople.com/blog/what-is-the-best-payroll-software-in-canada/" target="_blank" rel="noopener">Payroll specialists</a><span class="sub">Wagepoint, Knit, Rise, Payworks, ADP, Dayforce and more</span></td><td>Not applicable</td><td>Payroll</td><td>Crowded: one 2026 roundup lists 16 Canadian options</td></tr>
             </tbody>
@@ -1250,7 +1281,7 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
         </ul>
         <aside class="big-insight compact" aria-label="Key insight">
           <p class="bi-eyebrow">Key insight · Credit demand</p>
-          <p class="bi-head">Customers want the convenience of a credit card more than the borrowing.</p>
+          <p class="bi-head">Most small businesses want the convenience of a credit card more than the borrowing.</p>
           <p class="bi-so"><span>So</span>A charge card paid in full each month (spend now, settle from the Venn account later, no revolving interest) fits that need and fits Venn's balance-driven model.</p>
         </aside>
         <p class="src">Source: <a href="https://ised-isde.canada.ca/site/sme-research-statistics/en/node/421" target="_blank" rel="noopener">ISED, Survey on Financing and Growth of SMEs 2023</a></p>
@@ -1265,7 +1296,7 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
         <p class="prose">The survey tells us what to investigate, not what to build. Before weighting the three requests, I would want to know:</p>
         <ul class="bullets">
           <li><b>Who asked.</b> Requests from high-balance, high-spend customers count for more than requests from dormant accounts.</li>
-          <li><b>Who didn't answer.</b> Businesses that left, or never activated, because cards were pre-funded can't request credit. The survey under-counts them.</li>
+          <li><b>Who didn't answer.</b> Businesses that left, or never activated, because cards were pre-funded aren't in a customer survey, so it under-counts them.</li>
           <li><b>Why they asked.</b> "Credit card" might mean rewards, working capital, or simply not pre-funding. Each points to a different product.</li>
           <li><b>What they use today.</b> If customers already run payroll elsewhere happily, the switching cost is high even if they say they want it.</li>
         </ul>
@@ -1280,7 +1311,7 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
         <p class="prose">Section 2 sharpens the criteria from Section 1 in three ways:</p>
         <ul class="bullets">
           <li><b>Competitive necessity joins the list.</b> A gap that rivals already fill puts existing customers at risk, not just future growth.</li>
-          <li><b>Segment fit matters.</b> Each request serves a different segment, so I'll weigh it by the size and value of the segment it serves.</li>
+          <li><b>Segment fit matters.</b> Each request serves a different segment. Section 3 names the segments each one serves, and reflects their size and value in the growth and revenue scores.</li>
           <li><b>Form matters as much as the feature.</b> For credit, a charge card and a revolving card carry very different risk and fit.</li>
         </ul>
       </div>
@@ -1346,7 +1377,7 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
         <h3><span class="subnum">3.2</span>Credit cards</h3>
         <div class="req-ask">
           <p class="lbl">What customers are asking for</p>
-          <p>The ability to spend on a Venn card without pre-funding it: pay for ads, inventory and travel now, and settle later. Most want convenience, not borrowing (Section 2: 81% of SMEs that skipped financing said they didn't need it).</p>
+          <p>The ability to spend on a Venn card without pre-funding it: pay for ads, inventory and travel now, and settle later. For most small businesses the appeal is convenience, not borrowing: 81% of SMEs that didn't seek financing in 2023 said they didn't need it (2.5).</p>
           <p class="req-seg">Serves most: <span class="pill ok">Cross-border founders</span> <span class="pill ok">Finance-led scale-ups</span></p>
         </div>
         <div class="req-grid">
@@ -1362,15 +1393,15 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
             <p class="lbl">Value: revenue (ARPU)</p>
             <ul>
               <li>Removes the ceiling on interchange, the stream that grows with a customer's business (Section 1.2).</li>
-              <li>Larger limits push customers toward Pro, where cashback is uncapped and FX is cheapest.</li>
-              <li>A charge card paid from the Venn account keeps balances on Venn to settle the bill.</li>
+              <li>Statements are paid from the Venn account, so customers keep more cash with Venn, and USD balances earn a real margin (1.2).</li>
+              <li>Margin depends on the plan: uncapped Pro cashback absorbs most of it, so rewards need care (5.4).</li>
             </ul>
           </div>
           <div class="req-flow">
             <p class="lbl">Money flow it brings · example 20-person firm</p>
             <p class="req-big">+$240K</p>
-            <p>card spend a year moved onto Venn, if true spend is $40K a month but the customer keeps only $20K in Venn.</p>
-            <p class="assume">Worth roughly +$3,000 a year to Venn on the Plus plan, using the interchange assumptions in Section 1.2.</p>
+            <p>card spend a year moved onto Venn, for a firm that keeps $30K in Venn but wants to put $50K a month on cards.</p>
+            <p class="assume">About +$3,600 a year in extra interchange on Plus, before funding costs and losses. The net figure is in 5.4.</p>
           </div>
         </div>
         <div class="req-grid two">
@@ -1384,7 +1415,7 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
               <li>A credit or charge program with the issuing partner (H4: the disclosure already says "charge card").</li>
               <li>Capital to fund receivables. Float raised close to CA$100M in debt facilities for this.</li>
               <li>Underwriting on Venn's cash-flow data without slowing 5-minute onboarding.</li>
-              <li>Credit losses, and higher regulatory scrutiny.</li>
+              <li>Credit losses, and closer oversight from the issuing partner.</li>
             </ul>
           </div>
         </div>
@@ -1409,7 +1440,7 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
           <div class="req-box">
             <p class="lbl">Value: customer growth</p>
             <ul>
-              <li>Payroll runs every two weeks, so it guarantees recurring transactions and active accounts.</li>
+              <li>Payroll runs on a fixed schedule, often every two weeks, so it guarantees recurring transactions and active accounts.</li>
               <li>Could attract domestic SMBs that don't need cheap FX, widening Venn's appeal.</li>
               <li>Switching payroll mid-year is painful, so new adoption will be slow.</li>
             </ul>
@@ -1417,7 +1448,7 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
           <div class="req-box">
             <p class="lbl">Value: revenue (ARPU)</p>
             <ul>
-              <li>A fee line: Wagepoint charges $40 a month plus $6 per employee, about $1,900 a year for 20 staff.</li>
+              <li>A fee line: Wagepoint's Unlimited plan charges $40 a month plus $6 per employee, about $1,900 a year for 20 staff.</li>
               <li>Funds land in Venn before each pay run, lifting balances and making Venn the primary account.</li>
               <li>Payroll itself earns little interchange or FX.</li>
             </ul>
@@ -1438,8 +1469,8 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
             <p class="lbl">What it would take · risks</p>
             <ul>
               <li>Federal and provincial rules, CRA remittances, T4s and ROEs; errors directly hurt employees.</li>
-              <li>A crowded field: 16+ Canadian providers, many already integrated with QuickBooks and Xero.</li>
-              <li>Embedded providers cut the build: ATB Financial launched payroll on Nmbr's infrastructure.</li>
+              <li>A crowded field: one 2026 roundup lists 16 Canadian providers.</li>
+              <li>Embedded providers cut the build: ATB Financial is piloting payroll built on Nmbr's infrastructure.</li>
             </ul>
           </div>
         </div>
@@ -1466,7 +1497,7 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
             <ul>
               <li>Removes a reason to keep a second tool, which helps retention.</li>
               <li>Rarely the deciding reason a business picks a banking platform.</li>
-              <li>Field-team SMBs value it most; customers like Office Central cite it.</li>
+              <li>Cards already shrink the need: Venn customer Office Central says moving staff onto Venn cards replaced most reimbursements.</li>
             </ul>
           </div>
           <div class="req-box">
@@ -1480,7 +1511,7 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
           <div class="req-flow">
             <p class="lbl">Money flow it brings · example 20-person firm</p>
             <p class="req-big">~$50K</p>
-            <p>a year paid back to employees, e.g. five field staff driving 1,000 km a month at CRA's 2026 rate of $0.73/km, plus receipts.</p>
+            <p>a year paid back to employees: five field staff driving 1,000 km a month at CRA's 2026 rates (73¢/km for the first 5,000 km, 67¢ after) is about $42K, plus receipts.</p>
             <p class="assume">Small flow, near-zero margin. Value is completeness and retention.</p>
           </div>
         </div>
@@ -1574,7 +1605,7 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
     <section class="part" id="recommend">
       <div class="part-head">
         <p class="eyebrow">04 · Recommendation</p>
-        <h2>Build Venn Charge: a charge card for the businesses other providers turn away</h2>
+        <h2>Build Venn Charge: a charge card underwritten on data only Venn has</h2>
       </div>
       <nav class="substep" aria-label="Section 4 parts"><a href="#r-rec" data-subnav="r-rec"><span>4.1</span>The recommendation</a><a href="#r-why" data-subnav="r-why"><span>4.2</span>Why credit, why now</a><a href="#r-form" data-subnav="r-form"><span>4.3</span>Choosing the form</a><a href="#r-plan" data-subnav="r-plan"><span>4.4</span>Sequencing</a><a href="#r-risks" data-subnav="r-risks"><span>4.5</span>Risks and decisions</a></nav>
 
@@ -1587,7 +1618,7 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
           <div class="bi-points">
             <div><b>Who</b><p>Existing Venn customers whose card spend outgrows the balance they keep in Venn, starting with Plus and Pro.</p></div>
             <div><b>What's different</b><p>No documents, no due-diligence call, no $50K minimum. Venn underwrites on live balance and cash-flow data it already has.</p></div>
-            <div><b>How it earns</b><p>Uncapped interchange, more Pro upgrades, and balances that stay in Venn to settle each statement.</p></div>
+            <div><b>How it earns</b><p>Interchange on spend that used to go elsewhere, and balances that stay in Venn to settle each statement.</p></div>
           </div>
           <p class="bi-so"><span>Not now</span>Revolving credit, payroll and credit for brand-new customers. Reimbursements ship alongside as a quick win.</p>
         </aside>
@@ -1603,7 +1634,7 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
             <div><dt>Limit</dt><dd>Starts as a multiple of the customer's average Venn balance; grows with cash-flow history</dd></div>
             <div><dt>Repayment</dt><dd>Full balance auto-debited from the Venn account on a 30-day cycle</dd></div>
             <div><dt>Cost to customer</dt><dd>No interest, no annual fee, no personal guarantee</dd></div>
-            <div><dt>Rewards</dt><dd>Same 1% cashback and FX rates as today's Venn card</dd></div>
+            <div><dt>Rewards</dt><dd>Today's 1% cashback and FX rates during the beta; Charge-specific rewards tested before scaling (5.4)</dd></div>
             <div><dt>Getting it</dt><dd>A pre-approved, in-app offer: accept and the current card switches over</dd></div>
           </dl>
         </div>
@@ -1617,7 +1648,7 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
         <p class="prose">Six findings from the earlier sections point the same way. Click any one to see the evidence.</p>
         <div class="why-grid">
           <a class="why" href="#v-model"><span class="why-n">1.2</span><b>Venn's biggest growth lever is capped</b><p>Card spend can never exceed what a customer has deposited.</p><em>See the business model &rarr;</em></a>
-          <a class="why" href="#v-strengths"><span class="why-n">1.4</span><b>Venn's best customers feel it most</b><p>Larger, upmarket customers spend more than they keep on deposit.</p><em>See strengths &rarr;</em></a>
+          <a class="why" href="#v-strengths"><span class="why-n">1.4</span><b>Venn's best customers feel it most</b><p>Larger, upmarket customers are the likeliest to outspend the cash they keep in Venn (H1).</p><em>See strengths &rarr;</em></a>
           <a class="why" href="#m-comp"><span class="why-n">2.4</span><b>Every direct rival now offers credit</b><p>Float, Loop and Ramp, which fully launched in Canada in July 2026.</p><em>See competitors &rarr;</em></a>
           <a class="why" href="#m-credit"><span class="why-n">2.5</span><b>Customers want convenience, not debt</b><p>81% of SMEs that skipped financing didn't need it, and card debt costs 19%.</p><em>See credit demand &rarr;</em></a>
           <a class="why" href="#e-matrix"><span class="why-n">3.5</span><b>It ranks first under every weighting</b><p>82 / 100 balanced, 88 growth-first, 73 risk-averse.</p><em>See the scoring &rarr;</em></a>
@@ -1626,7 +1657,7 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
         <aside class="big-insight compact" aria-label="Why now">
           <p class="bi-eyebrow">Why now</p>
           <p class="bi-head">Ramp's arrival turns credit from an opportunity into a defensive need.</p>
-          <p class="bi-so"><span>So</span>The window to own credit for Canada's smaller SMBs is open now, before Ramp and Float move down-market.</p>
+          <p class="bi-so"><span>So</span>Float's Charge requires $50K in cash and a due-diligence call, and Ramp's full Canadian launch is only three months old. Venn can move first for the smaller businesses it already serves.</p>
         </aside>
       </div>
       <div class="pager"><a class="pg prev" href="#r-rec"><small>&larr; Previous</small><b>4.1 · The recommendation</b></a><a class="pg next" href="#r-form"><small>Next &rarr;</small><b>4.3 · Choosing the form</b></a></div>
@@ -1644,7 +1675,7 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
               <tr><td>Secured card<span class="sub-t">Deposit as collateral</span></td><td>Limit equals a locked deposit</td><td><span class="pill no">Low</span></td><td><span class="pill no">Capped</span></td><td><span class="pill ok">Minimal</span></td></tr>
               <tr class="pick"><td>Balance-anchored charge<span class="sub-t">Recommended first step</span></td><td>Limit is a multiple of average Venn balance; paid in full monthly</td><td><span class="pill ok">High</span></td><td><span class="pill ok">Uncapped spend</span></td><td><span class="pill part">Moderate, bounded</span></td></tr>
               <tr><td>Cash-flow charge<span class="sub-t">Phase 2</span></td><td>Limit from Venn inflow history; paid in full monthly</td><td><span class="pill ok">Highest</span></td><td><span class="pill ok">Uncapped spend</span></td><td><span class="pill part">Higher; needs a debt facility</span></td></tr>
-              <tr><td>Revolving credit card<span class="sub-t">Not recommended</span></td><td>Carry a balance at interest</td><td><span class="pill part">Mixed: costly debt</span></td><td><span class="pill ok">Interest income</span></td><td><span class="pill no">Highest; heavier regulation</span></td></tr>
+              <tr><td>Revolving credit card<span class="sub-t">Not recommended</span></td><td>Carry a balance at interest</td><td><span class="pill part">Mixed: costly debt</span></td><td><span class="pill ok">Interest income</span></td><td><span class="pill no">Highest; long-term exposure</span></td></tr>
             </tbody>
           </table>
         </div>
@@ -1657,12 +1688,12 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
             <input type="range" id="l-bal" data-lk="bal" min="5000" max="300000" step="5000" value="30000">
             <label for="l-inf">Monthly inflows into Venn <output data-l="inf"></output></label>
             <input type="range" id="l-inf" data-lk="inf" min="0" max="500000" step="10000" value="80000">
-            <label for="l-need">Monthly card spend the business needs <output data-l="need"></output></label>
+            <label for="l-need">Card spend the business wants on Venn each month <output data-l="need"></output></label>
             <input type="range" id="l-need" data-lk="need" min="5000" max="300000" step="5000" value="50000">
-            <p class="assume">Illustrative policy: Phase 1 limit is 2x the average balance; Phase 2 is the higher of that or one month of inflows, capped at $500K. Final rules would be set with Venn's risk team and issuing partner.</p>
+            <p class="assume">Illustrative policy: Phase 1 limit is 2x the average balance; Phase 2 is the higher of that or one month of inflows, capped at $500K. Final rules would be set with Venn's risk team and issuing partner. Simplified: today's spending power is the cash on hand when a purchase is made, so spend beyond it needs a top-up or goes to another card.</p>
           </div>
           <div class="lim-out">
-            <div class="lim-row" data-row="today"><span>Today · prepaid</span><i><em></em><s></s></i><b></b></div>
+            <div class="lim-row" data-row="today"><span>Today · cash on hand</span><i><em></em><s></s></i><b></b></div>
             <div class="lim-row" data-row="p1"><span>Phase 1 · balance-anchored</span><i><em></em><s></s></i><b></b></div>
             <div class="lim-row" data-row="p2"><span>Phase 2 · cash-flow</span><i><em></em><s></s></i><b></b></div>
             <p class="lim-key"><span class="k-lim"></span>Spending limit <span class="k-need"></span>What the business needs to spend</p>
@@ -1679,7 +1710,7 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
             <ul>
               <li>Exposure is bounded: Venn can see the cash that will repay the statement.</li>
               <li>It rewards keeping money in Venn, so deposits grow instead of shrinking.</li>
-              <li>It needs far less capital than cash-flow credit, so it can launch before a debt facility.</li>
+              <li>Limits stay small and predictable, so the beta can be funded from Venn's balance sheet before raising a debt facility.</li>
             </ul>
           </div>
           <div class="req-box">
@@ -1704,7 +1735,7 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
           <div class="road-head">
             <div></div>
             <div><b>Validate</b><span>Months 0–2</span></div>
-            <div><b>Beta</b><span>Months 2–6</span></div>
+            <div><b>Build and beta</b><span>Months 2–6</span></div>
             <div><b>Scale</b><span>Months 6–12</span></div>
             <div><b>Expand</b><span>12+ months</span></div>
           </div>
@@ -1725,7 +1756,7 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
           <div class="road-gates">
             <div></div>
             <div class="gate"><i></i><b>Gate A</b><span>Data confirms the ceiling; partner signs</span></div>
-            <div class="gate"><i></i><b>Gate B</b><span>Losses within budget; limits used</span></div>
+            <div class="gate"><i></i><b>Gate B</b><span>Lift vs holdout; losses within budget</span></div>
             <div class="gate"><i></i><b>Gate C</b><span>Positive unit economics</span></div>
             <div></div>
           </div>
@@ -1734,7 +1765,7 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
           <table>
             <thead><tr><th>Not doing now</th><th>Why it waits</th><th>What would bring it forward</th></tr></thead>
             <tbody>
-              <tr><td>Revolving credit</td><td>Highest risk and regulation; customers mostly want convenience, not debt</td><td>Strong demand for longer terms from customers who repay reliably</td></tr>
+              <tr><td>Revolving credit</td><td>Highest risk and capital need; most customers want convenience, not debt</td><td>Strong demand for longer terms from customers who repay reliably</td></tr>
               <tr><td>Payroll</td><td>Compliance-heavy; slow switching; best once Venn is the primary account</td><td>H2 shows most customers are FX-only; a good embedded partner deal</td></tr>
               <tr><td>Credit for new customers</td><td>No Venn data to underwrite on yet</td><td>Phase 2 loss rates prove the model; a bank-data connection</td></tr>
             </tbody>
@@ -1752,7 +1783,7 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
             <thead><tr><th>Risk</th><th>Mitigation</th></tr></thead>
             <tbody>
               <tr><td>Credit losses</td><td>Limits anchored to visible balances; auto-debit at statement; daily monitoring that lowers limits when balances fall</td></tr>
-              <tr><td>Capital</td><td>Phase 1 needs little capital; raise a debt facility only after Gate B, as Float did</td></tr>
+              <tr><td>Capital</td><td>Statements must be funded until paid, about $28K for the example customer (5.4). Size the beta to Venn's balance sheet; raise a debt facility after Gate B, as Float did</td></tr>
               <tr><td>Issuing partner and regulation</td><td>Validate in the first two months (H4); the current disclosure already describes a charge card</td></tr>
               <tr><td>Slower onboarding</td><td>No new application: a pre-approved, in-app offer to existing customers; sign-up stays at 5 minutes</td></tr>
               <tr><td>Customers keep less cash in Venn</td><td>Balance-anchored limits reward keeping money in Venn, the opposite effect</td></tr>
@@ -1764,7 +1795,7 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
           <ol>
             <li><b>Risk appetite.</b> The loss budget for the beta, and who owns credit policy.</li>
             <li><b>Partner negotiation.</b> An owner for credit terms with the issuing partner, starting now.</li>
-            <li><b>Capital plan.</b> Whether Phase 2 is funded from the balance sheet or a debt facility.</li>
+            <li><b>Capital plan.</b> How much balance-sheet capital the beta can use, and when to raise a debt facility for Phase 2.</li>
             <li><b>Eligibility.</b> Whether the beta starts with Plus and Pro, or includes Essentials.</li>
           </ol>
         </div>
@@ -1846,7 +1877,7 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
 
           <div class="jr-panel" role="tabpanel" id="jp-1" aria-labelledby="jt-1">
             <div class="phone"><div class="ph-bar">Behind the scenes</div><div class="ph-body"><p class="ph-k">Eligibility check · nightly</p><div class="ph-row"><span>Account age</span><b>&ge; 6 months</b></div><div class="ph-row"><span>90-day avg balance</span><b>$30K</b></div><div class="ph-row"><span>Monthly inflows</span><b>$80K</b></div><div class="ph-row"><span>Declines for low funds</span><b>4 last month</b></div><div class="ph-pill ok">Pre-qualified · $60K</div></div></div>
-            <div class="jr-text"><p class="lbl">What happens</p><p>A nightly job scores existing customers on account age, balance history, inflows and card behaviour. No customer action and no credit inquiry.</p><p class="lbl">Edge cases</p><ul><li>Recent large outflows or returned payments exclude a customer until the next review.</li><li>Customers with low-funds declines are prioritized: they feel the ceiling most.</li></ul></div>
+            <div class="jr-text"><p class="lbl">What happens</p><p>A nightly job scores existing customers on account age, balance history, inflows and card behaviour. No customer action and no personal credit check.</p><p class="lbl">Edge cases</p><ul><li>Recent large outflows or returned payments exclude a customer until the next review.</li><li>Customers with low-funds declines are prioritized: they feel the ceiling most.</li></ul></div>
           </div>
           <div class="jr-panel" role="tabpanel" id="jp-2" aria-labelledby="jt-2" hidden>
             <div class="phone"><div class="ph-bar">Venn · Home</div><div class="ph-body"><div class="ph-offer"><p class="ph-k">New · Venn Charge</p><p class="ph-big">You're pre-approved for $60,000</p><p class="ph-s">Spend now, pay in full on the 1st. No interest. No personal guarantee.</p><span class="ph-btn">Review and accept</span></div><p class="ph-s">Your cards and limits stay the same.</p></div></div>
@@ -1933,9 +1964,9 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
             <input type="range" id="u-spend" data-uk="spend" min="5000" max="300000" step="5000" value="50000">
             <label for="u-cap">Cost of capital <output data-u="cap"></output></label>
             <input type="range" id="u-cap" data-uk="cap" min="4" max="14" step="0.5" value="8">
-            <label for="u-loss">Annual loss rate on credit extended <output data-u="loss"></output></label>
+            <label for="u-loss">Annual loss rate on credit used beyond cash <output data-u="loss"></output></label>
             <input type="range" id="u-loss" data-uk="loss" min="0" max="10" step="0.5" value="2">
-            <p class="assume">Assumptions: Venn keeps 1.5% interchange (Section 1.2); statements are outstanding about 17 days on average; credit extended is spend above today's balance-funded spend. All illustrative, to be replaced with Venn's data.</p>
+            <p class="assume">Assumptions: Venn keeps 1.5% interchange (Section 1.2); statements are outstanding about 17 days on average; credit used beyond cash is the extra spend Charge enables. All illustrative, to be replaced with Venn's data.</p>
           </div>
           <div class="ue-out">
             <div class="ue-row"><span>Extra interchange, net of cashback</span><b data-u="rev"></b></div>
@@ -1947,7 +1978,7 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
         </div>
         <aside class="big-insight compact" aria-label="Key insight">
           <p class="bi-eyebrow">Key insight · Unit economics</p>
-          <p class="bi-head">Charge pays on Plus, where cashback is capped, but is thin on Pro, where it isn't.</p>
+          <p class="bi-head">Charge pays on Plus, where cashback is capped at $25K a month, but loses money on Pro, where it's uncapped.</p>
           <p class="bi-so"><span>So</span>Before scaling, test Charge-specific rewards (for example, full cashback on balance-backed spend and less above it) and treat retention against Float and Ramp as part of the return.</p>
         </aside>
       </div>
@@ -1959,9 +1990,9 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
         <h3><span class="subnum">5.5</span>How we'll measure success</h3>
         <div class="ns">
           <p class="lbl">North-star metric</p>
-          <p class="ns-name">Incremental card spend per Charge customer</p>
-          <p class="ns-def">Monthly card spend of customers offered Charge, minus a randomized holdout group that wasn't. It captures both the growth and the ARPU goal, and it can't be gamed by limits nobody uses.</p>
-          <p class="ns-target"><span>Beta target</span>+30% vs holdout by month 3 (proposed)</p>
+          <p class="ns-name">Incremental card spend per eligible customer</p>
+          <p class="ns-def">Average monthly card spend of pre-qualified customers offered Charge, minus that of a randomized holdout that wasn't. It ties to both company goals, active businesses and ARPU, and it can't be inflated by limits nobody uses.</p>
+          <p class="ns-target"><span>Beta target</span>+15% vs holdout by month 3 <small>40% accept × 70% activate × about 50% more spend among users ≈ 14%</small></p>
         </div>
         <div class="metric-cols">
           <div class="mcol">
@@ -1975,7 +2006,7 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
             <p class="lbl">Company outcomes</p>
             <div class="m"><b>Active businesses</b><span>Retention of Charge cohort vs holdout</span><em>Higher</em></div>
             <div class="m"><b>ARPU</b><span>Revenue per Charge customer vs holdout</span><em>Higher</em></div>
-            <div class="m"><b>Upgrades</b><span>Moves from Essentials or Plus to Pro</span><em>Tracked</em></div>
+            <div class="m"><b>Plan mix</b><span>Moves between plans; Pro upgrades lower Charge margins (5.4)</span><em>Tracked</em></div>
           </div>
           <div class="mcol guard">
             <p class="lbl">Guardrails</p>
@@ -2029,7 +2060,7 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
           <div class="tl-item"><span class="tl-when">Month 2–4</span><b>Build the MVP</b><p>Eligibility, offer, authorization, statements, auto-pay, risk console.</p></div>
           <div class="tl-item"><span class="tl-when">Month 4</span><b>Internal pilot</b><p>Venn's own team and friendly customers; test statements and failed payments end to end.</p></div>
           <div class="tl-item"><span class="tl-when">Month 4–6</span><b>Beta in waves</b><p>A first wave of pre-qualified Plus and Pro customers, then a larger second wave, each with a holdout.</p></div>
-          <div class="tl-item key"><span class="tl-when">Month 6</span><b>Gate B review</b><p>Lift vs holdout, losses vs budget, unit economics. Decide on Phase 2.</p></div>
+          <div class="tl-item key"><span class="tl-when">Month 6</span><b>Gate B review</b><p>Lift vs holdout and losses vs budget. Decide on Phase 2; unit economics are tested at Gate C.</p></div>
         </div>
         <div class="req-grid two">
           <div class="req-box">
@@ -2085,7 +2116,10 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
           <li><a href="https://ramp.com/en-ca/corporate-cards" target="_blank" rel="noopener">Ramp Canada corporate cards</a></li>
           <li><a href="https://risepeople.com/blog/what-is-the-best-payroll-software-in-canada/" target="_blank" rel="noopener">Best payroll software in Canada, 2026 (Rise People)</a></li>
           <li><a href="https://www.td.com/content/dam/tdct/document/pdf/business-banking/oct-2025-interchange-rates-english-general-business.pdf" target="_blank" rel="noopener">TD Merchant Solutions interchange rate chart</a></li>
-          <li><a href="https://myperch.io/homeowners/bank-of-canada-interest-rate-announcement-september-2-2026/" target="_blank" rel="noopener">Bank of Canada holds at 2.25%, Sept 2, 2026 (Perch)</a></li>
+          <li><a href="https://www.bankofcanada.ca/core-functions/monetary-policy/key-interest-rate/" target="_blank" rel="noopener">Bank of Canada policy interest rate (2.25%, held Sept 2, 2026)</a></li>
+          <li><a href="https://www.federalreserve.gov/monetarypolicy/openmarket.htm" target="_blank" rel="noopener">Federal Reserve open market operations (3.75–4.00%, Sept 17, 2026)</a></li>
+          <li><a href="https://www.venn.ca/interest-boost" target="_blank" rel="noopener">Venn Interest Boost terms</a></li>
+          <li><a href="https://www.legisquebec.gouv.qc.ca/en/document/cs/E-12.000001" target="_blank" rel="noopener">Quebec Money-Services Businesses Act (LégisQuébec)</a></li>
           <li><a href="https://makerstack.co/reviews/wagepoint-review/" target="_blank" rel="noopener">Wagepoint pricing review, 2026 (Makerstack)</a></li>
           <li><a href="https://www.hcamag.com/ca/specialization/payroll/canadian-payroll-employment-flat-in-june-as-wages-rise-34/587861" target="_blank" rel="noopener">Average weekly earnings, June 2026 (HRD Canada)</a></li>
           <li><a href="https://www.everlance.com/blog/cra-mileage-rate/" target="_blank" rel="noopener">2026 CRA automobile allowance rates (Everlance)</a></li>
@@ -2095,7 +2129,7 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
           <li><a href="https://floatfinancial.com/corporate-cards/charge" target="_blank" rel="noopener">Float Charge product page</a></li>
         </ul>
       </div>
-      <div class="pager"><a class="pg prev" href="#d-launch"><small>&larr; Previous</small><b>05 · Deep dive</b></a><a class="pg next" href="#approach"><small>Back to start &rarr;</small><b>00 · Approach</b></a></div>
+      <div class="pager"><a class="pg prev" href="#d-launch"><small>&larr; Previous</small><b>05 · Deep dive</b></a><a class="pg next" href="#approach"><small>Back to start &rarr;</small><b>00 · Overview</b></a></div>
     </section>
   </main>
 </div>
@@ -2175,7 +2209,7 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
     plus: { name: 'Plus', fx: 0.0035, cap: 25000, sub: 480, wire: 8, eft: 0 },
     pro:  { name: 'Pro', fx: 0.0025, cap: Infinity, sub: 1200, wire: 6, eft: 0 }
   };
-  var st = { plan: 'plus', pay: 2, fxVol: 40000, cardSpend: 20000, share: 1.5, balance: 150000, earn: 2.25, wires: 4, efts: 20 };
+  var st = { plan: 'plus', boost: false, fxVol: 40000, cardSpend: 20000, share: 1.5, cad: 100000, usd: 50000, earnC: 2.25, earnU: 3.75, wires: 4, efts: 20 };
   var keys = ['fx', 'card', 'int', 'sub', 'fee'];
   function money(n) { var r = Math.round(n); return (r < 0 ? '\u2212$' : '$') + Math.abs(r).toLocaleString('en-CA'); }
   function k(n) { return n >= 1000000 ? '$' + (n / 1e6).toFixed(n % 1e6 ? 2 : 0) + 'M' : '$' + Math.round(n).toLocaleString('en-CA'); }
@@ -2185,7 +2219,7 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
     return {
       fx: st.fxVol * 12 * P.fx,
       card: st.cardSpend * 12 * st.share / 100 - cashSpend * 12 * 0.01,
-      int: st.balance * (st.earn - st.pay) / 100,
+      int: st.cad * (st.earnC - (st.boost ? 2.75 : 2)) / 100 + st.usd * (st.earnU - (st.boost ? 3 : 2)) / 100,
       sub: P.sub,
       fee: (st.wires * P.wire + st.efts * P.eft) * 12
     };
@@ -2207,15 +2241,15 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
     setAll('[data-out="fxnote"]', function (el) { el.textContent = k(st.fxVol * 12) + ' converted a year at ' + (P.fx * 100).toFixed(2) + '% on ' + P.name; });
     var cb = Math.min(st.cardSpend, P.cap) * 12 * 0.01;
     setAll('[data-out="cardnote"]', function (el) { el.textContent = money(st.cardSpend * 12 * st.share / 100) + ' interchange minus ' + money(cb) + ' cashback'; });
-    setAll('[data-out="intnote"]', function (el) { el.textContent = 'Earns ' + st.earn.toFixed(2) + '%, pays ' + st.pay + '% on ' + k(st.balance); });
+    setAll('[data-out="intnote"]', function (el) { el.textContent = 'CAD: earns ' + st.earnC.toFixed(2) + '%, pays ' + (st.boost ? '2.75' : '2') + '% · USD: earns ' + st.earnU.toFixed(2) + '%, pays ' + (st.boost ? '3' : '2') + '%'; });
     setAll('[data-out="ceiling"]', function (el) {
-      var over = st.cardSpend > st.balance;
+      var bal = st.cad + st.usd, over = st.cardSpend > bal;
       el.hidden = !over;
-      if (over) el.textContent = 'Prepaid ceiling: this customer wants to spend ' + k(st.cardSpend) + ' a month but holds ' + k(st.balance) + '. On a pre-funded card, the extra spend goes to another provider.';
+      if (over) el.textContent = 'Prepaid ceiling: this customer wants to put ' + k(st.cardSpend) + ' a month on cards but keeps an average of ' + k(bal) + ' in Venn. Unless they top up before big bills, purchases decline or move to another provider\'s card.';
     });
     setAll('[data-show]', function (el) {
       var key = el.dataset.show, v = st[key];
-      el.textContent = (key === 'share' || key === 'earn') ? v.toFixed(2) + '%' : (key === 'wires' || key === 'efts') ? String(v) : k(v);
+      el.textContent = (key === 'share' || key === 'earnC' || key === 'earnU') ? v.toFixed(2) + '%' : (key === 'wires' || key === 'efts') ? String(v) : k(v);
     });
   }
   root.querySelectorAll('input[type="range"]').forEach(function (inp) {
@@ -2231,7 +2265,7 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
     });
   }
   radio(Array.prototype.slice.call(root.querySelectorAll('[data-plan]')), 'data-plan', function (v) { st.plan = v; });
-  radio(Array.prototype.slice.call(root.querySelectorAll('[data-pay]')), 'data-pay', function (v) { st.pay = parseFloat(v); });
+  radio(Array.prototype.slice.call(root.querySelectorAll('[data-boost]')), 'data-boost', function (v) { st.boost = v === '1'; });
 
   var tabs = Array.prototype.slice.call(root.querySelectorAll('[role="tab"]'));
   function select(id, focus) {
