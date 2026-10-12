@@ -399,6 +399,24 @@ nav.index .subnav a:hover { color: var(--fg); }
 .req-dl div { display: grid; grid-template-columns: 104px minmax(0, 1fr); gap: 12px; align-items: baseline; }
 .req-dl dt { font-weight: 600; font-size: 13.5px; }
 .req-dl dd { margin: 0; }
+.tam { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 32px; align-items: center; background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; padding: 22px 24px; }
+.tam-viz { position: relative; width: 220px; height: 220px; }
+.tam-c { position: absolute; left: 50%; bottom: 0; transform: translateX(-50%); border-radius: 50%; display: flex; justify-content: center; align-items: flex-start; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; }
+.tam-c span { margin-top: 14px; }
+.tam-c.t1 { width: 220px; height: 220px; background: var(--tint); border: 1px solid var(--rule); color: var(--muted); }
+.tam-c.t2 { width: 124px; height: 124px; background: var(--accent-soft); border: 1px solid var(--accent); color: var(--accent); }
+.tam-c.t3 { width: 42px; height: 42px; background: var(--accent); color: var(--surface); align-items: center; font-size: 10px; }
+.tam-c.t3 span { margin-top: 0; }
+.tam-rows { display: grid; min-width: 0; }
+.tam-row { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--rule); align-items: start; }
+.tam-row:first-child { padding-top: 0; }
+.tam-row:last-child { border-bottom: 0; padding-bottom: 0; }
+.tam-row p { font-size: 14.5px; line-height: 1.5; }
+.tam-n { font-family: var(--font-display); font-weight: 700; font-size: 28px !important; line-height: 1.1 !important; font-variant-numeric: tabular-nums; }
+.tam-row.t3 .tam-n { color: var(--accent); }
+.tam-k b { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em; color: var(--accent); margin-right: 8px; }
+.tam-k { font-weight: 600; }
+.tam-rev { font-size: 13px !important; color: var(--muted); }
 .req-big { font-family: var(--font-display); font-size: 34px; font-weight: 700; color: var(--accent); line-height: 1.05; font-variant-numeric: tabular-nums; }
 .mx { border: 1px solid var(--rule); border-radius: 10px; background: var(--surface); padding: 18px; display: grid; gap: 16px; min-width: 0; }
 .mx-scroll { overflow-x: auto; }
@@ -429,8 +447,13 @@ nav.index .subnav a:hover { color: var(--fg); }
   .req-grid, .req-grid.two { grid-template-columns: minmax(0, 1fr); }
   .mx-tbl tr.why .whys { grid-template-columns: minmax(0, 1fr); }
 }
+@media (max-width: 700px) {
+  .tam { grid-template-columns: minmax(0, 1fr); justify-items: center; padding: 18px; }
+  .tam-rows { width: 100%; }
+}
 @media (max-width: 480px) {
   .req-dl div { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+  .tam-row { grid-template-columns: minmax(0, 1fr); gap: 4px; }
 }
 
 /* Section 4 */
@@ -681,7 +704,7 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
         <ol class="subnav"><li><a href="#v-snapshot" data-subnav="v-snapshot"><span class="num">1.1</span><span>Snapshot</span></a></li><li><a href="#v-model" data-subnav="v-model"><span class="num">1.2</span><span>Business model</span></a></li><li><a href="#v-lens" data-subnav="v-lens"><span class="num">1.3</span><span>Mercury + Ramp lens</span></a></li><li><a href="#v-strengths" data-subnav="v-strengths"><span class="num">1.4</span><span>Strengths</span></a></li><li><a href="#v-goals" data-subnav="v-goals"><span class="num">1.5</span><span>Goals</span></a></li><li><a href="#v-hyp" data-subnav="v-hyp"><span class="num">1.6</span><span>Hypotheses</span></a></li><li><a href="#v-criteria" data-subnav="v-criteria"><span class="num">1.7</span><span>Criteria</span></a></li></ol>
       </li>
       <li class="has-sub"><a href="#market" data-nav="market"><span class="num">02</span><span>Customer and market</span></a>
-        <ol class="subnav"><li><a href="#m-size" data-subnav="m-size"><span class="num">2.1</span><span>Market size</span></a></li><li><a href="#m-segments" data-subnav="m-segments"><span class="num">2.2</span><span>Segments</span></a></li><li><a href="#m-jobs" data-subnav="m-jobs"><span class="num">2.3</span><span>Jobs to be done</span></a></li><li><a href="#m-comp" data-subnav="m-comp"><span class="num">2.4</span><span>Competitors</span></a></li><li><a href="#m-credit" data-subnav="m-credit"><span class="num">2.5</span><span>Credit demand</span></a></li><li><a href="#m-survey" data-subnav="m-survey"><span class="num">2.6</span><span>Survey caveats</span></a></li><li><a href="#m-carry" data-subnav="m-carry"><span class="num">2.7</span><span>Carry forward</span></a></li></ol>
+        <ol class="subnav"><li><a href="#m-size" data-subnav="m-size"><span class="num">2.1</span><span>Market size</span></a></li><li><a href="#m-segments" data-subnav="m-segments"><span class="num">2.2</span><span>Customers</span></a></li><li><a href="#m-credit" data-subnav="m-credit"><span class="num">2.3</span><span>Demand</span></a></li><li><a href="#m-comp" data-subnav="m-comp"><span class="num">2.4</span><span>Competitors</span></a></li><li><a href="#m-carry" data-subnav="m-carry"><span class="num">2.5</span><span>So what</span></a></li></ol>
       </li>
       <li class="has-sub"><a href="#evaluate" data-nav="evaluate"><span class="num">03</span><span>Evaluating the requests</span></a>
         <ol class="subnav"><li><a href="#e-credit" data-subnav="e-credit"><span class="num">3.1</span><span>Credit cards</span></a></li><li><a href="#e-payroll" data-subnav="e-payroll"><span class="num">3.2</span><span>Payroll</span></a></li><li><a href="#e-reimb" data-subnav="e-reimb"><span class="num">3.3</span><span>Reimbursements</span></a></li><li><a href="#e-matrix" data-subnav="e-matrix"><span class="num">3.4</span><span>Scoring and recommendation</span></a></li></ol>
@@ -1159,60 +1182,58 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
         <p class="eyebrow">02 · Customer and market</p>
         <h2>The market is large and under-served, and competitors now offer credit</h2>
       </div>
-      <nav class="substep" aria-label="Section 2 parts"><a href="#m-size" data-subnav="m-size"><span>2.1</span>Market size</a><a href="#m-segments" data-subnav="m-segments"><span>2.2</span>Segments</a><a href="#m-jobs" data-subnav="m-jobs"><span>2.3</span>Jobs</a><a href="#m-comp" data-subnav="m-comp"><span>2.4</span>Competitors</a><a href="#m-credit" data-subnav="m-credit"><span>2.5</span>Credit</a><a href="#m-survey" data-subnav="m-survey"><span>2.6</span>Survey</a><a href="#m-carry" data-subnav="m-carry"><span>2.7</span>Carry forward</a></nav>
+      <nav class="substep" aria-label="Section 2 parts"><a href="#m-size" data-subnav="m-size"><span>2.1</span>Market size</a><a href="#m-segments" data-subnav="m-segments"><span>2.2</span>Customers</a><a href="#m-credit" data-subnav="m-credit"><span>2.3</span>Demand</a><a href="#m-comp" data-subnav="m-comp"><span>2.4</span>Competitors</a><a href="#m-carry" data-subnav="m-carry"><span>2.5</span>So what</a></nav>
 
       <div class="sub" id="m-size" data-sub>
-      <div class="finding">
-        <p class="eyebrow">Key finding</p>
-        <p>Venn reaches under 5% of its core market, so there is plenty of room to grow. But in 2026 the competitive bar moved: Float, Loop and now Ramp all fund card spend with credit, while Venn caps spend at what a customer has deposited. The three requests map to three different customer jobs, and only one of them is something every direct competitor already offers.</p>
-      </div>
-
       <div class="block">
-        <h3><span class="subnum">2.1</span>Market size</h3>
-        <p class="prose">Venn's ICP (2–100 employees, outside Quebec) covers most Canadian employer businesses. Using official business counts, the core of that market, firms with 5–99 employees, is roughly 340,000 businesses.</p>
-        <dl class="stats">
-          <div><dt>Small employer businesses</dt><dd class="big">1.08M</dd><dd class="muted">Businesses with 1–99 employees in Canada, December 2024</dd></div>
-          <div><dt>In Quebec</dt><dd class="big">21.2%</dd><dd class="muted">Share of those businesses Venn does not serve today</dd></div>
-          <div><dt>ICP core (estimate)</dt><dd class="big">~338K</dd><dd class="muted">5–99 employees outside Quebec, assuming Quebec's share is even across sizes</dd></div>
-          <div><dt>Venn's reach</dt><dd class="big accent">&lt;5%</dd><dd class="muted">15,000+ businesses against that core; an upper bound, since Venn's count includes smaller firms</dd></div>
-        </dl>
-        <figure class="figure">
-          <div class="scroll">
-            <svg class="bars" viewBox="0 0 760 252" role="img" aria-label="Canadian employer businesses by size: 649,780 with 1 to 4 employees, 199,963 with 5 to 9, 122,278 with 10 to 19, 79,387 with 20 to 49, and 27,780 with 50 to 99.">
-              <line class="gridline" x1="120" y1="8" x2="120" y2="214"/>
-              <text class="t-axis" x="108" y="34" text-anchor="end">1–4 employees</text>
-              <rect class="bar-part" x="120" y="17" width="460" height="26" rx="3"/>
-              <text class="t-note" x="132" y="34">Partly in ICP: only firms with 2–4 employees count</text>
-              <text class="t-val" x="590" y="34">649,780</text>
-              <text class="t-axis" x="108" y="76" text-anchor="end">5–9</text>
-              <rect class="bar-in" x="120" y="59" width="141.6" height="26" rx="3"/>
-              <text class="t-val" x="272" y="76">199,963</text>
-              <text class="t-axis" x="108" y="118" text-anchor="end">10–19</text>
-              <rect class="bar-in" x="120" y="101" width="86.6" height="26" rx="3"/>
-              <text class="t-val" x="217" y="118">122,278</text>
-              <text class="t-axis" x="108" y="160" text-anchor="end">20–49</text>
-              <rect class="bar-in" x="120" y="143" width="56.2" height="26" rx="3"/>
-              <text class="t-val" x="186" y="160">79,387</text>
-              <text class="t-axis" x="108" y="202" text-anchor="end">50–99</text>
-              <rect class="bar-in" x="120" y="185" width="19.7" height="26" rx="3"/>
-              <text class="t-val" x="150" y="202">27,780</text>
-              <rect class="bar-in" x="120" y="232" width="18" height="12" rx="2"/>
-              <text class="t-key" x="146" y="242">FULLY IN ICP</text>
-              <rect class="bar-part" x="270" y="232" width="18" height="12" rx="2"/>
-              <text class="t-key" x="296" y="242">PARTLY IN ICP</text>
-            </svg>
+        <h3><span class="subnum">2.1</span>Market size: TAM, SAM and SOM</h3>
+        <p class="prose">I sized the market from official business counts, narrowing from every small employer business in Canada to the share Venn can realistically win.</p>
+        <div class="tam">
+          <div class="tam-viz" role="img" aria-label="Nested circles drawn to scale: SOM of about 34,000 businesses sits inside SAM of about 338,000, which sits inside TAM of 1.08 million.">
+            <div class="tam-c t1"><span>TAM</span></div>
+            <div class="tam-c t2"><span>SAM</span></div>
+            <div class="tam-c t3"><span>SOM</span></div>
           </div>
-          <figcaption>Canadian employer businesses by number of employees, December 2024. Most businesses are very small; the 5–99 band is where team spend, reimbursements and payroll become real problems. Source: <a href="https://ised-isde.canada.ca/site/sme-research-statistics/en/node/439" target="_blank" rel="noopener">ISED, Key Small Business Statistics 2025</a></figcaption>
-        </figure>
+          <div class="tam-rows">
+            <div class="tam-row">
+              <p class="tam-n">1.08M</p>
+              <div><p class="tam-k"><b>TAM</b>Total addressable market</p><p>Every small employer business in Canada, with 1–99 employees.</p><p class="tam-rev">Revenue pool: about $1.1–5.3B a year</p></div>
+            </div>
+            <div class="tam-row">
+              <p class="tam-n">~338K</p>
+              <div><p class="tam-k"><b>SAM</b>Serviceable available market</p><p>Venn's ICP that it can serve today: 5–99 employees, outside Quebec.</p><p class="tam-rev">Revenue pool: about $0.3–1.7B a year</p></div>
+            </div>
+            <div class="tam-row t3">
+              <p class="tam-n">~34K</p>
+              <div><p class="tam-k"><b>SOM</b>Serviceable obtainable market</p><p>A realistic share within three years: 10% of SAM, about twice Venn's base today.</p><p class="tam-rev">Revenue: about $34–166M a year</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="req-grid two">
+          <div class="req-box">
+            <p class="lbl">How I sized it</p>
+            <ul>
+              <li><b>TAM:</b> ISED's count of employer businesses with 1–99 employees, December 2024.</li>
+              <li><b>SAM:</b> the 429,408 with 5–99 employees, less Quebec's 21.2%. Conservative: firms with 2–4 employees are in the ICP, but the data doesn't separate them from one-person firms.</li>
+              <li><b>SOM:</b> my assumption, and conservative against Venn's growth from 4,000+ to 15,000+ businesses in 20 months.</li>
+              <li><b>Revenue pools:</b> $1,000 to $4,900 a year per business, from a small Essentials customer to the Plus example in 1.2.</li>
+            </ul>
+          </div>
+          <div class="req-box">
+            <p class="lbl">What it means for Venn</p>
+            <p>Venn's 15,000+ businesses are under 5% of SAM, so there's plenty of room to win new customers.</p>
+            <p>The other lever is <b>share of wallet</b>: more of each customer's balances, money movement and card spend (1.2). That's where the three requests act most directly.</p>
+          </div>
+        </div>
+        <p class="src">Source: <a href="https://ised-isde.canada.ca/site/sme-research-statistics/en/node/439" target="_blank" rel="noopener">ISED, Key Small Business Statistics 2025</a>. Estimates are listed in Appendix A.</p>
       </div>
-
-      <div class="pager"><a class="pg prev" href="#v-criteria"><small>&larr; Previous section</small><b>01 · Understanding Venn</b></a><a class="pg next" href="#m-segments"><small>Next &rarr;</small><b>2.2 · Segments</b></a></div>
+      <div class="pager"><a class="pg prev" href="#v-criteria"><small>&larr; Previous section</small><b>01 · Understanding Venn</b></a><a class="pg next" href="#m-segments"><small>Next &rarr;</small><b>2.2 · Customers</b></a></div>
       </div>
 
       <div class="sub" id="m-segments" data-sub>
       <div class="block">
-        <h3><span class="subnum">2.2</span>Who the customer is</h3>
-        <p class="prose">"2–100 employees" hides very different businesses. I would split the ICP into three segments. These are hypotheses built from Venn's public case studies and positioning; Venn's own data would confirm or reshape them.</p>
+        <h3><span class="subnum">2.2</span>Target customers and their jobs to be done</h3>
+        <p class="prose">"2–100 employees" hides very different businesses. I split the ICP into three segments, then mapped the jobs they need done. The segments are hypotheses from Venn's public case studies and positioning; Venn's own data would confirm or reshape them.</p>
         <div class="segments">
           <article class="seg">
             <div><h4>Cross-border founder</h4><p class="who">2–20 employees · SaaS, e-commerce, agencies · earns in USD</p></div>
@@ -1242,15 +1263,6 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
             </dl>
           </article>
         </div>
-      </div>
-
-      <div class="pager"><a class="pg prev" href="#m-size"><small>&larr; Previous</small><b>2.1 · Market size</b></a><a class="pg next" href="#m-jobs"><small>Next &rarr;</small><b>2.3 · Jobs to be done</b></a></div>
-      </div>
-
-      <div class="sub" id="m-jobs" data-sub>
-      <div class="block">
-        <h3><span class="subnum">2.3</span>The jobs customers need done</h3>
-        <p class="prose">Seen as jobs rather than features, the three requests are three different problems. A credit card is about money: spending before cash arrives. Reimbursements and payroll are about people: paying the team.</p>
         <div class="tbl jobs">
           <table>
             <thead><tr><th>Job to be done</th><th>How it's done today</th><th>Venn today</th></tr></thead>
@@ -1264,9 +1276,43 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
             </tbody>
           </table>
         </div>
+        <p class="prose">Seen as jobs rather than features, the three requests solve three different problems. A credit card is about money: spending before cash arrives. Reimbursements and payroll are about people: paying the team.</p>
+      </div>
+      <div class="pager"><a class="pg prev" href="#m-size"><small>&larr; Previous</small><b>2.1 · Market size</b></a><a class="pg next" href="#m-credit"><small>Next &rarr;</small><b>2.3 · Demand</b></a></div>
       </div>
 
-      <div class="pager"><a class="pg prev" href="#m-segments"><small>&larr; Previous</small><b>2.2 · Segments</b></a><a class="pg next" href="#m-comp"><small>Next &rarr;</small><b>2.4 · Competitors</b></a></div>
+      <div class="sub" id="m-credit" data-sub>
+      <div class="block">
+        <h3><span class="subnum">2.3</span>Customer demand: the survey and the market data</h3>
+        <p class="prose">Venn's survey tells us what customers ask for; national data tells us how much they need it. I'd read both before weighting the requests.</p>
+        <div class="req-grid two">
+          <div class="req-box">
+            <p class="lbl">Venn's customer survey: read it critically</p>
+            <ul>
+              <li><b>Who asked.</b> Requests from high-balance, high-spend customers count for more than requests from dormant accounts.</li>
+              <li><b>Who didn't answer.</b> Businesses that left, or never activated, because cards were pre-funded aren't in a customer survey, so it under-counts them.</li>
+              <li><b>Why they asked.</b> "Credit card" might mean rewards, working capital, or simply not pre-funding. Each points to a different product.</li>
+              <li><b>What they use today.</b> If customers already run payroll elsewhere happily, switching costs are high even if they say they want it.</li>
+            </ul>
+          </div>
+          <div class="req-box">
+            <p class="lbl">Market data on credit · Canadian SMEs, 2023</p>
+            <ul>
+              <li><b>49%</b> of SMEs requested external financing, close to the pre-pandemic 47%.</li>
+              <li>Of those that didn't, <b>81%</b> said they didn't need it.</li>
+              <li>Business credit cards cost <b>19%</b> interest on average, against 11% for lines of credit.</li>
+              <li>Approval rates were high, <b>90.9%</b> for debt financing, and rise with firm size.</li>
+            </ul>
+          </div>
+        </div>
+        <aside class="big-insight compact" aria-label="Key insight">
+          <p class="bi-eyebrow">Key insight · Demand</p>
+          <p class="bi-head">Most small businesses want the convenience of a credit card more than the borrowing.</p>
+          <p class="bi-so"><span>So</span>A credit card paid in full each month (spend now, settle from the Venn account later, no revolving interest) fits that need and fits Venn's balance-driven model.</p>
+        </aside>
+        <p class="src">Source: <a href="https://ised-isde.canada.ca/site/sme-research-statistics/en/node/421" target="_blank" rel="noopener">ISED, Survey on Financing and Growth of SMEs 2023</a></p>
+      </div>
+      <div class="pager"><a class="pg prev" href="#m-segments"><small>&larr; Previous</small><b>2.2 · Customers</b></a><a class="pg next" href="#m-comp"><small>Next &rarr;</small><b>2.4 · Competitors</b></a></div>
       </div>
 
       <div class="sub" id="m-comp" data-sub>
@@ -1292,57 +1338,32 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
           <div><b>Payroll is a separate category</b><p>No spend platform here owns it natively. Owning payroll would make Venn the primary account, but provincial rules, CRA remittances, T4s and ROEs make it a heavy build.</p></div>
         </div>
       </div>
-
-      <div class="pager"><a class="pg prev" href="#m-jobs"><small>&larr; Previous</small><b>2.3 · Jobs to be done</b></a><a class="pg next" href="#m-credit"><small>Next &rarr;</small><b>2.5 · Credit demand</b></a></div>
-      </div>
-
-      <div class="sub" id="m-credit" data-sub>
-      <div class="block">
-        <h3><span class="subnum">2.5</span>What SMBs say about credit</h3>
-        <p class="prose">Canada's national SME financing survey adds a useful nuance. Demand for credit is real but not universal, and the cost of revolving card debt is high.</p>
-        <ul class="bullets">
-          <li><b>49%</b> of SMEs requested external financing in 2023, close to the pre-pandemic 47%.</li>
-          <li>Of those that did not request it, <b>81%</b> said they didn't need it.</li>
-          <li>Business credit cards cost an average of <b>19%</b> interest, against 11% for lines of credit.</li>
-          <li>Approval rates were high (<b>90.9%</b> for debt financing) and rise with firm size.</li>
-        </ul>
-        <aside class="big-insight compact" aria-label="Key insight">
-          <p class="bi-eyebrow">Key insight · Credit demand</p>
-          <p class="bi-head">Most small businesses want the convenience of a credit card more than the borrowing.</p>
-          <p class="bi-so"><span>So</span>A credit card paid in full each month (spend now, settle from the Venn account later, no revolving interest) fits that need and fits Venn's balance-driven model.</p>
-        </aside>
-        <p class="src">Source: <a href="https://ised-isde.canada.ca/site/sme-research-statistics/en/node/421" target="_blank" rel="noopener">ISED, Survey on Financing and Growth of SMEs 2023</a></p>
-      </div>
-
-      <div class="pager"><a class="pg prev" href="#m-comp"><small>&larr; Previous</small><b>2.4 · Competitors</b></a><a class="pg next" href="#m-survey"><small>Next &rarr;</small><b>2.6 · Survey caveats</b></a></div>
-      </div>
-
-      <div class="sub" id="m-survey" data-sub>
-      <div class="block">
-        <h3><span class="subnum">2.6</span>Reading the customer survey critically</h3>
-        <p class="prose">The survey tells us what to investigate, not what to build. Before weighting the three requests, I would want to know:</p>
-        <ul class="bullets">
-          <li><b>Who asked.</b> Requests from high-balance, high-spend customers count for more than requests from dormant accounts.</li>
-          <li><b>Who didn't answer.</b> Businesses that left, or never activated, because cards were pre-funded aren't in a customer survey, so it under-counts them.</li>
-          <li><b>Why they asked.</b> "Credit card" might mean rewards, working capital, or simply not pre-funding. Each points to a different product.</li>
-          <li><b>What they use today.</b> If customers already run payroll elsewhere happily, the switching cost is high even if they say they want it.</li>
-        </ul>
-      </div>
-
-      <div class="pager"><a class="pg prev" href="#m-credit"><small>&larr; Previous</small><b>2.5 · Credit demand</b></a><a class="pg next" href="#m-carry"><small>Next &rarr;</small><b>2.7 · Carry forward</b></a></div>
+      <div class="pager"><a class="pg prev" href="#m-credit"><small>&larr; Previous</small><b>2.3 · Demand</b></a><a class="pg next" href="#m-carry"><small>Next &rarr;</small><b>2.5 · So what</b></a></div>
       </div>
 
       <div class="sub" id="m-carry" data-sub>
       <div class="block">
-        <h3><span class="subnum">2.7</span>What carries into Section 3</h3>
-        <p class="prose">Section 2 sharpens the criteria from Section 1 in three ways:</p>
-        <ul class="bullets">
-          <li><b>Competitive necessity joins the list.</b> A gap that rivals already fill puts existing customers at risk, not just future growth.</li>
-          <li><b>Segment fit matters.</b> Each request serves a different segment. Section 3 names the segments each one serves, and reflects their size and value in the growth and revenue scores.</li>
-          <li><b>Form matters as much as the feature.</b> For credit, a card paid in full monthly and a revolving card carry very different risk and fit.</li>
-        </ul>
+        <h3><span class="subnum">2.5</span>So what: what carries into Section 3</h3>
+        <aside class="big-insight" aria-label="Key insight">
+          <p class="bi-eyebrow">Key insight · Customer and market</p>
+          <p class="bi-head">There's plenty of room to grow, but the competitive bar has moved: credit is now table stakes.</p>
+          <div class="bi-points">
+            <div><b>&lt;5%</b><p>of SAM uses Venn today, so there's room to win new customers and more share of wallet from each one.</p></div>
+            <div><b>3 rivals</b><p>Float, Loop and Ramp fund card spend with credit. Venn caps it at what customers have deposited.</p></div>
+            <div><b>3 jobs</b><p>The three requests solve three different jobs, for different segments.</p></div>
+          </div>
+          <p class="bi-so"><span>So</span>Section 3 adds competitive necessity to the criteria, and weighs segment fit and the form of each product.</p>
+        </aside>
+        <div class="req-box">
+          <p class="lbl">What this adds to the criteria from Section 1</p>
+          <ul>
+            <li><b>Competitive necessity joins the list.</b> A gap that rivals already fill puts existing customers at risk, not just future growth.</li>
+            <li><b>Segment fit matters.</b> Each request serves a different segment, and their size and value shape the growth and revenue scores.</li>
+            <li><b>Form matters as much as the feature.</b> For credit, a card paid in full monthly and a revolving card carry very different risk and fit.</li>
+          </ul>
+        </div>
       </div>
-      <div class="pager"><a class="pg prev" href="#m-survey"><small>&larr; Previous</small><b>2.6 · Survey caveats</b></a><a class="pg next" href="#evaluate"><small>Next section &rarr;</small><b>03 · Evaluating the requests</b></a></div>
+      <div class="pager"><a class="pg prev" href="#m-comp"><small>&larr; Previous</small><b>2.4 · Competitors</b></a><a class="pg next" href="#evaluate"><small>Next section &rarr;</small><b>03 · Evaluating the requests</b></a></div>
       </div>
     </section>
 
@@ -1360,7 +1381,7 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
         <p class="req-sum"><b>High value, and now expected.</b> Float, Loop and Ramp already offer credit, and it removes the cap on card spend, so it drives both customer growth and revenue.</p>
         <div class="req-ask">
           <p class="lbl">What customers are asking for</p>
-          <p>The ability to spend on a Venn card without pre-funding it: pay for ads, inventory and travel now, and settle later. For most small businesses the appeal is convenience, not borrowing: 81% of SMEs that didn't seek financing in 2023 said they didn't need it (2.5).</p>
+          <p>The ability to spend on a Venn card without pre-funding it: pay for ads, inventory and travel now, and settle later. For most small businesses the appeal is convenience, not borrowing: 81% of SMEs that didn't seek financing in 2023 said they didn't need it (2.3).</p>
           <p class="req-seg">Serves most: <span class="pill ok">Cross-border founders</span> <span class="pill ok">Finance-led scale-ups</span></p>
         </div>
         <div class="req-grid">
@@ -1609,8 +1630,8 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
         <div class="why-grid">
           <a class="why" href="#v-model"><span class="why-n">1.2</span><b>Venn's biggest growth lever is capped</b><p>Every card purchase must be covered by cash already in Venn.</p><em>See the business model &rarr;</em></a>
           <a class="why" href="#v-strengths"><span class="why-n">1.4</span><b>Venn's best customers feel it most</b><p>Larger, upmarket customers are the likeliest to outspend the cash they keep in Venn (H1).</p><em>See strengths &rarr;</em></a>
+          <a class="why" href="#m-credit"><span class="why-n">2.3</span><b>Customers want convenience, not debt</b><p>81% of SMEs that skipped financing didn't need it, and card debt costs 19%.</p><em>See credit demand &rarr;</em></a>
           <a class="why" href="#m-comp"><span class="why-n">2.4</span><b>Every direct rival now offers credit</b><p>Float, Loop and Ramp, which fully launched in Canada in July 2026.</p><em>See competitors &rarr;</em></a>
-          <a class="why" href="#m-credit"><span class="why-n">2.5</span><b>Customers want convenience, not debt</b><p>81% of SMEs that skipped financing didn't need it, and card debt costs 19%.</p><em>See credit demand &rarr;</em></a>
           <a class="why" href="#e-matrix"><span class="why-n">3.4</span><b>It ranks first under both weightings</b><p>88 / 100 growth-first and 73 / 100 risk-averse.</p><em>See the scoring &rarr;</em></a>
           <a class="why" href="#v-hyp"><span class="why-n">1.6</span><b>The foundations already exist</b><p>Card issuing partner, spend controls and months of balance data per customer.</p><em>See hypotheses &rarr;</em></a>
         </div>
@@ -2179,7 +2200,9 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
             <tr><td>Illustrative Plus customer</td><td class="num">$40K FX and $20K card spend a month; $150K in balances</td><td>Illustration only, to show the revenue mix</td><td>Revenue mix by plan from Venn's data</td><td class="num">1.2</td></tr>
             <tr><td>Venn's 15,000+ businesses are sign-ups, not actives</td><td class="num">Unknown active share</td><td>Venn's site counts businesses, not monthly actives (H3)</td><td>Monthly active rate by cohort and plan</td><td class="num">2.1, 4.4</td></tr>
             <tr class="grp"><td colspan="5">Market and evaluation</td></tr>
-            <tr><td>Size of the ICP core</td><td class="num">~338K businesses</td><td>ISED counts for 5–99 employees, with Quebec's 21.2% share assumed even across sizes</td><td>Statistics Canada counts by province and size</td><td class="num">2.1</td></tr>
+            <tr><td>SAM: size of the ICP core</td><td class="num">~338K businesses</td><td>ISED counts for 5–99 employees, with Quebec's 21.2% share assumed even across sizes</td><td>Statistics Canada counts by province and size</td><td class="num">2.1</td></tr>
+            <tr><td>SOM: share Venn can win in three years</td><td class="num">10% of SAM, ~34K businesses</td><td>Conservative against Venn's growth from 4,000+ to 15,000+ businesses in 20 months</td><td>Venn's growth plan and win rates by segment</td><td class="num">2.1</td></tr>
+            <tr><td>Revenue per business, for market revenue pools</td><td class="num">$1,000–$4,900 a year</td><td>From a small Essentials customer to the Plus example in 1.2</td><td>Revenue per customer by plan and size</td><td class="num">2.1</td></tr>
             <tr><td>Scoring weights and scores</td><td class="num">Growth-first 30 / 30 / 10 / 5 / 5 / 20; risk-averse 15 / 15 / 15 / 15 / 30 / 10</td><td>My judgment, tested under two weightings</td><td>Leadership's priorities</td><td class="num">3.4</td></tr>
             <tr><td>Payroll fee benchmark</td><td class="num">~$1,900 a year for 20 staff</td><td>Wagepoint Unlimited: $40 a month plus $6 per employee</td><td>Embedded-partner pricing</td><td class="num">3.2</td></tr>
             <tr class="grp"><td colspan="5">Credit card: one customer</td></tr>
