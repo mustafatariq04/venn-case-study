@@ -1,0 +1,498 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Venn PM Case Study</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: proposal microsite — cover band, sticky section index on the left, one long reading column on the right */
+:root {
+  --bg: #f5f7f6;
+  --surface: #ffffff;
+  --fg: #13201b;
+  --muted: #5a6a63;
+  --rule: #d9e1dd;
+  --tint: #ebf1ee;
+  --accent: #0d6a4e;
+  --accent-soft: rgba(13, 106, 78, 0.09);
+  --partial: #9a6400;
+  --partial-soft: rgba(196, 135, 20, 0.13);
+  --gap: #b1362e;
+  --gap-soft: rgba(177, 54, 46, 0.08);
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e1412; --surface: #151d1a; --fg: #e4ebe8; --muted: #98a8a1; --rule: #26322d; --tint: #1a2420;
+    --accent: #52c49c; --accent-soft: rgba(82, 196, 156, 0.12);
+    --partial: #e3ac4b; --partial-soft: rgba(227, 172, 75, 0.14);
+    --gap: #e47a70; --gap-soft: rgba(228, 122, 112, 0.10);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e1412; --surface: #151d1a; --fg: #e4ebe8; --muted: #98a8a1; --rule: #26322d; --tint: #1a2420;
+  --accent: #52c49c; --accent-soft: rgba(82, 196, 156, 0.12);
+  --partial: #e3ac4b; --partial-soft: rgba(227, 172, 75, 0.14);
+  --gap: #e47a70; --gap-soft: rgba(228, 122, 112, 0.10);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--fg);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0; letter-spacing: -0.01em; }
+p { margin: 0; }
+.wrap { max-width: 1160px; margin: 0 auto; padding-inline: 24px; }
+
+/* Cover */
+.cover { border-bottom: 1px solid var(--rule); background: var(--surface); }
+.cover .wrap { padding-block: 56px 44px; display: grid; gap: 28px; }
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.cover h1 { font-size: clamp(36px, 6vw, 60px); line-height: 1.02; font-weight: 700; max-width: 16ch; }
+.cover h1 span { color: var(--accent); }
+.cover .dek { font-size: 19px; color: var(--muted); max-width: 60ch; }
+.meta { display: flex; flex-wrap: wrap; gap: 12px 40px; padding-top: 22px; border-top: 1px solid var(--rule); }
+.meta div { display: grid; gap: 2px; }
+.meta dt { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.meta dd { margin: 0; font-weight: 500; }
+
+/* Shell */
+.shell { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 56px; padding-block: 48px 96px; }
+nav.index { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 24px); align-self: start; }
+nav.index ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+nav.index a, nav.index .soon {
+  display: grid; grid-template-columns: 28px 1fr; gap: 6px; padding: 8px 10px; border-radius: 6px;
+  text-decoration: none; color: var(--fg); font-size: 14px; line-height: 1.35;
+}
+nav.index a:hover { background: var(--tint); }
+nav.index a.on { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+nav.index .num { font-family: var(--font-mono); font-size: 12px; color: var(--muted); padding-top: 1px; }
+nav.index a.on .num { color: var(--accent); }
+nav.index .soon { color: var(--muted); }
+nav.index .soon small { display: block; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase; }
+.navlabel { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); padding: 0 10px 10px; }
+
+main { min-width: 0; display: grid; gap: 72px; }
+section.part { display: grid; gap: 28px; scroll-margin-top: 24px; }
+.part-head { display: grid; gap: 10px; padding-bottom: 18px; border-bottom: 2px solid var(--fg); }
+.part-head h2 { font-size: clamp(28px, 4vw, 38px); line-height: 1.1; font-weight: 700; }
+.lead { font-size: 19px; line-height: 1.55; max-width: 64ch; }
+.block { display: grid; gap: 16px; min-width: 0; }
+.block h3 { font-size: 22px; font-weight: 500; }
+.prose { max-width: 66ch; color: var(--fg); }
+.prose + .prose { margin-top: -4px; }
+.muted { color: var(--muted); }
+.src { font-size: 13px; color: var(--muted); }
+
+/* Process strip */
+.steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; counter-reset: s; }
+.steps li { border: 1px solid var(--rule); background: var(--surface); border-radius: 8px; padding: 14px; display: grid; gap: 6px; align-content: start; }
+.steps li::before { counter-increment: s; content: "Step " counter(s); font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.steps li.now { border-color: var(--accent); background: var(--accent-soft); }
+.steps li.now::before { color: var(--accent); }
+.steps b { font-family: var(--font-display); font-weight: 500; font-size: 17px; line-height: 1.2; }
+.steps span { font-size: 13.5px; color: var(--muted); line-height: 1.45; }
+
+/* Callout */
+.finding { border-left: 3px solid var(--accent); background: var(--surface); padding: 18px 22px; border-radius: 0 8px 8px 0; display: grid; gap: 6px; max-width: 72ch; }
+.finding .eyebrow { color: var(--accent); }
+.finding p { font-size: 17px; }
+
+/* Snapshot */
+.facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: 1px solid var(--rule); border-radius: 8px; background: var(--surface); overflow: hidden; }
+.facts div { padding: 16px 18px; border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); display: grid; gap: 4px; align-content: start; min-width: 0; }
+.facts div:nth-child(3n) { border-right: 0; }
+.facts div:nth-last-child(-n+3) { border-bottom: 0; }
+.facts dt { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.facts dd { margin: 0; font-size: 14.5px; line-height: 1.5; }
+.facts .big { font-family: var(--font-display); font-size: 26px; font-weight: 700; line-height: 1.1; font-variant-numeric: tabular-nums; }
+
+/* Tables */
+.tbl { overflow-x: auto; border: 1px solid var(--rule); border-radius: 8px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; line-height: 1.5; }
+th { text-align: left; font-family: var(--font-mono); font-weight: 500; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); padding: 12px 16px; border-bottom: 1px solid var(--rule); background: var(--tint); }
+td { padding: 13px 16px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+tr:last-child td { border-bottom: 0; }
+td:first-child { font-weight: 600; }
+td.num { font-family: var(--font-mono); font-size: 13.5px; font-variant-numeric: tabular-nums; }
+.tbl.model table { min-width: 620px; }
+
+/* Strengths */
+.strengths { display: grid; border-top: 1px solid var(--rule); }
+.strength { display: grid; grid-template-columns: 200px minmax(0, 1fr) minmax(0, 1fr); gap: 24px; padding-block: 18px; border-bottom: 1px solid var(--rule); }
+.strength h4 { margin: 0; font-family: var(--font-display); font-weight: 500; font-size: 18px; line-height: 1.25; }
+.strength .lbl { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 4px; }
+.strength .so { color: var(--fg); }
+.strength .so .lbl { color: var(--accent); }
+.strength p { font-size: 14.5px; line-height: 1.55; }
+.strengths-head { display: grid; grid-template-columns: 200px minmax(0, 1fr) minmax(0, 1fr); gap: 24px; padding-bottom: 8px; }
+.strengths-head span { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.strengths-head span:last-child { color: var(--accent); }
+
+/* Diagram */
+.figure { background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: 20px; display: grid; gap: 12px; }
+.figure .scroll { overflow-x: auto; }
+.figure svg { display: block; width: 100%; min-width: 560px; height: auto; }
+.figure figcaption { font-size: 14px; color: var(--muted); }
+svg .t-name { font-family: var(--font-body); font-weight: 600; font-size: 14px; fill: var(--fg); }
+svg .t-body { font-family: var(--font-body); font-size: 12px; fill: var(--muted); }
+svg .t-layer { font-family: var(--font-display); font-weight: 500; font-size: 17px; fill: var(--fg); }
+svg .t-key { font-family: var(--font-mono); font-size: 11px; fill: var(--muted); letter-spacing: 0.04em; }
+svg .shell { fill: var(--tint); stroke: var(--rule); }
+svg .has { fill: var(--surface); stroke: var(--rule); stroke-width: 1.25; }
+svg .partial { fill: var(--partial-soft); stroke: var(--partial); stroke-width: 1.5; }
+svg .gap { fill: var(--gap-soft); stroke: var(--gap); stroke-width: 1.5; stroke-dasharray: 5 4; }
+svg .tag-p { font-family: var(--font-mono); font-size: 10.5px; fill: var(--partial); letter-spacing: 0.06em; }
+svg .tag-g { font-family: var(--font-mono); font-size: 10.5px; fill: var(--gap); letter-spacing: 0.06em; }
+
+/* Lists */
+.bullets { margin: 0; padding-left: 20px; display: grid; gap: 8px; max-width: 68ch; }
+.hyps { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; counter-reset: h; }
+.hyps li { counter-increment: h; display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 4px 12px; padding: 16px 18px; background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; }
+.hyps li::before { content: "H" counter(h); grid-row: span 2; font-family: var(--font-mono); font-size: 13px; color: var(--accent); padding-top: 2px; }
+.hyps b { font-weight: 600; }
+.hyps .test { font-size: 14px; color: var(--muted); }
+.hyps .test em { font-style: normal; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--fg); margin-right: 6px; }
+
+.next { display: grid; gap: 10px; }
+.next-row { display: grid; grid-template-columns: 40px minmax(0, 1fr) auto; gap: 12px; align-items: baseline; padding: 14px 0; border-bottom: 1px dashed var(--rule); color: var(--muted); }
+.next-row .n { font-family: var(--font-mono); font-size: 13px; }
+.next-row b { color: var(--fg); font-weight: 600; }
+.chip { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase; padding: 3px 8px; border-radius: 999px; border: 1px solid var(--rule); white-space: nowrap; }
+
+.sources { margin: 0; padding-left: 20px; display: grid; gap: 6px; font-size: 14px; }
+footer { border-top: 1px solid var(--rule); }
+footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; }
+
+@media (max-width: 900px) {
+  .shell { grid-template-columns: minmax(0, 1fr); gap: 28px; padding-block: 24px 72px; }
+  nav.index { position: static; overflow-x: auto; }
+  nav.index ol { display: flex; gap: 6px; }
+  nav.index a, nav.index .soon { white-space: nowrap; display: flex; gap: 6px; border: 1px solid var(--rule); }
+  nav.index .soon small { display: none; }
+  .navlabel { display: none; }
+  .steps { grid-template-columns: minmax(0, 1fr); }
+  .facts { grid-template-columns: minmax(0, 1fr); }
+  .facts div { border-right: 0; border-bottom: 1px solid var(--rule) !important; }
+  .facts div:last-child { border-bottom: 0 !important; }
+  .strength, .strengths-head { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  .strengths-head { display: none; }
+}
+@media (max-width: 480px) {
+  .wrap { padding-inline: 16px; }
+  .cover .wrap { padding-block: 36px 32px; }
+  .lead { font-size: 17px; }
+}
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+</style>
+</head>
+<body>
+
+<header class="cover">
+  <div class="wrap">
+    <p class="eyebrow">Senior Product Manager · Case study response</p>
+    <h1>Choosing Venn's next <span>product bet</span></h1>
+    <p class="dek">Credit cards, payroll or reimbursements? This response works through the decision step by step, from understanding the business to a recommended product and how I would build it.</p>
+    <dl class="meta">
+      <div><dt>Prepared for</dt><dd>Venn hiring team</dd></div>
+      <div><dt>Date</dt><dd>October 2026</dd></div>
+      <div><dt>Status</dt><dd>Section 1 of 5 published</dd></div>
+    </dl>
+  </div>
+</header>
+
+<div class="wrap shell">
+  <nav class="index" aria-label="Sections">
+    <p class="navlabel">Contents</p>
+    <ol>
+      <li><a href="#approach" class="on" data-nav="approach"><span class="num">00</span><span>Approach</span></a></li>
+      <li><a href="#venn" data-nav="venn"><span class="num">01</span><span>Understanding Venn</span></a></li>
+      <li><span class="soon"><span class="num">02</span><span>Customer and market<small>In progress</small></span></span></li>
+      <li><span class="soon"><span class="num">03</span><span>Evaluating the requests<small>Upcoming</small></span></span></li>
+      <li><span class="soon"><span class="num">04</span><span>Recommendation<small>Upcoming</small></span></span></li>
+      <li><span class="soon"><span class="num">05</span><span>Deep dive<small>Upcoming</small></span></span></li>
+    </ol>
+  </nav>
+
+  <main>
+    <!-- 00 Approach -->
+    <section class="part" id="approach">
+      <div class="part-head">
+        <p class="eyebrow">00 · Approach</p>
+        <h2>How I approached this case</h2>
+      </div>
+      <p class="lead">I treated this as a real prioritization decision: understand the business first, then let that understanding set the criteria for choosing what to build. Each step feeds the next, so the recommendation traces back to evidence rather than preference.</p>
+      <ol class="steps">
+        <li class="now"><b>Understand Venn</b><span>What it does, how it earns, what it does well</span></li>
+        <li><b>Customer and market</b><span>The ICP's jobs and the alternatives they use</span></li>
+        <li><b>Evaluate options</b><span>Score the three requests on shared criteria</span></li>
+        <li><b>Decide</b><span>Pick one bet and make the case</span></li>
+        <li><b>Deep dive</b><span>Problem, MVP, risks, metrics, rollout</span></li>
+      </ol>
+      <p class="prose muted">Facts are linked to their sources. Hypotheses are labelled as hypotheses; they are what I would validate with Venn's internal data in my first weeks.</p>
+    </section>
+
+    <!-- 01 Understanding Venn -->
+    <section class="part" id="venn">
+      <div class="part-head">
+        <p class="eyebrow">01 · Understanding Venn</p>
+        <h2>Venn has built the banking layer. The spend layer is missing its engine.</h2>
+      </div>
+
+      <div class="finding">
+        <p class="eyebrow">Key finding</p>
+        <p>Everything Venn does well is about moving and holding a customer's money more cheaply than a bank. What it doesn't yet do is fund spend beyond what a customer has deposited. Rob described Venn as Mercury plus Ramp; Venn has Mercury's core and Ramp's surface, but not Ramp's credit engine.</p>
+      </div>
+
+      <div class="block">
+        <h3>Snapshot</h3>
+        <dl class="facts">
+          <div><dt>Businesses</dt><dd class="big">15,000+</dd><dd class="muted">Up from 4,000+ at the Series A, about 3.75x in 20 months</dd></div>
+          <div><dt>Funding</dt><dd class="big">$21.5M</dd><dd class="muted">Series A, Feb 2025, led by Left Lane Capital with XYZ, Intact Ventures and Gradient</dd></div>
+          <div><dt>Founded</dt><dd class="big">2020</dd><dd class="muted">Toronto, as Vault, by ex-Revolut operators Ahmed Shafik and Saud Aziz</dd></div>
+          <div><dt>Products</dt><dd>CAD, USD, GBP and EUR accounts; transfers in 30+ currencies; corporate Mastercard; expense management; payables; invoicing; QuickBooks and Xero sync; AI assistant; mobile app</dd></div>
+          <div><dt>Structure</dt><dd>Not a bank. Balances held at BMO and CDIC-eligible; cards issued by Peoples Trust; FINTRAC-registered money services business</dd></div>
+          <div><dt>Coverage</dt><dd>All provinces except Quebec</dd></div>
+        </dl>
+        <p class="src">Sources: <a href="https://www.venn.ca/" target="_blank" rel="noopener">venn.ca</a>, <a href="https://www.businesswire.com/news/home/20250226330289/en/Venn-Formerly-Vault-Raises-$21.5M-to-be-the-All-In-One-Financial-Platform-for-Canadian-Businesses" target="_blank" rel="noopener">BusinessWire</a>, <a href="https://fintech.ca/?p=4426" target="_blank" rel="noopener">fintech.ca</a></p>
+      </div>
+
+      <div class="block">
+        <h3>How Venn makes money</h3>
+        <p class="prose">Venn earns when money sits in it, moves through it, or is spent on its cards. Monthly fees are the smallest lever; the free plan exists to bring balances and transactions onto the platform.</p>
+        <div class="tbl model">
+          <table>
+            <thead><tr><th>Revenue stream</th><th>Public pricing signal</th><th>Grows with</th></tr></thead>
+            <tbody>
+              <tr><td>FX spread</td><td class="num">0.45% / 0.35% / 0.25% by plan</td><td>Cross-border volume</td></tr>
+              <tr><td>Card interchange</td><td>Venn returns 1% cashback, capped at $5K and $25K monthly spend on the two lower plans</td><td>Card spend</td></tr>
+              <tr><td>Net interest on deposits</td><td>Pays 2% on CAD and USD; a promotion offers up to 3.5% on net-new balances</td><td>Balances held</td></tr>
+              <tr><td>Subscriptions</td><td class="num">$0 / $40 / $100 per month, custom above</td><td>Users, controls, team size</td></tr>
+              <tr><td>Payment fees</td><td>Wires $6–10; EFT $2 on the free plan; invoice card payments 2.9% + $0.20</td><td>Payment volume</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="prose"><b>What this tells me:</b> ARPU depends on balances, card spend and FX volume, not seats. The plan structure is a deliberate ladder: lower FX rates, higher cashback caps and more controls pull customers up as they grow. A new product should be judged on whether it puts more of a customer's money flows through Venn.</p>
+        <p class="src">Source: <a href="https://www.venn.ca/pricing" target="_blank" rel="noopener">Venn pricing</a></p>
+      </div>
+
+      <div class="block">
+        <h3>The Mercury + Ramp lens</h3>
+        <p class="prose">The Mercury model earns on deposits and money movement. The Ramp model earns on card spend that it funds with credit. Placing Venn's products against both shows where the gaps are.</p>
+        <figure class="figure">
+          <div class="scroll">
+            <svg viewBox="0 0 760 560" role="img" aria-label="Venn products placed against the Mercury banking layer and the Ramp spend layer. Venn has all five banking capabilities and three of five spend capabilities; reimbursements are partial, card credit and payroll are gaps.">
+              <rect class="shell" x="0" y="0" width="368" height="432" rx="10"/>
+              <rect class="shell" x="392" y="0" width="368" height="432" rx="10"/>
+              <text class="t-layer" x="20" y="34">Banking layer · the Mercury core</text>
+              <text class="t-layer" x="412" y="34">Spend layer · the Ramp core</text>
+
+              <rect class="has" x="20" y="52" width="328" height="60" rx="8"/>
+              <text class="t-name" x="38" y="78">Multi-currency accounts</text>
+              <text class="t-body" x="38" y="97">CAD, USD, GBP, EUR; local US ACH</text>
+              <rect class="has" x="20" y="128" width="328" height="60" rx="8"/>
+              <text class="t-name" x="38" y="154">Yield on balances</text>
+              <text class="t-body" x="38" y="173">2% base, promotion up to 3.5%</text>
+              <rect class="has" x="20" y="204" width="328" height="60" rx="8"/>
+              <text class="t-name" x="38" y="230">Domestic and global transfers</text>
+              <text class="t-body" x="38" y="249">30+ currencies, free Interac e-Transfer</text>
+              <rect class="has" x="20" y="280" width="328" height="60" rx="8"/>
+              <text class="t-name" x="38" y="306">Foreign exchange</text>
+              <text class="t-body" x="38" y="325">0.25–0.45% markup vs 2–3% at banks</text>
+              <rect class="has" x="20" y="356" width="328" height="60" rx="8"/>
+              <text class="t-name" x="38" y="382">Invoicing and collections</text>
+              <text class="t-body" x="38" y="401">Card and pre-authorized debit payments</text>
+
+              <rect class="has" x="412" y="52" width="328" height="60" rx="8"/>
+              <text class="t-name" x="430" y="78">Corporate cards</text>
+              <text class="t-body" x="430" y="97">Pre-funded: limit equals balance held</text>
+              <rect class="has" x="412" y="128" width="328" height="60" rx="8"/>
+              <text class="t-name" x="430" y="154">Expense management</text>
+              <text class="t-body" x="430" y="173">Limits, approvals, AI receipt matching</text>
+              <rect class="has" x="412" y="204" width="328" height="60" rx="8"/>
+              <text class="t-name" x="430" y="230">Accounts payable</text>
+              <text class="t-body" x="430" y="249">Bill pay, approvals, bulk payments</text>
+              <rect class="partial" x="412" y="280" width="328" height="60" rx="8"/>
+              <text class="t-name" x="430" y="306">Reimbursements</text>
+              <text class="t-body" x="430" y="325">Custom plan only today</text>
+              <text class="tag-p" x="722" y="306" text-anchor="end">REQUESTED</text>
+              <rect class="gap" x="412" y="356" width="328" height="60" rx="8"/>
+              <text class="t-name" x="430" y="382">Card credit</text>
+              <text class="t-body" x="430" y="401">The engine behind the Ramp model</text>
+              <text class="tag-g" x="722" y="382" text-anchor="end">REQUESTED</text>
+
+              <rect class="gap" x="0" y="452" width="760" height="60" rx="8"/>
+              <text class="t-name" x="20" y="478">Payroll · adjacent to both layers</text>
+              <text class="t-body" x="20" y="497">Venn only helps customers set funds aside for it, using account split rules</text>
+              <text class="tag-g" x="740" y="478" text-anchor="end">REQUESTED</text>
+
+              <rect class="has" x="0" y="534" width="18" height="14" rx="3"/>
+              <text class="t-key" x="26" y="545">VENN HAS IT</text>
+              <rect class="partial" x="130" y="534" width="18" height="14" rx="3"/>
+              <text class="t-key" x="156" y="545">PARTIAL</text>
+              <rect class="gap" x="236" y="534" width="18" height="14" rx="3"/>
+              <text class="t-key" x="262" y="545">GAP</text>
+            </svg>
+          </div>
+          <figcaption>Venn covers all five banking capabilities and three of five spend capabilities. The three features customers asked for map exactly onto the three gaps.</figcaption>
+        </figure>
+      </div>
+
+      <div class="block">
+        <h3>What Venn does well</h3>
+        <p class="prose">Venn wins by being much cheaper and faster than the Big 5 banks on the things Canadian SMBs feel every month: FX, USD banking, onboarding and team spend. These strengths are the assets any new product should build on.</p>
+        <div class="strengths-head"><span>Strength</span><span>Evidence</span><span>Why it matters for what we build next</span></div>
+        <div class="strengths">
+          <div class="strength">
+            <h4>Price leadership on FX</h4>
+            <p><span class="lbl">Evidence</span>0.25–0.45% markup vs 2–3% at legacy banks. One customer reports FX 3–4% cheaper than their old bank.</p>
+            <p class="so"><span class="lbl">So what</span>Venn already attracts cross-border-heavy businesses. The next product should deepen that wallet, not only widen the funnel.</p>
+          </div>
+          <div class="strength">
+            <h4>Real cross-border rails</h4>
+            <p><span class="lbl">Evidence</span>A US-domiciled USD account with local ACH. Big 5 USD accounts are Canada-based and SWIFT-only.</p>
+            <p class="so"><span class="lbl">So what</span>A structural advantage banks can't copy quickly, and a reason to make Venn the primary operating account.</p>
+          </div>
+          <div class="strength">
+            <h4>Frictionless onboarding</h4>
+            <p><span class="lbl">Evidence</span>Sign-up in under 5 minutes with no personal credit check or guarantee. Banks take 1–2 weeks.</p>
+            <p class="so"><span class="lbl">So what</span>Fast acquisition is an asset to protect. Anything involving credit adds underwriting friction, so it needs careful design.</p>
+          </div>
+          <div class="strength">
+            <h4>One platform instead of five tools</h4>
+            <p><span class="lbl">Evidence</span>Accounts, cards, expense management, payables, invoicing and QuickBooks/Xero sync in one place.</p>
+            <p class="so"><span class="lbl">So what</span>Each added product raises switching costs and ARPU. The "default platform" strategy is already in motion.</p>
+          </div>
+          <div class="strength">
+            <h4>Spend controls teams adopt</h4>
+            <p><span class="lbl">Evidence</span>Instant virtual cards, per-card and per-transaction limits, departments, approval rules, AI receipt matching.</p>
+            <p class="so"><span class="lbl">So what</span>The spend tooling is mature. What limits card spend today is the prepaid model, not the software.</p>
+          </div>
+          <div class="strength">
+            <h4>Shipping velocity</h4>
+            <p><span class="lbl">Evidence</span>35+ updates in 2026, including an AI assistant, iOS and Android apps, SSO, multi-entity and bulk payments.</p>
+            <p class="so"><span class="lbl">So what</span>The team can ship. The constraint on the next bet is regulatory and capital risk, not engineering speed.</p>
+          </div>
+          <div class="strength">
+            <h4>Aggressive deposit growth</h4>
+            <p><span class="lbl">Evidence</span>2% base interest, a promotion up to 3.5%, and no minimum balance.</p>
+            <p class="so"><span class="lbl">So what</span>Balances are treated as a strategic asset. They are also the cash-flow data a future credit product would underwrite on.</p>
+          </div>
+          <div class="strength">
+            <h4>Moving upmarket</h4>
+            <p><span class="lbl">Evidence</span>Mid-market and enterprise offerings, SSO, custom roles and custom ERP integrations.</p>
+            <p class="so"><span class="lbl">So what</span>Larger customers spend more than they keep on deposit, which makes the prepaid ceiling more visible.</p>
+          </div>
+        </div>
+        <p class="prose"><b>The pattern:</b> Venn's strengths are all about efficiency on money the customer already has. Growth from here comes from attracting more customers with that promise, or deepening each relationship by solving problems beyond cheaper money movement.</p>
+        <p class="src">Sources: <a href="https://www.venn.ca/" target="_blank" rel="noopener">Venn home</a>, <a href="https://www.venn.ca/pricing" target="_blank" rel="noopener">pricing</a>, <a href="https://www.venn.ca/fall-2026" target="_blank" rel="noopener">Fall 2026 updates</a>, <a href="https://www.venn.ca/resources/venn-vs-big-5-banks-whats-the-best-business-bank-account-in-canada" target="_blank" rel="noopener">Venn vs Big 5</a></p>
+      </div>
+
+      <div class="block">
+        <h3>What Venn optimizes for</h3>
+        <p class="prose">The two company goals pull in different directions, and the best bet serves both. More active businesses widens the base; higher ARPU deepens each relationship.</p>
+        <ul class="bullets">
+          <li><b>Active businesses:</b> at least one revenue-generating transaction in a month. A sign-up that never funds or spends doesn't count.</li>
+          <li><b>ARPU:</b> grown by deepening product adoption, meaning more balances, spend and payment flows per customer.</li>
+          <li><b>ICP:</b> Canadian-incorporated, 2–100 employees, outside Quebec. I assume the Quebec exclusion reflects its distinct language and regulatory requirements; that is a hypothesis.</li>
+          <li><b>Long-term strategy:</b> the default banking and finance platform for Canadian businesses, 10x better and 10x cheaper than the status quo.</li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <h3>Hypotheses to validate</h3>
+        <p class="prose">These are the questions I would answer with Venn's internal data before committing to a bet.</p>
+        <ol class="hyps">
+          <li><b>The prepaid ceiling is costing card spend.</b><span class="test"><em>Test</em>Card spend relative to balance, and declines caused by insufficient funds.</span></li>
+          <li><b>Many customers are FX-first rather than primary-account users.</b><span class="test"><em>Test</em>Share of active businesses whose payroll, rent or tax payments leave from Venn.</span></li>
+          <li><b>"Active" and "signed up" differ meaningfully.</b><span class="test"><em>Test</em>Monthly active rate by sign-up cohort and plan.</span></li>
+          <li><b>The card program is already credit-adjacent.</b> Venn's public disclosure calls it a charge card, while the case describes a pre-funded model.<span class="test"><em>Test</em>Confirm the current program and what credit would require from the issuing partner.</span></li>
+          <li><b>Reimbursements are partially built.</b> Today they appear only on the Custom plan.<span class="test"><em>Test</em>Demand from lower plans, and how much of the workflow already exists.</span></li>
+        </ol>
+      </div>
+
+      <div class="block">
+        <h3>Criteria carried into Section 3</h3>
+        <p class="prose">Section 1 produces five criteria for scoring each opportunity. Each comes directly from how Venn makes money and what it optimizes for.</p>
+        <div class="tbl">
+          <table>
+            <thead><tr><th>Criterion</th><th>Question it answers</th><th>Comes from</th></tr></thead>
+            <tbody>
+              <tr><td>Active-business impact</td><td>Does it bring in new businesses or turn dormant ones active?</td><td>Company goal: customer growth</td></tr>
+              <tr><td>ARPU impact</td><td>Does it put more balances, spend or payment volume through Venn?</td><td>Business model and company goal</td></tr>
+              <tr><td>Strategic fit</td><td>Does it make Venn more of the default platform and harder to leave?</td><td>Long-term strategy</td></tr>
+              <tr><td>Builds on strengths</td><td>Does it use Venn's existing rails, data and spend tooling?</td><td>What Venn does well</td></tr>
+              <tr><td>Cost and risk</td><td>What capital, regulatory and partner risk does it carry, and how long until it ships?</td><td>Structure: not a bank, partner-issued cards</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Upcoming -->
+    <section class="part" id="next">
+      <div class="part-head">
+        <p class="eyebrow">Coming next</p>
+        <h2>Sections 2 to 5</h2>
+      </div>
+      <div class="next">
+        <div class="next-row"><span class="n">02</span><span><b>Customer and market.</b> The ICP's jobs to be done, and the alternatives they use today.</span><span class="chip">In progress</span></div>
+        <div class="next-row"><span class="n">03</span><span><b>Evaluating the requests.</b> Credit cards, payroll and reimbursements scored against the criteria above.</span><span class="chip">Upcoming</span></div>
+        <div class="next-row"><span class="n">04</span><span><b>Recommendation.</b> The one bet I would make, and why.</span><span class="chip">Upcoming</span></div>
+        <div class="next-row"><span class="n">05</span><span><b>Deep dive.</b> Problem, users, MVP, risks, metrics and rollout.</span><span class="chip">Upcoming</span></div>
+      </div>
+    </section>
+
+    <section class="part" id="sources">
+      <div class="block">
+        <h3>Sources</h3>
+        <ul class="sources">
+          <li><a href="https://www.venn.ca/" target="_blank" rel="noopener">Venn home page</a></li>
+          <li><a href="https://www.venn.ca/pricing" target="_blank" rel="noopener">Venn pricing</a></li>
+          <li><a href="https://www.venn.ca/fall-2026" target="_blank" rel="noopener">Venn Fall 2026 product updates</a></li>
+          <li><a href="https://www.venn.ca/resources/venn-vs-big-5-banks-whats-the-best-business-bank-account-in-canada" target="_blank" rel="noopener">Venn vs Big 5 banks</a></li>
+          <li><a href="https://www.businesswire.com/news/home/20250226330289/en/Venn-Formerly-Vault-Raises-$21.5M-to-be-the-All-In-One-Financial-Platform-for-Canadian-Businesses" target="_blank" rel="noopener">Venn Series A announcement (BusinessWire)</a></li>
+          <li><a href="https://fintech.ca/?p=4426" target="_blank" rel="noopener">Vault rebrands as Venn (fintech.ca)</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span>Venn PM case study response · October 2026</span>
+    <span>Public figures as of October 2026; internal data would sharpen every hypothesis.</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var links = document.querySelectorAll('nav.index a[data-nav]');
+  var map = {};
+  links.forEach(function (a) { map[a.dataset.nav] = a; });
+  if (!('IntersectionObserver' in window)) return;
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting && map[e.target.id]) {
+        links.forEach(function (a) { a.classList.remove('on'); });
+        map[e.target.id].classList.add('on');
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+  ['approach', 'venn'].forEach(function (id) { var el = document.getElementById(id); if (el) io.observe(el); });
+})();
+</script>
+</body>
+</html>
