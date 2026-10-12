@@ -359,6 +359,66 @@ nav.index .subnav a:hover { color: var(--fg); }
   .htest, .hinf { grid-column: 2; }
 }
 
+/* Section 3 */
+.glance { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.gl { display: grid; gap: 10px; align-content: start; padding: 18px; border: 1px solid var(--rule); border-radius: 10px; background: var(--surface); color: var(--fg); text-decoration: none; transition: border-color .15s, transform .15s, box-shadow .15s; }
+.gl:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 8px 22px -14px var(--accent); }
+.gl-k { font-family: var(--font-display); font-weight: 700; font-size: 22px; line-height: 1.15; }
+.gl-job { font-size: 14px; color: var(--accent); font-weight: 500; margin-top: -6px; }
+.gl dl { margin: 0; display: grid; gap: 8px; }
+.gl dt { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.gl dd { margin: 2px 0 0; font-size: 14px; line-height: 1.45; }
+.gl-score { display: flex; align-items: baseline; gap: 8px; padding-top: 10px; border-top: 1px solid var(--rule); }
+.gl-score b { font-family: var(--font-display); font-size: 34px; font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; line-height: 1; }
+.gl-score span { font-size: 12.5px; color: var(--muted); }
+.gl em { font-style: normal; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); }
+.req-ask { background: var(--surface); border: 1px solid var(--rule); border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; padding: 16px 18px; display: grid; gap: 8px; max-width: 80ch; }
+.req-ask p { font-size: 15.5px; line-height: 1.55; }
+.req-ask p.lbl { font-size: 10.5px; }
+.req-seg { font-size: 13.5px !important; color: var(--muted); display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.req-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 0.9fr); gap: 14px; }
+.req-grid.two { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.req-box { background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: 16px 18px; display: grid; gap: 8px; align-content: start; font-size: 14.5px; line-height: 1.55; min-width: 0; }
+.req-box ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
+.req-flow { background: var(--accent-soft); border: 1px solid var(--accent); border-radius: 8px; padding: 16px 18px; display: grid; gap: 6px; align-content: start; font-size: 14px; line-height: 1.5; min-width: 0; }
+.req-flow .lbl { color: var(--accent); }
+.req-big { font-family: var(--font-display); font-size: 34px; font-weight: 700; color: var(--accent); line-height: 1.05; font-variant-numeric: tabular-nums; }
+.mx { border: 1px solid var(--rule); border-radius: 10px; background: var(--surface); padding: 18px; display: grid; gap: 16px; min-width: 0; }
+.mx-scroll { overflow-x: auto; }
+.mx-tbl { min-width: 640px; }
+.mx-tbl th:nth-child(n+3), .mx-tbl td:nth-child(n+3) { text-align: center; width: 15%; }
+.mx-tbl th:nth-child(2), .mx-tbl td:nth-child(2) { width: 20%; }
+.mx-tbl tr.crit { cursor: pointer; }
+.mx-tbl tr.crit:hover td { background: var(--tint); }
+.mx-tbl tr.crit td:first-child::after { content: " +"; color: var(--accent); font-family: var(--font-mono); }
+.mx-tbl tr.crit.open td:first-child::after { content: " \2212"; }
+.mx-tbl td.w { font-weight: 400; }
+.mx-tbl td.w input { width: 100%; accent-color: var(--accent); }
+.mx-tbl td.w output { font-family: var(--font-mono); font-size: 12px; color: var(--accent); }
+.dots { display: inline-flex; gap: 3px; }
+.dots i { width: 9px; height: 9px; border-radius: 50%; background: var(--rule); }
+.dots i.on { background: var(--accent); }
+.sc { display: grid; gap: 4px; justify-items: center; font-family: var(--font-mono); font-size: 12px; color: var(--muted); }
+.mx-tbl tr.why td { background: var(--tint); font-weight: 400; font-size: 13.5px; color: var(--muted); text-align: left !important; }
+.mx-tbl tr.why .whys { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.mx-tbl tr.why b { display: block; color: var(--fg); font-size: 12.5px; margin-bottom: 2px; }
+.mx-tbl tfoot td { font-family: var(--font-display); font-size: 22px; font-weight: 700; color: var(--accent); border-top: 2px solid var(--fg); font-variant-numeric: tabular-nums; }
+.mx-tbl tfoot td:first-child { font-family: var(--font-body); font-size: 14.5px; color: var(--fg); }
+.mx-tbl tfoot td.wsum { font-family: var(--font-mono); font-size: 13px; color: var(--muted); font-weight: 400; }
+.mx-tbl tfoot td.wsum.bad { color: var(--gap); }
+.mx-bars { display: grid; gap: 8px; }
+.mxb { display: grid; grid-template-columns: 130px minmax(0, 1fr) 54px; gap: 12px; align-items: center; font-size: 14px; }
+.mxb i { display: block; height: 14px; background: var(--tint); border-radius: 4px; overflow: hidden; }
+.mxb em { display: block; height: 100%; background: var(--rule); border-radius: 4px; transition: width .25s; }
+.mxb.top em { background: var(--accent); }
+.mxb b { font-family: var(--font-mono); font-weight: 500; text-align: right; }
+.mx-read { font-size: 14.5px; padding: 12px 14px; background: var(--tint); border-radius: 8px; }
+@media (max-width: 900px) {
+  .glance, .req-grid, .req-grid.two { grid-template-columns: minmax(0, 1fr); }
+  .mx-tbl tr.why .whys { grid-template-columns: minmax(0, 1fr); }
+  .mxb { grid-template-columns: 110px minmax(0, 1fr) 48px; }
+}
+
 /* Paging */
 .pager { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; padding-top: 28px; border-top: 1px solid var(--rule); margin-top: 8px; }
 .pg { display: grid; gap: 4px; padding: 18px 20px; border: 1px solid var(--rule); border-radius: 8px; background: var(--surface); text-decoration: none; color: var(--fg); transition: border-color .15s, background .15s; }
@@ -417,7 +477,7 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
       <div><dt>Prepared by</dt><dd>Mustafa Tariq</dd></div>
       <div><dt>Prepared for</dt><dd>Venn hiring team</dd></div>
       <div><dt>Date</dt><dd>October 2026</dd></div>
-      <div><dt>Status</dt><dd>Sections 1–2 of 5 published</dd></div>
+      <div><dt>Status</dt><dd>Sections 1–3 of 5 published</dd></div>
     </dl>
   </div>
 </header>
@@ -430,9 +490,13 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
       <li class="has-sub"><a href="#venn" data-nav="venn"><span class="num">01</span><span>Understanding Venn</span></a>
         <ol class="subnav"><li><a href="#v-snapshot" data-subnav="v-snapshot"><span class="num">1.1</span><span>Snapshot</span></a></li><li><a href="#v-model" data-subnav="v-model"><span class="num">1.2</span><span>Business model</span></a></li><li><a href="#v-lens" data-subnav="v-lens"><span class="num">1.3</span><span>Mercury + Ramp lens</span></a></li><li><a href="#v-strengths" data-subnav="v-strengths"><span class="num">1.4</span><span>Strengths</span></a></li><li><a href="#v-goals" data-subnav="v-goals"><span class="num">1.5</span><span>Goals</span></a></li><li><a href="#v-hyp" data-subnav="v-hyp"><span class="num">1.6</span><span>Hypotheses</span></a></li><li><a href="#v-criteria" data-subnav="v-criteria"><span class="num">1.7</span><span>Criteria</span></a></li></ol>
       </li>
-      <li><a href="#market" data-nav="market"><span class="num">02</span><span>Customer and market</span></a></li>
-      <li><span class="soon"><span class="num">03</span><span>Evaluating the requests<small>In progress</small></span></span></li>
-      <li><span class="soon"><span class="num">04</span><span>Recommendation<small>Upcoming</small></span></span></li>
+      <li class="has-sub"><a href="#market" data-nav="market"><span class="num">02</span><span>Customer and market</span></a>
+        <ol class="subnav"><li><a href="#m-size" data-subnav="m-size"><span class="num">2.1</span><span>Market size</span></a></li><li><a href="#m-segments" data-subnav="m-segments"><span class="num">2.2</span><span>Segments</span></a></li><li><a href="#m-jobs" data-subnav="m-jobs"><span class="num">2.3</span><span>Jobs to be done</span></a></li><li><a href="#m-comp" data-subnav="m-comp"><span class="num">2.4</span><span>Competitors</span></a></li><li><a href="#m-credit" data-subnav="m-credit"><span class="num">2.5</span><span>Credit demand</span></a></li><li><a href="#m-survey" data-subnav="m-survey"><span class="num">2.6</span><span>Survey caveats</span></a></li><li><a href="#m-carry" data-subnav="m-carry"><span class="num">2.7</span><span>Carry forward</span></a></li></ol>
+      </li>
+      <li class="has-sub"><a href="#evaluate" data-nav="evaluate"><span class="num">03</span><span>Evaluating the requests</span></a>
+        <ol class="subnav"><li><a href="#e-glance" data-subnav="e-glance"><span class="num">3.1</span><span>At a glance</span></a></li><li><a href="#e-credit" data-subnav="e-credit"><span class="num">3.2</span><span>Credit cards</span></a></li><li><a href="#e-payroll" data-subnav="e-payroll"><span class="num">3.3</span><span>Payroll</span></a></li><li><a href="#e-reimb" data-subnav="e-reimb"><span class="num">3.4</span><span>Reimbursements</span></a></li><li><a href="#e-matrix" data-subnav="e-matrix"><span class="num">3.5</span><span>Scoring</span></a></li><li><a href="#e-points" data-subnav="e-points"><span class="num">3.6</span><span>Where it points</span></a></li></ol>
+      </li>
+      <li><span class="soon"><span class="num">04</span><span>Recommendation<small>In progress</small></span></span></li>
       <li><span class="soon"><span class="num">05</span><span>Deep dive<small>Upcoming</small></span></span></li>
       <li class="navsep"><a href="#sources" data-nav="sources"><span class="num">&rarr;</span><span>Sources</span></a></li>
     </ol>
@@ -449,8 +513,8 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
       <ol class="steps">
         <li><a class="step done" href="#venn"><i>Step 1 · Done</i><b>Understand Venn</b><span>What it does, how it earns, what it does well</span><em>Open section &rarr;</em></a></li>
         <li><a class="step done" href="#market"><i>Step 2 · Done</i><b>Customer and market</b><span>The ICP's jobs and the alternatives they use</span><em>Open section &rarr;</em></a></li>
-        <li><div class="step now" aria-disabled="true"><i>Step 3 · In progress</i><b>Evaluate options</b><span>Score the three requests on shared criteria</span><em>Coming soon</em></div></li>
-        <li><div class="step later" aria-disabled="true"><i>Step 4</i><b>Decide</b><span>Pick one bet and make the case</span><em>Upcoming</em></div></li>
+        <li><a class="step done" href="#evaluate"><i>Step 3 · Done</i><b>Evaluate options</b><span>Score the three requests on shared criteria</span><em>Open section &rarr;</em></a></li>
+        <li><div class="step now" aria-disabled="true"><i>Step 4 · In progress</i><b>Decide</b><span>Pick one bet and make the case</span><em>Coming soon</em></div></li>
         <li><div class="step later" aria-disabled="true"><i>Step 5</i><b>Deep dive</b><span>Problem, MVP, risks, metrics, rollout</span><em>Upcoming</em></div></li>
       </ol>
       <p class="prose muted">Facts are linked to their sources. Hypotheses are labelled as hypotheses; they are what I would validate with Venn's internal data in my first weeks.</p>
@@ -895,15 +959,16 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
         <p class="eyebrow">02 · Customer and market</p>
         <h2>The market is large and under-served, and competitors now offer credit</h2>
       </div>
-      <nav class="jump" aria-label="In this section"><span>Jump to</span><a href="#m-size">Market size</a><a href="#m-segments">Segments</a><a href="#m-jobs">Jobs to be done</a><a href="#m-comp">Competitors</a><a href="#m-credit">Credit demand</a><a href="#m-survey">Survey caveats</a><a href="#m-carry">Carry forward</a></nav>
+      <nav class="substep" aria-label="Section 2 parts"><a href="#m-size" data-subnav="m-size"><span>2.1</span>Market size</a><a href="#m-segments" data-subnav="m-segments"><span>2.2</span>Segments</a><a href="#m-jobs" data-subnav="m-jobs"><span>2.3</span>Jobs to be done</a><a href="#m-comp" data-subnav="m-comp"><span>2.4</span>Competitors</a><a href="#m-credit" data-subnav="m-credit"><span>2.5</span>Credit demand</a><a href="#m-survey" data-subnav="m-survey"><span>2.6</span>Survey caveats</a><a href="#m-carry" data-subnav="m-carry"><span>2.7</span>Carry forward</a></nav>
 
+      <div class="sub" id="m-size" data-sub>
       <div class="finding">
         <p class="eyebrow">Key finding</p>
         <p>Venn reaches under 5% of its core market, so there is plenty of room to grow. But in 2026 the competitive bar moved: Float, Loop and now Ramp all fund card spend with credit, while Venn caps spend at what a customer has deposited. The three requests map to three different customer jobs, and only one of them is something every direct competitor already offers.</p>
       </div>
 
       <div class="block">
-        <h3 id="m-size">Market size</h3>
+        <h3><span class="subnum">2.1</span>Market size</h3>
         <p class="prose">Venn's ICP covers almost every Canadian employer business outside Quebec. Using Canada's official business counts, the core of that market is roughly 340,000 businesses.</p>
         <dl class="stats">
           <div><dt>Small employer businesses</dt><dd class="big">1.08M</dd><dd class="muted">Businesses with 1–99 employees in Canada, December 2024</dd></div>
@@ -941,8 +1006,12 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
         </figure>
       </div>
 
+      <div class="pager"><a class="pg prev" href="#v-criteria"><small>&larr; Previous section</small><b>01 · Understanding Venn</b></a><a class="pg next" href="#m-segments"><small>Next &rarr;</small><b>2.2 · Segments</b></a></div>
+      </div>
+
+      <div class="sub" id="m-segments" data-sub>
       <div class="block">
-        <h3 id="m-segments">Who the customer is</h3>
+        <h3><span class="subnum">2.2</span>Who the customer is</h3>
         <p class="prose">"2–100 employees" hides very different businesses. I would split the ICP into three segments. These are hypotheses built from Venn's public case studies and positioning; Venn's own data would confirm or reshape them.</p>
         <div class="segments">
           <article class="seg">
@@ -975,8 +1044,12 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
         </div>
       </div>
 
+      <div class="pager"><a class="pg prev" href="#m-size"><small>&larr; Previous</small><b>2.1 · Market size</b></a><a class="pg next" href="#m-jobs"><small>Next &rarr;</small><b>2.3 · Jobs to be done</b></a></div>
+      </div>
+
+      <div class="sub" id="m-jobs" data-sub>
       <div class="block">
-        <h3 id="m-jobs">The jobs customers need done</h3>
+        <h3><span class="subnum">2.3</span>The jobs customers need done</h3>
         <p class="prose">Seen as jobs rather than features, the three requests are three different problems. A credit card is about money: spending before cash arrives. Reimbursements and payroll are about people: paying the team.</p>
         <div class="tbl jobs">
           <table>
@@ -993,8 +1066,12 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
         </div>
       </div>
 
+      <div class="pager"><a class="pg prev" href="#m-segments"><small>&larr; Previous</small><b>2.2 · Segments</b></a><a class="pg next" href="#m-comp"><small>Next &rarr;</small><b>2.4 · Competitors</b></a></div>
+      </div>
+
+      <div class="sub" id="m-comp" data-sub>
       <div class="block">
-        <h3 id="m-comp">Competitive landscape</h3>
+        <h3><span class="subnum">2.4</span>Competitive landscape</h3>
         <p class="prose">Venn competes with the Big 5 on banking and with spend platforms on cards. In the spend category, Venn is the only major player that funds cards from deposits alone.</p>
         <div class="tbl comp">
           <table>
@@ -1016,8 +1093,12 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
         </div>
       </div>
 
+      <div class="pager"><a class="pg prev" href="#m-jobs"><small>&larr; Previous</small><b>2.3 · Jobs to be done</b></a><a class="pg next" href="#m-credit"><small>Next &rarr;</small><b>2.5 · Credit demand</b></a></div>
+      </div>
+
+      <div class="sub" id="m-credit" data-sub>
       <div class="block">
-        <h3 id="m-credit">What SMBs say about credit</h3>
+        <h3><span class="subnum">2.5</span>What SMBs say about credit</h3>
         <p class="prose">Canada's national SME financing survey adds a useful nuance. Demand for credit is real but not universal, and the cost of revolving card debt is high.</p>
         <ul class="bullets">
           <li><b>49%</b> of SMEs requested external financing in 2023, close to the pre-pandemic 47%.</li>
@@ -1033,8 +1114,12 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
         <p class="src">Source: <a href="https://ised-isde.canada.ca/site/sme-research-statistics/en/node/421" target="_blank" rel="noopener">ISED, Survey on Financing and Growth of SMEs 2023</a></p>
       </div>
 
+      <div class="pager"><a class="pg prev" href="#m-comp"><small>&larr; Previous</small><b>2.4 · Competitors</b></a><a class="pg next" href="#m-survey"><small>Next &rarr;</small><b>2.6 · Survey caveats</b></a></div>
+      </div>
+
+      <div class="sub" id="m-survey" data-sub>
       <div class="block">
-        <h3 id="m-survey">Reading the customer survey critically</h3>
+        <h3><span class="subnum">2.6</span>Reading the customer survey critically</h3>
         <p class="prose">The survey tells us what to investigate, not what to build. Before weighting the three requests, I would want to know:</p>
         <ul class="bullets">
           <li><b>Who asked.</b> Requests from high-balance, high-spend customers count for more than requests from dormant accounts.</li>
@@ -1044,8 +1129,12 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
         </ul>
       </div>
 
+      <div class="pager"><a class="pg prev" href="#m-credit"><small>&larr; Previous</small><b>2.5 · Credit demand</b></a><a class="pg next" href="#m-carry"><small>Next &rarr;</small><b>2.7 · Carry forward</b></a></div>
+      </div>
+
+      <div class="sub" id="m-carry" data-sub>
       <div class="block">
-        <h3 id="m-carry">What carries into Section 3</h3>
+        <h3><span class="subnum">2.7</span>What carries into Section 3</h3>
         <p class="prose">Section 2 sharpens the criteria from Section 1 in three ways:</p>
         <ul class="bullets">
           <li><b>Competitive necessity joins the list.</b> A gap that rivals already fill puts existing customers at risk, not just future growth.</li>
@@ -1053,7 +1142,290 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
           <li><b>Form matters as much as the feature.</b> For credit, a charge card and a revolving card carry very different risk and fit.</li>
         </ul>
       </div>
-      <div class="pager"><a class="pg prev" href="#venn"><small>&larr; Previous</small><b>01 · Understanding Venn</b></a><div class="pg next off" aria-disabled="true"><small>Next section · In progress</small><b>03 · Evaluating the requests</b></div></div>
+      <div class="pager"><a class="pg prev" href="#m-survey"><small>&larr; Previous</small><b>2.6 · Survey caveats</b></a><a class="pg next" href="#evaluate"><small>Next section &rarr;</small><b>03 · Evaluating the requests</b></a></div>
+      </div>
+    </section>
+
+    <!-- 03 Evaluating the requests -->
+    <section class="part" id="evaluate">
+      <div class="part-head">
+        <p class="eyebrow">03 · Evaluating the requests</p>
+        <h2>Credit cards lead on growth and revenue. Reimbursements are the cheapest win.</h2>
+      </div>
+      <nav class="substep" aria-label="Section 3 parts"><a href="#e-glance" data-subnav="e-glance"><span>3.1</span>At a glance</a><a href="#e-credit" data-subnav="e-credit"><span>3.2</span>Credit cards</a><a href="#e-payroll" data-subnav="e-payroll"><span>3.3</span>Payroll</a><a href="#e-reimb" data-subnav="e-reimb"><span>3.4</span>Reimbursements</a><a href="#e-matrix" data-subnav="e-matrix"><span>3.5</span>Scoring</a><a href="#e-points" data-subnav="e-points"><span>3.6</span>Where it points</a></nav>
+
+      <div class="sub" id="e-glance" data-sub>
+      <div class="finding">
+        <p class="eyebrow">Key finding</p>
+        <p>Credit cards score highest under every weighting I tested, because they remove the cap on Venn's biggest growth lever and close the gap every direct rival has already filled. Payroll has the strongest long-term pull but is a slower, heavier bet. Reimbursements are cheap to ship, but won't move growth on their own.</p>
+      </div>
+      <div class="block">
+        <h3><span class="subnum">3.1</span>The three requests at a glance</h3>
+        <p class="prose">Each request solves a different customer job and creates a different kind of value for Venn. Click a card to read the full evaluation.</p>
+        <div class="glance">
+          <a class="gl" href="#e-credit">
+            <p class="gl-k">Credit cards</p>
+            <p class="gl-job">Spend before the cash arrives</p>
+            <dl>
+              <div><dt>Main value</dt><dd>Uncaps card spend; stops losses to Float, Loop and Ramp</dd></div>
+              <div><dt>Main risk</dt><dd>Capital and credit losses</dd></div>
+            </dl>
+            <p class="gl-score"><b data-total="credit">82</b><span>/ 100 weighted score</span></p>
+            <em>Read evaluation &rarr;</em>
+          </a>
+          <a class="gl" href="#e-payroll">
+            <p class="gl-k">Payroll</p>
+            <p class="gl-job">Pay the team</p>
+            <dl>
+              <div><dt>Main value</dt><dd>Makes Venn the primary account</dd></div>
+              <div><dt>Main risk</dt><dd>Compliance and slow switching</dd></div>
+            </dl>
+            <p class="gl-score"><b data-total="payroll">63</b><span>/ 100 weighted score</span></p>
+            <em>Read evaluation &rarr;</em>
+          </a>
+          <a class="gl" href="#e-reimb">
+            <p class="gl-k">Reimbursements</p>
+            <p class="gl-job">Pay employees back</p>
+            <dl>
+              <div><dt>Main value</dt><dd>Completes the spend workflow; plan upgrades</dd></div>
+              <div><dt>Main risk</dt><dd>Low impact on growth</dd></div>
+            </dl>
+            <p class="gl-score"><b data-total="reimb">61</b><span>/ 100 weighted score</span></p>
+            <em>Read evaluation &rarr;</em>
+          </a>
+        </div>
+        <p class="prose muted">Scores come from the matrix in 3.5, using the criteria built in Sections 1 and 2. You can change the weights there; these numbers update with them.</p>
+      </div>
+      <div class="pager"><a class="pg prev" href="#m-carry"><small>&larr; Previous section</small><b>02 · Customer and market</b></a><a class="pg next" href="#e-credit"><small>Next &rarr;</small><b>3.2 · Credit cards</b></a></div>
+      </div>
+
+      <div class="sub" id="e-credit" data-sub>
+      <div class="block">
+        <h3><span class="subnum">3.2</span>Credit cards</h3>
+        <div class="req-ask">
+          <p class="lbl">What customers are asking for</p>
+          <p>The ability to spend on a Venn card without pre-funding it: pay for ads, inventory and travel now, and settle later. Most want convenience, not borrowing (Section 2: 81% of SMEs that skipped financing said they didn't need it).</p>
+          <p class="req-seg">Serves most: <span class="pill ok">Cross-border founders</span> <span class="pill ok">Finance-led scale-ups</span></p>
+        </div>
+        <div class="req-grid">
+          <div class="req-box">
+            <p class="lbl">Value: customer growth</p>
+            <ul>
+              <li>Wins businesses that need card credit and today choose Float, Loop, Ramp or a bank card instead.</li>
+              <li>Reduces churn risk among existing customers as rivals court them, especially after Ramp's July 2026 launch.</li>
+              <li>Every card purchase is a revenue-generating transaction, so higher spend keeps accounts "active".</li>
+            </ul>
+          </div>
+          <div class="req-box">
+            <p class="lbl">Value: revenue (ARPU)</p>
+            <ul>
+              <li>Removes the ceiling on interchange, the stream that grows with a customer's business (Section 1.2).</li>
+              <li>Larger limits push customers toward Pro, where cashback is uncapped and FX is cheapest.</li>
+              <li>A charge card paid from the Venn account keeps balances on Venn to settle the bill.</li>
+            </ul>
+          </div>
+          <div class="req-flow">
+            <p class="lbl">Money flow it brings · example 20-person firm</p>
+            <p class="req-big">+$240K</p>
+            <p>card spend a year moved onto Venn, if true spend is $40K a month but the customer keeps only $20K in Venn.</p>
+            <p class="assume">Worth roughly +$3,000 a year to Venn on the Plus plan, using the interchange assumptions in Section 1.2.</p>
+          </div>
+        </div>
+        <div class="req-grid two">
+          <div class="req-box">
+            <p class="lbl">Link to long-term strategy</p>
+            <p>A default finance platform can't cap spend at deposits; every rival that wants that title offers credit. A charge card paid in full each month keeps it "10x cheaper": no revolving interest (business cards average 19%), no personal guarantee.</p>
+          </div>
+          <div class="req-box">
+            <p class="lbl">What it would take · risks</p>
+            <ul>
+              <li>A credit or charge program with the issuing partner (H4: the disclosure already says "charge card").</li>
+              <li>Capital to fund receivables. Float raised close to CA$100M in debt facilities for this.</li>
+              <li>Underwriting on Venn's cash-flow data without slowing 5-minute onboarding.</li>
+              <li>Credit losses, and higher regulatory scrutiny.</li>
+            </ul>
+          </div>
+        </div>
+        <aside class="big-insight compact" aria-label="Verdict">
+          <p class="bi-eyebrow">Verdict · Credit cards</p>
+          <p class="bi-head">The highest-value request, and the one Venn can least afford to skip.</p>
+          <p class="bi-so"><span>But</span>It is also the riskiest. The form matters: a charge card underwritten on Venn balances limits losses and capital needs.</p>
+        </aside>
+      </div>
+      <div class="pager"><a class="pg prev" href="#e-glance"><small>&larr; Previous</small><b>3.1 · At a glance</b></a><a class="pg next" href="#e-payroll"><small>Next &rarr;</small><b>3.3 · Payroll</b></a></div>
+      </div>
+
+      <div class="sub" id="e-payroll" data-sub>
+      <div class="block">
+        <h3><span class="subnum">3.3</span>Payroll</h3>
+        <div class="req-ask">
+          <p class="lbl">What customers are asking for</p>
+          <p>Run payroll where the money already is: pay employees, remit CPP, EI and income tax to CRA, and issue T4s and ROEs, without a separate tool and a transfer between accounts.</p>
+          <p class="req-seg">Serves most: <span class="pill ok">Operating SMBs with field teams</span> <span class="pill ok">Finance-led scale-ups</span></p>
+        </div>
+        <div class="req-grid">
+          <div class="req-box">
+            <p class="lbl">Value: customer growth</p>
+            <ul>
+              <li>Payroll runs every two weeks, so it guarantees recurring transactions and active accounts.</li>
+              <li>Could attract domestic SMBs that don't need cheap FX, widening Venn's appeal.</li>
+              <li>Switching payroll mid-year is painful, so new adoption will be slow.</li>
+            </ul>
+          </div>
+          <div class="req-box">
+            <p class="lbl">Value: revenue (ARPU)</p>
+            <ul>
+              <li>A fee line: Wagepoint charges $40 a month plus $6 per employee, about $1,900 a year for 20 staff.</li>
+              <li>Funds land in Venn before each pay run, lifting balances and making Venn the primary account.</li>
+              <li>Payroll itself earns little interchange or FX.</li>
+            </ul>
+          </div>
+          <div class="req-flow">
+            <p class="lbl">Money flow it brings · example 20-person firm</p>
+            <p class="req-big">$1.4M</p>
+            <p>of payroll a year leaving from Venn, at Canada's average weekly earnings of $1,344.</p>
+            <p class="assume">Large flow, thin direct margin. The value is primacy and stickiness more than revenue.</p>
+          </div>
+        </div>
+        <div class="req-grid two">
+          <div class="req-box">
+            <p class="lbl">Link to long-term strategy</p>
+            <p>The strongest fit with "default banking platform": the business whose payroll leaves from Venn treats Venn as its main bank. It also answers H2 directly, if many customers are FX-first rather than primary-account users.</p>
+          </div>
+          <div class="req-box">
+            <p class="lbl">What it would take · risks</p>
+            <ul>
+              <li>Federal and provincial rules, CRA remittances, T4s and ROEs; errors directly hurt employees.</li>
+              <li>A crowded field: 16+ Canadian providers, many already integrated with QuickBooks and Xero.</li>
+              <li>Embedded providers cut the build: ATB Financial launched payroll on Nmbr's infrastructure.</li>
+            </ul>
+          </div>
+        </div>
+        <aside class="big-insight compact" aria-label="Verdict">
+          <p class="bi-eyebrow">Verdict · Payroll</p>
+          <p class="bi-head">The strongest long-term moat, but a slow, compliance-heavy path to growth.</p>
+          <p class="bi-so"><span>So</span>A strong candidate for a partner-led launch once Venn has more primary-account customers, rather than the next bet.</p>
+        </aside>
+      </div>
+      <div class="pager"><a class="pg prev" href="#e-credit"><small>&larr; Previous</small><b>3.2 · Credit cards</b></a><a class="pg next" href="#e-reimb"><small>Next &rarr;</small><b>3.4 · Reimbursements</b></a></div>
+      </div>
+
+      <div class="sub" id="e-reimb" data-sub>
+      <div class="block">
+        <h3><span class="subnum">3.4</span>Reimbursements</h3>
+        <div class="req-ask">
+          <p class="lbl">What customers are asking for</p>
+          <p>A way to pay employees back for mileage and out-of-pocket purchases inside Venn, instead of e-Transfers tracked in spreadsheets. Venn already offers it, but only on the Custom plan.</p>
+          <p class="req-seg">Serves most: <span class="pill ok">Operating SMBs with field teams</span></p>
+        </div>
+        <div class="req-grid">
+          <div class="req-box">
+            <p class="lbl">Value: customer growth</p>
+            <ul>
+              <li>Removes a reason to keep a second tool, which helps retention.</li>
+              <li>Rarely the deciding reason a business picks a banking platform.</li>
+              <li>Field-team SMBs value it most; customers like Office Central cite it.</li>
+            </ul>
+          </div>
+          <div class="req-box">
+            <p class="lbl">Value: revenue (ARPU)</p>
+            <ul>
+              <li>Little direct revenue: reimbursements move over free local rails.</li>
+              <li>Could become a reason to upgrade from Essentials to Plus.</li>
+              <li>Brings mileage and expense data into Venn's accounting sync.</li>
+            </ul>
+          </div>
+          <div class="req-flow">
+            <p class="lbl">Money flow it brings · example 20-person firm</p>
+            <p class="req-big">~$50K</p>
+            <p>a year paid back to employees, e.g. five field staff driving 1,000 km a month at CRA's 2026 rate of $0.73/km, plus receipts.</p>
+            <p class="assume">Small flow, near-zero margin. Value is completeness and retention.</p>
+          </div>
+        </div>
+        <div class="req-grid two">
+          <div class="req-box">
+            <p class="lbl">Link to long-term strategy</p>
+            <p>Completes the spend layer (Section 1.3 showed it as "partial"). It makes Venn better than a bank, but it doesn't make Venn the default platform on its own.</p>
+          </div>
+          <div class="req-box">
+            <p class="lbl">What it would take · risks</p>
+            <ul>
+              <li>Extend the existing Custom-plan feature to lower plans (H5).</li>
+              <li>Reuse receipt capture, approvals and local transfers already in the product.</li>
+              <li>Low risk; the main cost is opportunity cost.</li>
+            </ul>
+          </div>
+        </div>
+        <aside class="big-insight compact" aria-label="Verdict">
+          <p class="bi-eyebrow">Verdict · Reimbursements</p>
+          <p class="bi-head">A quick win, not a growth bet.</p>
+          <p class="bi-so"><span>So</span>Ship it as a fast follow or plan-upgrade lever alongside the main bet, not instead of it.</p>
+        </aside>
+      </div>
+      <div class="pager"><a class="pg prev" href="#e-payroll"><small>&larr; Previous</small><b>3.3 · Payroll</b></a><a class="pg next" href="#e-matrix"><small>Next &rarr;</small><b>3.5 · Scoring</b></a></div>
+      </div>
+
+      <div class="sub" id="e-matrix" data-sub>
+      <div class="block">
+        <h3><span class="subnum">3.5</span>Scoring the three requests</h3>
+        <p class="prose">Each request is scored 1–5 on the six criteria from Sections 1 and 2. For cost and risk, 5 means lowest risk. Adjust the weights or pick a preset to test how robust the ranking is. Click a criterion to see the reasoning.</p>
+        <div class="mx" id="mx">
+          <div class="rev-plan">
+            <span class="rev-label">Weighting</span>
+            <div class="seg-ctl" role="radiogroup" aria-label="Weighting preset">
+              <button type="button" role="radio" data-preset="balanced" aria-checked="true">Balanced</button>
+              <button type="button" role="radio" data-preset="growth" aria-checked="false">Growth first</button>
+              <button type="button" role="radio" data-preset="risk" aria-checked="false">Risk averse</button>
+            </div>
+          </div>
+          <div class="mx-scroll">
+            <table class="mx-tbl">
+              <thead><tr><th>Criterion</th><th>Weight</th><th>Credit cards</th><th>Payroll</th><th>Reimburse&shy;ments</th></tr></thead>
+              <tbody id="mx-body"></tbody>
+              <tfoot><tr><td>Weighted score</td><td class="wsum" id="mx-wsum">100%</td><td data-total="credit">–</td><td data-total="payroll">–</td><td data-total="reimb">–</td></tr></tfoot>
+            </table>
+          </div>
+          <div class="mx-bars" id="mx-bars"></div>
+          <p class="mx-read" id="mx-read"></p>
+        </div>
+      </div>
+      <div class="pager"><a class="pg prev" href="#e-reimb"><small>&larr; Previous</small><b>3.4 · Reimbursements</b></a><a class="pg next" href="#e-points"><small>Next &rarr;</small><b>3.6 · Where it points</b></a></div>
+      </div>
+
+      <div class="sub" id="e-points" data-sub>
+      <div class="block">
+        <h3><span class="subnum">3.6</span>Where the evaluation points</h3>
+        <aside class="big-insight" aria-label="Key insight">
+          <p class="bi-eyebrow">Key insight · Evaluation</p>
+          <p class="bi-head">Credit cards are the bet. The open question is the form, not the feature.</p>
+          <div class="bi-points">
+            <div><b>3 of 3</b><p>weighting presets rank credit cards first. Only a heavy weight on risk brings reimbursements close.</p></div>
+            <div><b>Uncapped</b><p>card spend is the only option that grows Venn's biggest revenue lever with each customer's business.</p></div>
+            <div><b>3 rivals</b><p>Float, Loop and Ramp already offer credit. Without it, Venn competes with one hand tied.</p></div>
+          </div>
+          <p class="bi-so"><span>So</span>Section 4 recommends a specific form of credit, sequenced with reimbursements as a quick win and payroll as a later, partner-led move.</p>
+        </aside>
+        <div class="req-grid two">
+          <div class="req-box">
+            <p class="lbl">What would change my mind</p>
+            <ul>
+              <li><b>H1 is false:</b> customers already keep enough in Venn to cover their card spend, so there is no ceiling to remove.</li>
+              <li><b>The issuing partner can't support credit</b> on a reasonable timeline or cost.</li>
+              <li><b>H2 is strongly true:</b> most customers are FX-only, making primary-account features like payroll the bigger unlock.</li>
+            </ul>
+          </div>
+          <div class="req-box">
+            <p class="lbl">What I'd validate first</p>
+            <ul>
+              <li>Card spend vs balance, and insufficient-funds declines, by segment.</li>
+              <li>Who requested credit in the survey: their balances, spend and plan.</li>
+              <li>Churn reasons and win-loss notes mentioning Float, Loop, Ramp or "credit".</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="pager"><a class="pg prev" href="#e-matrix"><small>&larr; Previous</small><b>3.5 · Scoring</b></a><div class="pg next off" aria-disabled="true"><small>Next section · In progress</small><b>04 · Recommendation</b></div></div>
+      </div>
     </section>
 
     <section class="part" id="sources">
@@ -1078,9 +1450,14 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
           <li><a href="https://risepeople.com/blog/what-is-the-best-payroll-software-in-canada/" target="_blank" rel="noopener">Best payroll software in Canada, 2026 (Rise People)</a></li>
           <li><a href="https://www.td.com/content/dam/tdct/document/pdf/business-banking/oct-2025-interchange-rates-english-general-business.pdf" target="_blank" rel="noopener">TD Merchant Solutions interchange rate chart</a></li>
           <li><a href="https://myperch.io/homeowners/bank-of-canada-interest-rate-announcement-september-2-2026/" target="_blank" rel="noopener">Bank of Canada holds at 2.25%, Sept 2, 2026 (Perch)</a></li>
+          <li><a href="https://makerstack.co/reviews/wagepoint-review/" target="_blank" rel="noopener">Wagepoint pricing review, 2026 (Makerstack)</a></li>
+          <li><a href="https://www.hcamag.com/ca/specialization/payroll/canadian-payroll-employment-flat-in-june-as-wages-rise-34/587861" target="_blank" rel="noopener">Average weekly earnings, June 2026 (HRD Canada)</a></li>
+          <li><a href="https://www.everlance.com/blog/cra-mileage-rate/" target="_blank" rel="noopener">2026 CRA automobile allowance rates (Everlance)</a></li>
+          <li><a href="https://www.businesswire.com/news/home/20251125400888/en/ATB-Financial-and-Nmbr-Announce-First-of-Its-Kind-Partnership-to-Automate-Payroll-for-Albertas-Small-Businesses" target="_blank" rel="noopener">ATB Financial and Nmbr embedded payroll (BusinessWire)</a></li>
+          <li><a href="https://www.fintech.ca/2026/02/17/nmbr-enables-embedded-payroll-inside-canadian-hr-platform/" target="_blank" rel="noopener">Nmbr embedded payroll in Collage (fintech.ca)</a></li>
         </ul>
       </div>
-      <div class="pager"><a class="pg prev" href="#market"><small>&larr; Previous</small><b>02 · Customer and market</b></a><span></span></div>
+      <div class="pager"><a class="pg prev" href="#e-points"><small>&larr; Previous</small><b>03 · Evaluating the requests</b></a><span></span></div>
     </section>
   </main>
 </div>
@@ -1269,6 +1646,94 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
       select(tabs[(i + d + tabs.length) % tabs.length], true);
     });
   });
+})();
+</script>
+<script>
+(function () {
+  var body = document.getElementById('mx-body');
+  if (!body) return;
+  var opts = [['credit', 'Credit cards'], ['payroll', 'Payroll'], ['reimb', 'Reimbursements']];
+  var crit = [
+    { k: 'active', n: 'Active-business impact', s: { credit: 4, payroll: 3, reimb: 2 },
+      why: { credit: 'Wins credit-seeking businesses and stops losses to Float, Loop and Ramp; every swipe is a revenue transaction.', payroll: 'Recurring pay runs keep accounts active, but payroll switching is slow.', reimb: 'Helps field-team SMBs; rarely the reason to choose a platform.' } },
+    { k: 'arpu', n: 'ARPU impact', s: { credit: 5, payroll: 3, reimb: 2 },
+      why: { credit: 'Removes the cap on card spend, Venn\'s growth lever.', payroll: 'About $1,900/yr in fees for 20 staff, plus deposits ahead of each pay run.', reimb: 'Small flows on free rails; value is plan upgrades.' } },
+    { k: 'strat', n: 'Strategic fit', s: { credit: 4, payroll: 5, reimb: 3 },
+      why: { credit: 'Every rival for "default platform" bundles credit.', payroll: 'Makes Venn the primary account: money in, payroll out.', reimb: 'Completes the spend workflow.' } },
+    { k: 'build', n: 'Builds on strengths', s: { credit: 4, payroll: 3, reimb: 5 },
+      why: { credit: 'Uses spend controls, balance data and the issuing partner.', payroll: 'Uses rails and deposits; compliance is new ground.', reimb: 'Already built for Custom; reuses receipts and approvals.' } },
+    { k: 'risk', n: 'Cost and risk (5 = lowest)', s: { credit: 2, payroll: 3, reimb: 5 },
+      why: { credit: 'Needs capital, a credit program and underwriting; losses are real.', payroll: 'Compliance-heavy, but embedded providers like Nmbr cut the build.', reimb: 'Extend a live feature to lower plans.' } },
+    { k: 'comp', n: 'Competitive necessity', s: { credit: 5, payroll: 2, reimb: 3 },
+      why: { credit: 'Float, Loop and Ramp all offer it.', payroll: 'No direct spend rival owns it natively.', reimb: 'Float and Ramp include it; a gap, not a deal-breaker.' } }
+  ];
+  var presets = {
+    balanced: { active: 20, arpu: 25, strat: 15, build: 10, risk: 15, comp: 15 },
+    growth: { active: 30, arpu: 30, strat: 10, build: 5, risk: 5, comp: 20 },
+    risk: { active: 15, arpu: 15, strat: 15, build: 15, risk: 30, comp: 10 }
+  };
+  var w = Object.assign({}, presets.balanced);
+  function dots(n) { var h = '<span class="dots" aria-hidden="true">'; for (var i = 1; i <= 5; i++) h += '<i class="' + (i <= n ? 'on' : '') + '"></i>'; return h + '</span>'; }
+  var html = '';
+  crit.forEach(function (c) {
+    html += '<tr class="crit" data-k="' + c.k + '" tabindex="0" aria-expanded="false"><td>' + c.n + '</td>' +
+      '<td class="w"><label class="sr" for="w-' + c.k + '" hidden>' + c.n + ' weight</label><output data-w="' + c.k + '"></output><input type="range" id="w-' + c.k + '" data-k="' + c.k + '" min="0" max="40" step="5"></td>' +
+      opts.map(function (o) { return '<td><span class="sc">' + dots(c.s[o[0]]) + '<span>' + c.s[o[0]] + ' / 5</span></span></td>'; }).join('') + '</tr>' +
+      '<tr class="why" data-why="' + c.k + '" hidden><td colspan="5"><div class="whys">' + opts.map(function (o) { return '<div><b>' + o[1] + '</b>' + c.why[o[0]] + '</div>'; }).join('') + '</div></td></tr>';
+  });
+  body.innerHTML = html;
+  var bars = document.getElementById('mx-bars');
+  bars.innerHTML = opts.map(function (o) { return '<div class="mxb" data-bar="' + o[0] + '"><span>' + o[1] + '</span><i><em></em></i><b>–</b></div>'; }).join('');
+  function render() {
+    var sum = 0; crit.forEach(function (c) { sum += w[c.k]; });
+    var tot = {};
+    opts.forEach(function (o) {
+      var t = 0; crit.forEach(function (c) { t += w[c.k] * c.s[o[0]]; });
+      tot[o[0]] = sum ? Math.round(t / sum / 5 * 100) : 0;
+    });
+    crit.forEach(function (c) {
+      document.querySelector('[data-w="' + c.k + '"]').textContent = sum ? Math.round(w[c.k] / sum * 100) + '%' : '0%';
+      document.getElementById('w-' + c.k).value = w[c.k];
+    });
+    var ws = document.getElementById('mx-wsum'); ws.textContent = 'Normalized to 100%';
+    var rank = opts.slice().sort(function (a, b) { return tot[b[0]] - tot[a[0]]; });
+    document.querySelectorAll('[data-total]').forEach(function (el) { el.textContent = tot[el.dataset.total]; });
+    opts.forEach(function (o) {
+      var row = bars.querySelector('[data-bar="' + o[0] + '"]');
+      row.querySelector('em').style.width = tot[o[0]] + '%';
+      row.querySelector('b').textContent = tot[o[0]];
+      row.classList.toggle('top', o === rank[0]);
+    });
+    var gap = tot[rank[0][0]] - tot[rank[1][0]];
+    document.getElementById('mx-read').innerHTML = '<b>' + rank[0][1] + '</b> leads with ' + tot[rank[0][0]] + ' / 100, ' +
+      (gap <= 3 ? 'only ' + gap + (gap === 1 ? ' point' : ' points') + ' ahead of ' + rank[1][1].toLowerCase() + '. The ranking is close under this weighting.' : gap + ' points ahead of ' + rank[1][1].toLowerCase() + '.');
+  }
+  body.addEventListener('input', function (e) {
+    if (!e.target.matches('input[type="range"]')) return;
+    w[e.target.dataset.k] = parseFloat(e.target.value);
+    document.querySelectorAll('[data-preset]').forEach(function (b) { b.setAttribute('aria-checked', 'false'); });
+    render();
+  });
+  function toggle(tr) {
+    var open = tr.classList.toggle('open');
+    tr.setAttribute('aria-expanded', open ? 'true' : 'false');
+    body.querySelector('[data-why="' + tr.dataset.k + '"]').hidden = !open;
+  }
+  body.addEventListener('click', function (e) {
+    if (e.target.closest('td.w')) return;
+    var tr = e.target.closest('tr.crit'); if (tr) toggle(tr);
+  });
+  body.addEventListener('keydown', function (e) {
+    var tr = e.target.closest('tr.crit');
+    if (tr && e.target === tr && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); toggle(tr); }
+  });
+  document.querySelectorAll('[data-preset]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      document.querySelectorAll('[data-preset]').forEach(function (o) { o.setAttribute('aria-checked', o === b ? 'true' : 'false'); });
+      w = Object.assign({}, presets[b.dataset.preset]); render();
+    });
+  });
+  render();
 })();
 </script>
 </body>
