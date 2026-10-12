@@ -534,14 +534,12 @@ tr.pick .sub-t { color: var(--accent); }
 .ph-offer { display: grid; gap: 8px; padding: 12px; border-radius: 10px; background: var(--accent-soft); border: 1px solid var(--accent); }
 .ph-meter { height: 8px; border-radius: 4px; background: var(--tint); overflow: hidden; }
 .ph-meter i { display: block; height: 100%; background: var(--accent); }
-.scope { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.scope { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
 .scope-col { border-radius: 10px; padding: 16px 18px; border: 1px solid var(--rule); background: var(--surface); display: grid; gap: 10px; align-content: start; }
 .scope-col.in { border-color: var(--accent); background: var(--accent-soft); }
 .scope-col.in .lbl { color: var(--accent); }
 .scope-col.out { background: var(--tint); }
 .scope-col ul { margin: 0; padding-left: 18px; display: grid; gap: 7px; font-size: 14px; line-height: 1.45; }
-.ue { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; background: var(--tint); border-radius: 10px; padding: 16px; }
-.ue-out { display: grid; gap: 8px; align-content: start; background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: 18px; }
 .ue-row { display: flex; justify-content: space-between; gap: 12px; font-size: 14.5px; padding: 8px 0; border-bottom: 1px solid var(--rule); }
 .ue-row b { font-family: var(--font-mono); font-weight: 500; font-variant-numeric: tabular-nums; color: var(--accent); }
 .ue-row.cost b { color: var(--gap); }
@@ -575,7 +573,7 @@ tr.pick .sub-t { color: var(--accent); }
 @media (max-width: 900px) {
   .jr-steps { display: flex; overflow-x: auto; scrollbar-width: none; }
   .jr-steps button { flex: 0 0 auto; }
-  .jr-panel, .ue, .scope, .metric-cols { grid-template-columns: minmax(0, 1fr); }
+  .jr-panel, .scope, .metric-cols { grid-template-columns: minmax(0, 1fr); }
   .phone { margin: 0 auto; width: 100%; }
   .tl { grid-template-columns: minmax(0, 1fr); gap: 14px; }
   .tl::before { left: 6px; right: auto; top: 0; bottom: 0; width: 2px; height: auto; }
@@ -696,7 +694,7 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
         <ol class="subnav"><li><a href="#r-rec" data-subnav="r-rec"><span class="num">4.1</span><span>The recommendation</span></a></li><li><a href="#r-form" data-subnav="r-form"><span class="num">4.2</span><span>Choosing the form</span></a></li><li><a href="#r-size" data-subnav="r-size"><span class="num">4.3</span><span>Size of the prize</span></a></li><li><a href="#r-plan" data-subnav="r-plan"><span class="num">4.4</span><span>Sequencing</span></a></li></ol>
       </li>
       <li class="has-sub"><a href="#deepdive" data-nav="deepdive"><span class="num">05</span><span>Deep dive</span></a>
-        <ol class="subnav"><li><a href="#d-problem" data-subnav="d-problem"><span class="num">5.1</span><span>Problem and users</span></a></li><li><a href="#d-journey" data-subnav="d-journey"><span class="num">5.2</span><span>Customer journey</span></a></li><li><a href="#d-mvp" data-subnav="d-mvp"><span class="num">5.3</span><span>MVP scope</span></a></li><li><a href="#d-econ" data-subnav="d-econ"><span class="num">5.4</span><span>Unit economics</span></a></li><li><a href="#d-metrics" data-subnav="d-metrics"><span class="num">5.5</span><span>Metrics</span></a></li><li><a href="#d-risks" data-subnav="d-risks"><span class="num">5.6</span><span>Risks and experiments</span></a></li><li><a href="#d-launch" data-subnav="d-launch"><span class="num">5.7</span><span>Launch plan</span></a></li></ol>
+        <ol class="subnav"><li><a href="#d-problem" data-subnav="d-problem"><span class="num">5.1</span><span>Problem and users</span></a></li><li><a href="#d-journey" data-subnav="d-journey"><span class="num">5.2</span><span>Journey and MVP</span></a></li><li><a href="#d-metrics" data-subnav="d-metrics"><span class="num">5.3</span><span>Metrics</span></a></li><li><a href="#d-launch" data-subnav="d-launch"><span class="num">5.4</span><span>Launch plan</span></a></li></ol>
       </li>
       <li><a href="#summary" data-nav="summary"><span class="num">06</span><span>Summary</span></a></li>
       <li class="navsep"><a href="#assumptions" data-nav="assumptions"><span class="num">A</span><span>Assumptions</span></a></li>
@@ -718,7 +716,7 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
         <li><a class="step done" href="#market"><i>Step 2</i><b>Customer and market</b><span>The ICP's jobs and the alternatives they use</span><em>Open section &rarr;</em></a></li>
         <li><a class="step done" href="#evaluate"><i>Step 3</i><b>Evaluate options</b><span>Score the three requests on shared criteria</span><em>Open section &rarr;</em></a></li>
         <li><a class="step done" href="#recommend"><i>Step 4</i><b>Decide</b><span>Pick one bet and make the case</span><em>Open section &rarr;</em></a></li>
-        <li><a class="step done" href="#deepdive"><i>Step 5</i><b>Deep dive</b><span>Problem, MVP, risks, metrics, rollout</span><em>Open section &rarr;</em></a></li>
+        <li><a class="step done" href="#deepdive"><i>Step 5</i><b>Deep dive</b><span>Problem, journey, MVP, metrics, launch</span><em>Open section &rarr;</em></a></li>
         <li><a class="step done" href="#summary"><i>Step 6</i><b>Summary</b><span>The recommendation and next steps</span><em>Open section &rarr;</em></a></li>
       </ol>
       <p class="prose muted">Facts are linked to their sources, and hypotheses are labelled as such: they are what I would validate with Venn's internal data in my first weeks. Each section opens with its key finding, and the recommendation comes together in the summary at the end. Sliders and green buttons are interactive, so you can test my assumptions yourself.</p>
@@ -1381,14 +1379,14 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
             <ul>
               <li>Removes the ceiling on interchange, the stream that grows with a customer's business (Section 1.2).</li>
               <li>Statements are paid from the Venn account, so customers keep more cash with Venn, and USD balances earn a real margin (1.2).</li>
-              <li>Margin depends on the plan: uncapped Pro cashback absorbs most of it, so rewards need care (5.4).</li>
+              <li>Margin depends on the plan: uncapped Pro cashback absorbs most of it, so rewards need care.</li>
             </ul>
           </div>
           <div class="req-flow">
             <p class="lbl">Money flow it brings · example 20-person firm</p>
             <p class="req-big">+$240K</p>
             <p>card spend a year moved onto Venn, for a firm that keeps $30K in Venn but wants to put $50K a month on cards.</p>
-            <p class="assume">About +$3,600 a year in extra interchange on Plus, after issuer costs but before funding costs and losses. The net figure is in 5.4.</p>
+            <p class="assume">About +$3,600 a year in extra interchange on Plus, after issuer costs. Net of funding costs and losses, about +$2,300.</p>
           </div>
         </div>
         <div class="req-grid two">
@@ -1598,7 +1596,7 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
             <div><dt>Spending power</dt><dd>Cash in Venn, plus a credit limit that starts at about the average Venn balance and grows with cash-flow history</dd></div>
             <div><dt>Repayment</dt><dd>Whatever the credit card covers is auto-paid in full from the Venn account on a 30-day cycle</dd></div>
             <div><dt>Cost to customer</dt><dd>No interest, no annual fee, no personal guarantee</dd></div>
-            <div><dt>Rewards</dt><dd>Today's 1% cashback and FX rates during the beta; rewards designed for the credit card tested before scaling (5.4)</dd></div>
+            <div><dt>Rewards</dt><dd>Today's 1% cashback and FX rates during the beta; rewards designed for the credit card tested before scaling</dd></div>
             <div><dt>Getting it</dt><dd>A pre-approved, in-app offer; cards, limits and controls stay the same</dd></div>
           </dl>
         </div>
@@ -1767,7 +1765,7 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
         <p class="eyebrow">05 · Deep dive</p>
         <h2>How I'd build and launch the credit card</h2>
       </div>
-      <nav class="substep" aria-label="Section 5 parts"><a href="#d-problem" data-subnav="d-problem"><span>5.1</span>Problem</a><a href="#d-journey" data-subnav="d-journey"><span>5.2</span>Journey</a><a href="#d-mvp" data-subnav="d-mvp"><span>5.3</span>MVP</a><a href="#d-econ" data-subnav="d-econ"><span>5.4</span>Economics</a><a href="#d-metrics" data-subnav="d-metrics"><span>5.5</span>Metrics</a><a href="#d-risks" data-subnav="d-risks"><span>5.6</span>Risks</a><a href="#d-launch" data-subnav="d-launch"><span>5.7</span>Launch</a></nav>
+      <nav class="substep" aria-label="Section 5 parts"><a href="#d-problem" data-subnav="d-problem"><span>5.1</span>Problem</a><a href="#d-journey" data-subnav="d-journey"><span>5.2</span>Journey and MVP</a><a href="#d-metrics" data-subnav="d-metrics"><span>5.3</span>Metrics</a><a href="#d-launch" data-subnav="d-launch"><span>5.4</span>Launch</a></nav>
 
       <div class="sub" id="d-problem" data-sub>
       <div class="block">
@@ -1802,25 +1800,13 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
             </dl>
           </article>
         </div>
-        <div class="tbl">
-          <table>
-            <thead><tr><th>User story</th><th>Acceptance criteria</th></tr></thead>
-            <tbody>
-              <tr><td>As a founder, I want to see that I'm pre-approved for the credit card and my limit</td><td>Offer shows the limit, repayment date and that there's no interest or personal guarantee</td></tr>
-              <tr><td>As a founder, I want to accept in one step, keeping my existing cards</td><td>Acceptance takes under a minute; card numbers and controls are unchanged</td></tr>
-              <tr><td>As a controller, I want to see what's owed and when it will be debited</td><td>Statement balance, due date and the debit account are visible on the home screen</td></tr>
-              <tr><td>As a controller, I want statements to sync to QuickBooks or Xero</td><td>credit card transactions sync with the same rules as today's card spend</td></tr>
-              <tr><td>As a cardholder, I want my card to work even when the balance is low</td><td>Authorizations use cash first, then available credit</td></tr>
-            </tbody>
-          </table>
-        </div>
       </div>
-      <div class="pager"><a class="pg prev" href="#r-plan"><small>&larr; Previous section</small><b>04 · Recommendation</b></a><a class="pg next" href="#d-journey"><small>Next &rarr;</small><b>5.2 · Customer journey</b></a></div>
+      <div class="pager"><a class="pg prev" href="#r-plan"><small>&larr; Previous section</small><b>04 · Recommendation</b></a><a class="pg next" href="#d-journey"><small>Next &rarr;</small><b>5.2 · Journey and MVP</b></a></div>
       </div>
 
       <div class="sub" id="d-journey" data-sub>
       <div class="block">
-        <h3><span class="subnum">5.2</span>The customer journey</h3>
+        <h3><span class="subnum">5.2</span>The customer journey and MVP</h3>
         <p class="prose">Six moments, from pre-approval to a limit that grows. Click a step to see what the customer sees and what happens behind it.</p>
         <div class="jr" id="jr">
           <div class="jr-steps" role="tablist" aria-label="Journey steps">
@@ -1858,13 +1844,7 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
           </div>
         </div>
         <p class="assume">Screens are low-fidelity sketches to show content and flow, not final design.</p>
-      </div>
-      <div class="pager"><a class="pg prev" href="#d-problem"><small>&larr; Previous</small><b>5.1 · Problem and users</b></a><a class="pg next" href="#d-mvp"><small>Next &rarr;</small><b>5.3 · MVP scope</b></a></div>
-      </div>
-
-      <div class="sub" id="d-mvp" data-sub>
-      <div class="block">
-        <h3><span class="subnum">5.3</span>MVP scope</h3>
+        <h4 class="mini-h">MVP scope</h4>
         <p class="prose">The MVP proves one thing: existing customers will move more spend onto Venn when the balance ceiling is removed, and repay reliably. Everything else waits.</p>
         <div class="scope">
           <div class="scope-col in">
@@ -1890,65 +1870,14 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
               <li>Rewards designed for the credit card</li>
             </ul>
           </div>
-          <div class="scope-col dep">
-            <p class="lbl">Dependencies</p>
-            <ul>
-              <li><b>Issuing partner:</b> credit program approval and terms</li>
-              <li><b>Funding:</b> balance-sheet capital for beta receivables</li>
-              <li><b>Risk:</b> eligibility rules, loss budget, limit policy</li>
-              <li><b>Legal and compliance:</b> cardholder terms and disclosures</li>
-              <li><b>Support:</b> playbooks for statements and failed payments</li>
-            </ul>
-          </div>
         </div>
       </div>
-      <div class="pager"><a class="pg prev" href="#d-journey"><small>&larr; Previous</small><b>5.2 · Customer journey</b></a><a class="pg next" href="#d-econ"><small>Next &rarr;</small><b>5.4 · Unit economics</b></a></div>
-      </div>
-
-      <div class="sub" id="d-econ" data-sub>
-      <div class="block">
-        <h3><span class="subnum">5.4</span>Unit economics</h3>
-        <p class="prose">The credit card creates revenue from new spend, but it costs capital to fund what the credit card covers until it's repaid, and some customers won't pay. Adjust the inputs, or switch the funding design, to see when a credit card customer is profitable.</p>
-        <div class="ue" id="ue">
-          <div class="calc">
-            <div class="seg-ctl small" role="radiogroup" aria-label="Customer plan">
-              <button type="button" role="radio" data-uplan="plus" aria-checked="true">Plus · cashback capped at $25K</button>
-              <button type="button" role="radio" data-uplan="pro" aria-checked="false">Pro · uncapped cashback</button>
-            </div>
-            <div class="seg-ctl small" role="radiogroup" aria-label="Funding design">
-              <button type="button" role="radio" data-ufund="cash" aria-checked="true">Cash first</button>
-              <button type="button" role="radio" data-ufund="float" aria-checked="false">Full float</button>
-            </div>
-            <label for="u-base">Card spend today, covered by cash <output data-u="base"></output></label>
-            <input type="range" id="u-base" data-uk="base" min="5000" max="150000" step="5000" value="30000">
-            <label for="u-spend">Card spend with the credit card <output data-u="spend"></output></label>
-            <input type="range" id="u-spend" data-uk="spend" min="5000" max="300000" step="5000" value="50000">
-            <label for="u-cap">Cost of capital <output data-u="cap"></output></label>
-            <input type="range" id="u-cap" data-uk="cap" min="4" max="14" step="0.5" value="8">
-            <label for="u-loss">Annual loss rate on credit used beyond cash <output data-u="loss"></output></label>
-            <input type="range" id="u-loss" data-uk="loss" min="0" max="10" step="0.5" value="2">
-            <p class="assume">Assumptions: Venn keeps about 1.5% of spend after issuer and processing costs (1.2); balances are outstanding about 17 days on average. Cash first funds only the extra spend the credit card enables; full float funds all card spend. All illustrative; see Appendix A.</p>
-          </div>
-          <div class="ue-out">
-            <div class="ue-row"><span>Extra interchange, net of cashback</span><b data-u="rev"></b></div>
-            <div class="ue-row cost"><span>Cost of funding what the credit card covers</span><b data-u="capc"></b></div>
-            <div class="ue-row cost"><span>Expected credit losses</span><b data-u="lossc"></b></div>
-            <div class="ue-total"><span>Contribution per credit card customer, per year</span><b data-u="net"></b></div>
-            <p class="ue-note" data-u="note"></p>
-          </div>
-        </div>
-        <aside class="big-insight compact" aria-label="Key insight">
-          <p class="bi-eyebrow">Key insight · Unit economics</p>
-          <p class="bi-head">Cash first is what makes the credit card pay: about +$2,300 a year per Plus customer, versus about +$900 if Venn floats all spend.</p>
-          <p class="bi-so"><span>But</span>Pro customers only break even, because their cashback is uncapped. Test rewards designed for the credit card before scaling, such as lower cashback on spend the credit card covers, and count retention against Float and Ramp as part of the return.</p>
-        </aside>
-      </div>
-      <div class="pager"><a class="pg prev" href="#d-mvp"><small>&larr; Previous</small><b>5.3 · MVP scope</b></a><a class="pg next" href="#d-metrics"><small>Next &rarr;</small><b>5.5 · Metrics</b></a></div>
+      <div class="pager"><a class="pg prev" href="#d-problem"><small>&larr; Previous</small><b>5.1 · Problem and users</b></a><a class="pg next" href="#d-metrics"><small>Next &rarr;</small><b>5.3 · Metrics</b></a></div>
       </div>
 
       <div class="sub" id="d-metrics" data-sub>
       <div class="block">
-        <h3><span class="subnum">5.5</span>How we'll measure success</h3>
+        <h3><span class="subnum">5.3</span>How we'll measure success</h3>
         <div class="ns">
           <p class="lbl">North-star metric</p>
           <p class="ns-name">Incremental card spend per eligible customer</p>
@@ -1967,7 +1896,7 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
             <p class="lbl">Company outcomes</p>
             <div class="m"><b>Active businesses</b><span>Retention of credit card cohort vs holdout</span><em>Higher</em></div>
             <div class="m"><b>ARPU</b><span>Revenue per credit card customer vs holdout</span><em>Higher</em></div>
-            <div class="m"><b>Plan mix</b><span>Moves between plans; Pro upgrades lower credit card margins (5.4)</span><em>Tracked</em></div>
+            <div class="m"><b>Plan mix</b><span>Moves between plans; Pro upgrades lower credit card margins</span><em>Tracked</em></div>
           </div>
           <div class="mcol guard">
             <p class="lbl">Guardrails</p>
@@ -1979,43 +1908,12 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
         </div>
         <p class="assume">Targets are proposals for the beta, to be set with Venn's risk and finance teams.</p>
       </div>
-      <div class="pager"><a class="pg prev" href="#d-econ"><small>&larr; Previous</small><b>5.4 · Unit economics</b></a><a class="pg next" href="#d-risks"><small>Next &rarr;</small><b>5.6 · Risks and experiments</b></a></div>
-      </div>
-
-      <div class="sub" id="d-risks" data-sub>
-      <div class="block">
-        <h3><span class="subnum">5.6</span>Risks and experiments</h3>
-        <p class="prose">A pre-mortem: it's six months after launch and the credit card has failed. These are the most likely reasons, how we'd spot them early, and what we'd do.</p>
-        <div class="tbl">
-          <table>
-            <thead><tr><th>Why it failed</th><th>Early signal</th><th>Response</th></tr></thead>
-            <tbody>
-              <tr><td>Customers didn't need it (H1 false)</td><td>Few low-funds declines in the data; low acceptance</td><td>Caught at Gate A, before building</td></tr>
-              <tr><td>The offer wasn't compelling</td><td>Acceptance under 40%</td><td>Test limit size, copy and placement</td></tr>
-              <tr><td>Customers accepted but didn't spend more</td><td>Low utilization; no lift vs holdout</td><td>Interview non-users; target customers with declines first</td></tr>
-              <tr><td>Losses spiked</td><td>Delinquency above 1%; falling balances</td><td>Tighten eligibility; daily limit reviews; pause new offers</td></tr>
-              <tr><td>The partner moved slowly</td><td>No signed terms by month 2</td><td>Escalate early; explore a second issuer</td></tr>
-              <tr><td>Operations couldn't keep up</td><td>Support tickets per customer rising</td><td>Self-serve statements; collections playbook before beta</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="req-grid two">
-          <div class="req-box">
-            <p class="lbl">Experiment 1 · Incrementality</p>
-            <p>Randomly hold back 20% of pre-qualified customers from the offer. Compare spend, retention and deposits over 90 days. This is the only way to know the credit card caused the lift.</p>
-          </div>
-          <div class="req-box">
-            <p class="lbl">Experiment 2 · Limit sizing</p>
-            <p>Test two credit limits (0.5x and 1x the average balance) on similar customers. Measure the spend gained per dollar of exposure, which tells risk where to set Phase 2 limits.</p>
-          </div>
-        </div>
-      </div>
-      <div class="pager"><a class="pg prev" href="#d-metrics"><small>&larr; Previous</small><b>5.5 · Metrics</b></a><a class="pg next" href="#d-launch"><small>Next &rarr;</small><b>5.7 · Launch plan</b></a></div>
+      <div class="pager"><a class="pg prev" href="#d-journey"><small>&larr; Previous</small><b>5.2 · Journey and MVP</b></a><a class="pg next" href="#d-launch"><small>Next &rarr;</small><b>5.4 · Launch plan</b></a></div>
       </div>
 
       <div class="sub" id="d-launch" data-sub>
       <div class="block">
-        <h3><span class="subnum">5.7</span>Launch plan and my first 90 days</h3>
+        <h3><span class="subnum">5.4</span>Launch plan and my first 90 days</h3>
         <div class="tl">
           <div class="tl-item"><span class="tl-when">Month 0–2</span><b>Validate</b><p>Data pull on H1 and H4; partner terms; risk policy and loss budget. Gate A.</p></div>
           <div class="tl-item"><span class="tl-when">Month 2–4</span><b>Build the MVP</b><p>Eligibility, offer, authorization, statements, auto-pay, risk console.</p></div>
@@ -2023,26 +1921,16 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
           <div class="tl-item"><span class="tl-when">Month 4–6</span><b>Beta in waves</b><p>A first wave of pre-qualified Plus and Pro customers, then a larger second wave, each with a holdout.</p></div>
           <div class="tl-item key"><span class="tl-when">Month 6</span><b>Gate B review</b><p>Lift vs holdout and losses vs budget. Decide on Phase 2; unit economics are tested at Gate C.</p></div>
         </div>
-        <div class="req-grid two">
-          <div class="req-box">
-            <p class="lbl">Team</p>
-            <ul>
-              <li>PM (me), a designer and a squad of about five engineers across cards, ledger and mobile</li>
-              <li>A credit risk lead and a data analyst, embedded from day one</li>
-              <li>Partner management, legal and compliance, and a support lead as close collaborators</li>
-            </ul>
-          </div>
-          <div class="req-box">
+        <div class="req-box">
             <p class="lbl">My first 90 days</p>
             <ul>
               <li><b>Days 1–30:</b> run the H1–H5 data pulls; interview 20 customers with low-funds declines; map the partner's credit requirements.</li>
               <li><b>Days 31–60:</b> agree the risk policy and loss budget; write the MVP spec; pass Gate A.</li>
               <li><b>Days 61–90:</b> build sprint underway; holdout design signed off; beta cohort selected.</li>
             </ul>
-          </div>
         </div>
       </div>
-      <div class="pager"><a class="pg prev" href="#d-risks"><small>&larr; Previous</small><b>5.6 · Risks and experiments</b></a><a class="pg next" href="#summary"><small>Next section &rarr;</small><b>06 · Summary</b></a></div>
+      <div class="pager"><a class="pg prev" href="#d-metrics"><small>&larr; Previous</small><b>5.3 · Metrics</b></a><a class="pg next" href="#summary"><small>Next section &rarr;</small><b>06 · Summary</b></a></div>
       </div>
     </section>
 
@@ -2097,7 +1985,7 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
           <thead><tr><th>Assumption</th><th>Value used</th><th>Basis</th><th>How I'd validate it</th><th>Used in</th></tr></thead>
           <tbody>
             <tr class="grp"><td colspan="5">Venn's business today</td></tr>
-            <tr><td>Card interchange, net of issuer and processing costs</td><td class="num">~2.0% interchange, less ~0.5% costs = ~1.5% of spend</td><td>Commercial Mastercard interchange is about 2.0%; the issuing bank and processors keep part</td><td>Issuing-partner program agreement</td><td class="num">1.2, 3.1, 4.3, 5.4</td></tr>
+            <tr><td>Card interchange, net of issuer and processing costs</td><td class="num">~2.0% interchange, less ~0.5% costs = ~1.5% of spend</td><td>Commercial Mastercard interchange is about 2.0%; the issuing bank and processors keep part</td><td>Issuing-partner program agreement</td><td class="num">1.2, 3.1, 4.3</td></tr>
             <tr><td>Yield Venn earns on deposits</td><td class="num">CAD up to 2.25%; USD up to 3.75%</td><td>Policy rates as ceilings: Bank of Canada 2.25%, US Fed 3.75–4.00%</td><td>Partner-bank terms</td><td class="num">1.2</td></tr>
             <tr><td>Illustrative Plus customer</td><td class="num">$40K FX and $20K card spend a month; $150K in balances</td><td>Illustration only, to show the revenue mix</td><td>Revenue mix by plan from Venn's data</td><td class="num">1.2</td></tr>
             <tr><td>Venn's 15,000+ businesses are sign-ups, not actives</td><td class="num">Unknown active share</td><td>Venn's site counts businesses, not monthly actives (H3)</td><td>Monthly active rate by cohort and plan</td><td class="num">2.1, 4.3</td></tr>
@@ -2108,22 +1996,22 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
             <tr><td>Scoring weights and scores</td><td class="num">Growth-first 30 / 30 / 10 / 5 / 5 / 20; risk-averse 15 / 15 / 15 / 15 / 30 / 10</td><td>My judgment, tested under two weightings</td><td>Leadership's priorities</td><td class="num">3.4</td></tr>
             <tr><td>Payroll fee benchmark</td><td class="num">~$1,900 a year for 20 staff</td><td>Wagepoint Unlimited: $40 a month plus $6 per employee</td><td>Embedded-partner pricing</td><td class="num">3.2</td></tr>
             <tr class="grp"><td colspan="5">Credit card: one customer</td></tr>
-            <tr><td>Example credit card customer</td><td class="num">Keeps $30K in Venn; wants $50K a month on cards; $80K monthly inflows</td><td>Illustrative 20-person firm</td><td>H1 data pull: card spend vs balance, top-ups, declines</td><td class="num">3.1, 4.2, 5.2, 5.4</td></tr>
+            <tr><td>Example credit card customer</td><td class="num">Keeps $30K in Venn; wants $50K a month on cards; $80K monthly inflows</td><td>Illustrative 20-person firm</td><td>H1 data pull: card spend vs balance, top-ups, declines</td><td class="num">3.1, 4.2, 5.2</td></tr>
             <tr><td>Spend beyond cash goes elsewhere today</td><td class="num">All of it</td><td>Simplification; some customers top up instead</td><td>Top-up frequency and low-funds declines (H1)</td><td class="num">3.1, 4.2</td></tr>
-            <tr><td>Phase 1 credit limit</td><td class="num">About 1x average balance, capped at $250K</td><td>Illustrative policy that keeps exposure close to visible cash</td><td>Experiment 2 and the risk team</td><td class="num">4.2, 5.2</td></tr>
+            <tr><td>Phase 1 credit limit</td><td class="num">About 1x average balance, capped at $250K</td><td>Illustrative policy that keeps exposure close to visible cash</td><td>A limit-sizing test and the risk team</td><td class="num">4.2, 5.2</td></tr>
             <tr><td>Phase 2 full-float limit</td><td class="num">Higher of 2x balance or one month of inflows, capped at $500K</td><td>Illustrative policy</td><td>Phase 1 loss and repayment data</td><td class="num">4.2</td></tr>
-            <tr><td>Days that credit card balances are outstanding</td><td class="num">About 17 days</td><td>Purchases spread across a 30-day cycle, plus about 2 days to settle</td><td>Card transaction data</td><td class="num">4.3, 5.4</td></tr>
-            <tr><td>Cost of capital</td><td class="num">8% a year</td><td>Canadian prime is 4.45%; credit facilities for card receivables price above prime</td><td>Debt facility term sheets</td><td class="num">4.3, 5.4</td></tr>
-            <tr><td>Credit loss rate</td><td class="num">2% a year on credit used</td><td>Placeholder for a cash-first product, to be replaced by an agreed loss budget</td><td>Beta losses against budget</td><td class="num">4.3, 5.4</td></tr>
+            <tr><td>Days that credit card balances are outstanding</td><td class="num">About 17 days</td><td>Purchases spread across a 30-day cycle, plus about 2 days to settle</td><td>Card transaction data</td><td class="num">4.3</td></tr>
+            <tr><td>Cost of capital</td><td class="num">8% a year</td><td>Canadian prime is 4.45%; credit facilities for card receivables price above prime</td><td>Debt facility term sheets</td><td class="num">4.3</td></tr>
+            <tr><td>Credit loss rate</td><td class="num">2% a year on credit used</td><td>Placeholder for a cash-first product, to be replaced by an agreed loss budget</td><td>Beta losses against budget</td><td class="num">4.3</td></tr>
             <tr class="grp"><td colspan="5">Credit card: at scale</td></tr>
             <tr><td>Customers pre-qualified</td><td class="num">20% of 15,000+</td><td>Many sign-ups won't be active or meet eligibility rules (H3)</td><td>Run the eligibility rules on real data</td><td class="num">4.3</td></tr>
-            <tr><td>Adoption</td><td class="num">28% (40% accept × 70% activate)</td><td>The proposed beta targets</td><td>Beta funnel</td><td class="num">4.3, 5.5</td></tr>
+            <tr><td>Adoption</td><td class="num">28% (40% accept × 70% activate)</td><td>The proposed beta targets</td><td>Beta funnel</td><td class="num">4.3, 5.3</td></tr>
             <tr><td>Card spend per adopter today</td><td class="num">$20K a month</td><td>Below the example customer, since many adopters will be smaller</td><td>Card spend of pre-qualified customers</td><td class="num">4.3</td></tr>
-            <tr><td>Spend lift among adopters</td><td class="num">50%</td><td>Below the example customer's 67%, to stay conservative</td><td>Comparison with the holdout</td><td class="num">4.3, 5.5</td></tr>
+            <tr><td>Spend lift among adopters</td><td class="num">50%</td><td>Below the example customer's 67%, to stay conservative</td><td>Comparison with the holdout</td><td class="num">4.3, 5.3</td></tr>
             <tr><td>Net interchange margin on new spend</td><td class="num">1.0%</td><td>Blend of 1.5% on Plus above the $25K cashback cap and 0.5% on Pro or below the cap</td><td>Plan mix of adopters</td><td class="num">4.3</td></tr>
             <tr><td>Churn avoided</td><td class="num">5 points a year, at $4,900 of revenue per customer</td><td>Defensive value against Float, Loop and Ramp; revenue from the 1.2 example</td><td>Retention vs holdout</td><td class="num">4.3</td></tr>
-            <tr><td>Beta offer size</td><td class="num">300 pre-qualified customers</td><td>Large enough to read a holdout, small enough to fund from the balance sheet</td><td>Sample-size calculation with the data team</td><td class="num">4.3, 5.7</td></tr>
-            <tr><td>Beta targets</td><td class="num">+15% spend vs holdout; 40% accept; 70% activate; ≤1% delinquency</td><td>Proposals that are consistent with each other</td><td>Set with risk and finance</td><td class="num">5.5</td></tr>
+            <tr><td>Beta offer size</td><td class="num">300 pre-qualified customers</td><td>Large enough to read a holdout, small enough to fund from the balance sheet</td><td>Sample-size calculation with the data team</td><td class="num">4.3, 5.4</td></tr>
+            <tr><td>Beta targets</td><td class="num">+15% spend vs holdout; 40% accept; 70% activate; ≤1% delinquency</td><td>Proposals that are consistent with each other</td><td>Set with risk and finance</td><td class="num">5.3</td></tr>
           </tbody>
         </table>
       </div>
@@ -2451,43 +2339,6 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
     t.addEventListener('keydown', function (e) { var d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0; if (!d) return; e.preventDefault(); sel(tabs[(i + d + tabs.length) % tabs.length], true); });
   });
 
-  var ue = document.getElementById('ue');
-  if (!ue) return;
-  var st = { plan: 'plus', fund: 'cash' };
-  function money(n) { var r = Math.round(n); return (r < 0 ? '\u2212$' : '$') + Math.abs(r).toLocaleString('en-CA'); }
-  function k(n) { return '$' + Math.round(n / 1000) + 'K'; }
-  function render() {
-    if (st.spend < st.base) st.spend = st.base;
-    document.getElementById('u-spend').value = st.spend;
-    var cap = st.plan === 'plus' ? 25000 : Infinity, share = 0.015;
-    function net(sp) { return sp * share - Math.min(sp, cap) * 0.01; }
-    var rev = (net(st.spend) - net(st.base)) * 12;
-    var outstanding = (st.fund === 'cash' ? Math.max(0, st.spend - st.base) : st.spend) * 17 / 30;
-    var capc = outstanding * st.cap / 100;
-    var lossc = Math.max(0, st.spend - st.base) * st.loss / 100;
-    var tot = rev - capc - lossc;
-    ue.querySelector('[data-u="base"]').textContent = k(st.base) + '/mo';
-    ue.querySelector('[data-u="spend"]').textContent = k(st.spend) + '/mo';
-    ue.querySelector('[data-u="cap"]').textContent = st.cap.toFixed(1) + '%';
-    ue.querySelector('[data-u="loss"]').textContent = st.loss.toFixed(1) + '%';
-    ue.querySelector('[data-u="rev"]').textContent = '+' + money(rev);
-    ue.querySelector('[data-u="capc"]').textContent = '\u2212' + money(capc);
-    ue.querySelector('[data-u="lossc"]').textContent = '\u2212' + money(lossc);
-    var t = ue.querySelector('[data-u="net"]'); t.textContent = money(tot); t.classList.toggle('neg', tot < 0);
-    var be = outstanding ? (rev - lossc) / outstanding * 100 : 0;
-    ue.querySelector('[data-u="note"]').textContent = tot >= 0
-      ? 'Profitable. It stays positive up to a cost of capital of about ' + Math.max(0, be).toFixed(1) + '%.'
-      : (be > 0 ? 'Loss-making. It would need a cost of capital below ' + be.toFixed(1) + '%, more extra spend, or lower cashback on credit card spend.' : 'Loss-making at any cost of capital: the extra interchange does not cover expected losses. Lower cashback or tighter limits are needed.');
-  }
-  ue.querySelectorAll('input[type="range"]').forEach(function (inp) {
-    st[inp.dataset.uk] = parseFloat(inp.value);
-    inp.addEventListener('input', function () { st[inp.dataset.uk] = parseFloat(inp.value); render(); });
-  });
-  var pl = Array.prototype.slice.call(ue.querySelectorAll('[data-uplan]'));
-  pl.forEach(function (b) { b.addEventListener('click', function () { pl.forEach(function (o) { o.setAttribute('aria-checked', o === b ? 'true' : 'false'); }); st.plan = b.dataset.uplan; render(); }); });
-  var fd = Array.prototype.slice.call(ue.querySelectorAll('[data-ufund]'));
-  fd.forEach(function (b) { b.addEventListener('click', function () { fd.forEach(function (o) { o.setAttribute('aria-checked', o === b ? 'true' : 'false'); }); st.fund = b.dataset.ufund; render(); }); });
-  render();
 })();
 </script>
 <script>
