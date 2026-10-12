@@ -301,6 +301,64 @@ td .sub { display: block; font-weight: 400; font-size: 13px; color: var(--muted)
   .big-insight { padding: 22px 18px; }
 }
 
+/* Strengths explorer */
+.lbl { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+.lbl.so { color: var(--accent); }
+.sw { border: 1px solid var(--rule); border-radius: 10px; background: var(--surface); padding: 16px; display: grid; gap: 14px; }
+.sw-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+.sw-tile { font: inherit; text-align: left; display: grid; gap: 3px; align-content: start; padding: 12px 14px; border-radius: 8px; border: 1px solid var(--rule); background: var(--bg); color: var(--fg); cursor: pointer; transition: border-color .15s, transform .15s; min-width: 0; }
+.sw-tile i { font-style: normal; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.sw-tile b { font-family: var(--font-display); font-weight: 500; font-size: 15.5px; line-height: 1.25; }
+.sw-tile span { font-family: var(--font-mono); font-size: 12px; color: var(--accent); }
+.sw-tile:hover { border-color: var(--accent); transform: translateY(-1px); }
+.sw-tile[aria-selected="true"] { background: var(--accent); border-color: var(--accent); color: var(--surface); }
+.sw-tile[aria-selected="true"] i, .sw-tile[aria-selected="true"] span { color: var(--surface); opacity: .85; }
+.sw-panel { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; padding: 16px 18px; background: var(--tint); border-radius: 8px; font-size: 14.5px; line-height: 1.55; }
+.rels { display: grid; gap: 6px; }
+.rel { display: grid; gap: 1px; font-size: 13px; color: var(--muted); padding: 7px 10px; border-radius: 6px; background: var(--surface); border-left: 3px solid var(--accent); }
+.rel b { font-size: 12.5px; color: var(--accent); font-weight: 600; }
+.rel.warn { border-left-color: var(--partial); }
+.rel.warn b { color: var(--partial); }
+.rel.none { border-left-color: var(--rule); }
+.tally { display: grid; gap: 6px; border-top: 1px solid var(--rule); padding-top: 12px; }
+.tl-row { display: grid; grid-template-columns: 130px minmax(0, 1fr) 60px; gap: 12px; align-items: center; font-size: 13.5px; }
+.tl-row i { display: block; height: 10px; background: var(--tint); border-radius: 3px; overflow: hidden; }
+.tl-row em { display: block; height: 100%; background: var(--accent); border-radius: 3px; }
+.tl-row b { font-family: var(--font-mono); font-size: 12.5px; font-weight: 500; text-align: right; }
+
+/* Hypotheses */
+.hyps2 { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.hyp { display: grid; grid-template-columns: 44px minmax(0, 1.3fr) minmax(0, 1fr) 130px; gap: 16px; align-items: start; padding: 16px 18px; background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; }
+.hnum { font-family: var(--font-mono); font-size: 13px; font-weight: 500; color: var(--accent); background: var(--accent-soft); border-radius: 6px; padding: 4px 0; text-align: center; }
+.hbody b { display: block; font-weight: 600; line-height: 1.4; margin-bottom: 3px; }
+.hbody p, .htest p { font-size: 14px; line-height: 1.5; color: var(--muted); }
+.htest p:not(.lbl) { color: var(--fg); }
+.hyp .lbl { font-size: 10.5px; line-height: 1.4; color: var(--muted); margin-bottom: 4px; }
+
+/* Sub-sections */
+.substep { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; display: flex; gap: 4px; overflow-x: auto; padding-block: 10px; background: var(--bg); border-bottom: 1px solid var(--rule); scrollbar-width: none; }
+.substep::-webkit-scrollbar { display: none; }
+.substep a { display: inline-flex; gap: 5px; align-items: baseline; white-space: nowrap; font-size: 12.5px; text-decoration: none; color: var(--fg); padding: 5px 10px; border-radius: 999px; border: 1px solid var(--rule); background: var(--surface); flex: none; }
+.substep a span { font-family: var(--font-mono); font-size: 11px; color: var(--muted); }
+.substep a:hover { border-color: var(--accent); }
+.substep a.on { background: var(--accent); border-color: var(--accent); color: var(--surface); }
+.substep a.on span { color: var(--surface); opacity: .85; }
+.sub { display: grid; gap: 28px; }
+.subnum { font-family: var(--font-mono); font-size: 14px; color: var(--accent); margin-right: 10px; letter-spacing: 0; }
+nav.index .subnav { list-style: none; margin: 2px 0 6px 28px; padding: 0 0 0 10px; border-left: 1px solid var(--rule); display: none; gap: 0; }
+nav.index li.has-sub.open .subnav { display: grid; }
+nav.index .subnav a { padding: 5px 8px; font-size: 13px; grid-template-columns: 26px 1fr; color: var(--muted); }
+nav.index .subnav a .num { font-size: 11px; }
+nav.index .subnav a.on { background: transparent; color: var(--accent); font-weight: 600; }
+nav.index .subnav a:hover { color: var(--fg); }
+@media (max-width: 900px) {
+  nav.index .subnav, nav.index li.has-sub.open .subnav { display: none; }
+  .sw-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sw-panel { grid-template-columns: minmax(0, 1fr); }
+  .hyp { grid-template-columns: 40px minmax(0, 1fr); }
+  .htest, .hinf { grid-column: 2; }
+}
+
 /* Paging */
 .pager { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; padding-top: 28px; border-top: 1px solid var(--rule); margin-top: 8px; }
 .pg { display: grid; gap: 4px; padding: 18px 20px; border: 1px solid var(--rule); border-radius: 8px; background: var(--surface); text-decoration: none; color: var(--fg); transition: border-color .15s, background .15s; }
@@ -369,7 +427,9 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
     <p class="navlabel">Contents</p>
     <ol>
       <li><a href="#approach" class="on" data-nav="approach"><span class="num">00</span><span>Approach</span></a></li>
-      <li><a href="#venn" data-nav="venn"><span class="num">01</span><span>Understanding Venn</span></a></li>
+      <li class="has-sub"><a href="#venn" data-nav="venn"><span class="num">01</span><span>Understanding Venn</span></a>
+        <ol class="subnav"><li><a href="#v-snapshot" data-subnav="v-snapshot"><span class="num">1.1</span><span>Snapshot</span></a></li><li><a href="#v-model" data-subnav="v-model"><span class="num">1.2</span><span>Business model</span></a></li><li><a href="#v-lens" data-subnav="v-lens"><span class="num">1.3</span><span>Mercury + Ramp lens</span></a></li><li><a href="#v-strengths" data-subnav="v-strengths"><span class="num">1.4</span><span>Strengths</span></a></li><li><a href="#v-goals" data-subnav="v-goals"><span class="num">1.5</span><span>Goals</span></a></li><li><a href="#v-hyp" data-subnav="v-hyp"><span class="num">1.6</span><span>Hypotheses</span></a></li><li><a href="#v-criteria" data-subnav="v-criteria"><span class="num">1.7</span><span>Criteria</span></a></li></ol>
+      </li>
       <li><a href="#market" data-nav="market"><span class="num">02</span><span>Customer and market</span></a></li>
       <li><span class="soon"><span class="num">03</span><span>Evaluating the requests<small>In progress</small></span></span></li>
       <li><span class="soon"><span class="num">04</span><span>Recommendation<small>Upcoming</small></span></span></li>
@@ -403,15 +463,16 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
         <p class="eyebrow">01 · Understanding Venn</p>
         <h2>Venn has built the banking layer. The spend layer is missing its engine.</h2>
       </div>
-      <nav class="jump" aria-label="In this section"><span>Jump to</span><a href="#v-snapshot">Snapshot</a><a href="#v-model">Business model</a><a href="#v-lens">Mercury + Ramp lens</a><a href="#v-strengths">Strengths</a><a href="#v-goals">Goals</a><a href="#v-hyp">Hypotheses</a><a href="#v-criteria">Criteria</a></nav>
+      <nav class="substep" aria-label="Section 1 parts"><a href="#v-snapshot" data-subnav="v-snapshot"><span>1.1</span>Snapshot</a><a href="#v-model" data-subnav="v-model"><span>1.2</span>Business model</a><a href="#v-lens" data-subnav="v-lens"><span>1.3</span>Mercury + Ramp lens</a><a href="#v-strengths" data-subnav="v-strengths"><span>1.4</span>Strengths</a><a href="#v-goals" data-subnav="v-goals"><span>1.5</span>Goals</a><a href="#v-hyp" data-subnav="v-hyp"><span>1.6</span>Hypotheses</a><a href="#v-criteria" data-subnav="v-criteria"><span>1.7</span>Criteria</a></nav>
 
+      <div class="sub" id="v-snapshot" data-sub>
       <div class="finding">
         <p class="eyebrow">Key finding</p>
         <p>Everything Venn does well is about moving and holding a customer's money more cheaply than a bank. What it doesn't yet do is fund spend beyond what a customer has deposited. Rob described Venn as Mercury plus Ramp; Venn has Mercury's core and Ramp's surface, but not Ramp's credit engine.</p>
       </div>
 
       <div class="block">
-        <h3 id="v-snapshot">Snapshot: what Venn offers</h3>
+        <h3><span class="subnum">1.1</span>Snapshot: what Venn offers</h3>
         <p class="prose">Venn sells one platform made of four product groups. A business can start with a free account and add cards, payments and accounting tools as it grows.</p>
         <div class="products">
           <article class="prod">
@@ -455,8 +516,12 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
         <p class="src">Sources: <a href="https://www.venn.ca/" target="_blank" rel="noopener">venn.ca</a>, <a href="https://www.venn.ca/pricing" target="_blank" rel="noopener">Venn pricing</a>, <a href="https://www.venn.ca/fall-2026" target="_blank" rel="noopener">Fall 2026 updates</a>, <a href="https://www.businesswire.com/news/home/20250226330289/en/Venn-Formerly-Vault-Raises-$21.5M-to-be-the-All-In-One-Financial-Platform-for-Canadian-Businesses" target="_blank" rel="noopener">BusinessWire</a></p>
       </div>
 
+      <div class="pager"><a class="pg prev" href="#approach"><small>&larr; Previous section</small><b>00 · Approach</b></a><a class="pg next" href="#v-model"><small>Next &rarr;</small><b>1.2 · Business model</b></a></div>
+      </div>
+
+      <div class="sub" id="v-model" data-sub>
       <div class="block">
-        <h3 id="v-model">How Venn makes money</h3>
+        <h3><span class="subnum">1.2</span>How Venn makes money</h3>
         <p class="prose">Venn earns when money sits in it, moves through it, or is spent on its cards. Click a revenue stream to see how it turns into revenue, then adjust the example customer to see what drives it.</p>
 
         <div class="rev" id="rev">
@@ -606,8 +671,12 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
         <p class="src">Sources: <a href="https://www.venn.ca/pricing" target="_blank" rel="noopener">Venn pricing</a>, <a href="https://www.td.com/content/dam/tdct/document/pdf/business-banking/oct-2025-interchange-rates-english-general-business.pdf" target="_blank" rel="noopener">TD interchange rate chart</a>, <a href="https://myperch.io/homeowners/bank-of-canada-interest-rate-announcement-september-2-2026/" target="_blank" rel="noopener">Bank of Canada decision, Sept 2026</a></p>
       </div>
 
+      <div class="pager"><a class="pg prev" href="#v-snapshot"><small>&larr; Previous</small><b>1.1 · Snapshot</b></a><a class="pg next" href="#v-lens"><small>Next &rarr;</small><b>1.3 · Mercury + Ramp lens</b></a></div>
+      </div>
+
+      <div class="sub" id="v-lens" data-sub>
       <div class="block">
-        <h3 id="v-lens">The Mercury + Ramp lens</h3>
+        <h3><span class="subnum">1.3</span>The Mercury + Ramp lens</h3>
         <p class="prose">The Mercury model earns on deposits and money movement. The Ramp model earns on card spend that it funds with credit. Placing Venn's products against both shows where the gaps are.</p>
         <figure class="figure">
           <div class="scroll">
@@ -668,58 +737,84 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
         </figure>
       </div>
 
+      <div class="pager"><a class="pg prev" href="#v-model"><small>&larr; Previous</small><b>1.2 · Business model</b></a><a class="pg next" href="#v-strengths"><small>Next &rarr;</small><b>1.4 · Strengths</b></a></div>
+      </div>
+
+      <div class="sub" id="v-strengths" data-sub>
       <div class="block">
-        <h3 id="v-strengths">What Venn does well</h3>
-        <p class="prose">Venn wins by being much cheaper and faster than the Big 5 banks on the things Canadian SMBs feel every month: FX, USD banking, onboarding and team spend. These strengths are the assets any new product should build on.</p>
-        <div class="strengths-head"><span>Strength</span><span>Evidence</span><span>Why it matters for what we build next</span></div>
-        <div class="strengths">
-          <div class="strength">
-            <h4>Price leadership on FX</h4>
-            <p><span class="lbl">Evidence</span>0.25–0.45% markup vs 2–3% at legacy banks. One customer reports FX 3–4% cheaper than their old bank.</p>
-            <p class="so"><span class="lbl">So what</span>Venn already attracts cross-border-heavy businesses. The next product should deepen that wallet, not only widen the funnel.</p>
+        <h3><span class="subnum">1.4</span>What Venn does well</h3>
+        <p class="prose">Venn wins by being much cheaper and faster than the Big 5 banks on the things Canadian SMBs feel every month: FX, USD banking, onboarding and team spend. These strengths are the assets any new product should build on. Click a strength to see the evidence and what it means for the three requests.</p>
+        <div class="sw" id="sw">
+          <div class="sw-grid" role="tablist" aria-label="Strengths">
+            <button type="button" role="tab" class="sw-tile" id="sw-t-fx" aria-controls="sw-p-fx" aria-selected="true" tabindex="0"><i>Cheaper</i><b>Price leadership on FX</b><span>0.25–0.45% vs 2–3%</span></button>
+            <button type="button" role="tab" class="sw-tile" id="sw-t-rails" aria-controls="sw-p-rails" aria-selected="false" tabindex="-1"><i>Cheaper</i><b>Real cross-border rails</b><span>Local US ACH</span></button>
+            <button type="button" role="tab" class="sw-tile" id="sw-t-onb" aria-controls="sw-p-onb" aria-selected="false" tabindex="-1"><i>Easier</i><b>Frictionless onboarding</b><span>Under 5 minutes</span></button>
+            <button type="button" role="tab" class="sw-tile" id="sw-t-plat" aria-controls="sw-p-plat" aria-selected="false" tabindex="-1"><i>Easier</i><b>One platform instead of five tools</b><span>Accounts to accounting</span></button>
+            <button type="button" role="tab" class="sw-tile" id="sw-t-ctrl" aria-controls="sw-p-ctrl" aria-selected="false" tabindex="-1"><i>Easier</i><b>Spend controls teams adopt</b><span>Limits, approvals, AI receipts</span></button>
+            <button type="button" role="tab" class="sw-tile" id="sw-t-ship" aria-controls="sw-p-ship" aria-selected="false" tabindex="-1"><i>Momentum</i><b>Shipping velocity</b><span>35+ updates in 2026</span></button>
+            <button type="button" role="tab" class="sw-tile" id="sw-t-dep" aria-controls="sw-p-dep" aria-selected="false" tabindex="-1"><i>Momentum</i><b>Aggressive deposit growth</b><span>2% base, 3.5% promo</span></button>
+            <button type="button" role="tab" class="sw-tile" id="sw-t-up" aria-controls="sw-p-up" aria-selected="false" tabindex="-1"><i>Momentum</i><b>Moving upmarket</b><span>SSO, roles, ERP</span></button>
           </div>
-          <div class="strength">
-            <h4>Real cross-border rails</h4>
-            <p><span class="lbl">Evidence</span>A US-domiciled USD account with local ACH. Big 5 USD accounts are Canada-based and SWIFT-only.</p>
-            <p class="so"><span class="lbl">So what</span>A structural advantage banks can't copy quickly, and a reason to make Venn the primary operating account.</p>
+          <div class="sw-panel" role="tabpanel" id="sw-p-fx" aria-labelledby="sw-t-fx">
+            <div><p class="lbl">Evidence</p><p>0.25–0.45% markup against 2–3% at legacy banks. One customer reports FX 3–4% cheaper than their old bank.</p></div>
+            <div><p class="lbl so">So what</p><p>Venn already attracts cross-border-heavy businesses. The next product should deepen that wallet, not only widen the funnel.</p></div>
+            <div><p class="lbl">Link to the three requests</p><div class="rels"><span class="rel ok"><b>Supports · Credit cards</b>multi-currency card spend at Venn FX rates</span></div></div>
           </div>
-          <div class="strength">
-            <h4>Frictionless onboarding</h4>
-            <p><span class="lbl">Evidence</span>Sign-up in under 5 minutes with no personal credit check or guarantee. Banks take 1–2 weeks.</p>
-            <p class="so"><span class="lbl">So what</span>Fast acquisition is an asset to protect. Anything involving credit adds underwriting friction, so it needs careful design.</p>
+          <div class="sw-panel" role="tabpanel" id="sw-p-rails" aria-labelledby="sw-t-rails" hidden>
+            <div><p class="lbl">Evidence</p><p>A US-domiciled USD account with local ACH. Big 5 USD accounts are Canada-based and SWIFT-only.</p></div>
+            <div><p class="lbl so">So what</p><p>A structural advantage banks can't copy quickly, and a reason to make Venn the primary operating account.</p></div>
+            <div><p class="lbl">Link to the three requests</p><div class="rels"><span class="rel ok"><b>Supports · Payroll</b>the step that makes Venn the primary account</span></div></div>
           </div>
-          <div class="strength">
-            <h4>One platform instead of five tools</h4>
-            <p><span class="lbl">Evidence</span>Accounts, cards, expense management, payables, invoicing and QuickBooks/Xero sync in one place.</p>
-            <p class="so"><span class="lbl">So what</span>Each added product raises switching costs and ARPU. The "default platform" strategy is already in motion.</p>
+          <div class="sw-panel" role="tabpanel" id="sw-p-onb" aria-labelledby="sw-t-onb" hidden>
+            <div><p class="lbl">Evidence</p><p>Sign-up in under 5 minutes with no personal credit check or guarantee. Banks take 1–2 weeks.</p></div>
+            <div><p class="lbl so">So what</p><p>Fast acquisition is an asset to protect. Anything involving credit adds underwriting friction, so it needs careful design.</p></div>
+            <div><p class="lbl">Link to the three requests</p><div class="rels"><span class="rel warn"><b>Watch out · Credit cards</b>underwriting must not slow sign-up</span></div></div>
           </div>
-          <div class="strength">
-            <h4>Spend controls teams adopt</h4>
-            <p><span class="lbl">Evidence</span>Instant virtual cards, per-card and per-transaction limits, departments, approval rules, AI receipt matching.</p>
-            <p class="so"><span class="lbl">So what</span>The spend tooling is mature. What limits card spend today is the prepaid model, not the software.</p>
+          <div class="sw-panel" role="tabpanel" id="sw-p-plat" aria-labelledby="sw-t-plat" hidden>
+            <div><p class="lbl">Evidence</p><p>Accounts, cards, expense management, payables, invoicing and QuickBooks/Xero sync in one place.</p></div>
+            <div><p class="lbl so">So what</p><p>Each added product raises switching costs and ARPU. The "default platform" strategy is already in motion.</p></div>
+            <div><p class="lbl">Link to the three requests</p><div class="rels"><span class="rel ok"><b>Supports · Reimbursements</b>fits the existing spend workflow</span><span class="rel ok"><b>Supports · Payroll</b>largest remaining tool to absorb</span></div></div>
           </div>
-          <div class="strength">
-            <h4>Shipping velocity</h4>
-            <p><span class="lbl">Evidence</span>35+ updates in 2026, including an AI assistant, iOS and Android apps, SSO, multi-entity and bulk payments.</p>
-            <p class="so"><span class="lbl">So what</span>The team can ship. The constraint on the next bet is regulatory and capital risk, not engineering speed.</p>
+          <div class="sw-panel" role="tabpanel" id="sw-p-ctrl" aria-labelledby="sw-t-ctrl" hidden>
+            <div><p class="lbl">Evidence</p><p>Instant virtual cards, per-card and per-transaction limits, departments, approval rules, AI receipt matching.</p></div>
+            <div><p class="lbl so">So what</p><p>The spend tooling is mature. What limits card spend today is the prepaid model, not the software.</p></div>
+            <div><p class="lbl">Link to the three requests</p><div class="rels"><span class="rel ok"><b>Supports · Credit cards</b>plugs into existing controls</span><span class="rel ok"><b>Supports · Reimbursements</b>reuses receipts and approvals</span></div></div>
           </div>
-          <div class="strength">
-            <h4>Aggressive deposit growth</h4>
-            <p><span class="lbl">Evidence</span>2% base interest, a promotion up to 3.5%, and no minimum balance.</p>
-            <p class="so"><span class="lbl">So what</span>Balances are treated as a strategic asset. They are also the cash-flow data a future credit product would underwrite on.</p>
+          <div class="sw-panel" role="tabpanel" id="sw-p-ship" aria-labelledby="sw-t-ship" hidden>
+            <div><p class="lbl">Evidence</p><p>35+ updates in 2026, including an AI assistant, iOS and Android apps, SSO, multi-entity and bulk payments.</p></div>
+            <div><p class="lbl so">So what</p><p>The team can ship. The constraint on the next bet is regulatory and capital risk, not engineering speed.</p></div>
+            <div><p class="lbl">Link to the three requests</p><div class="rels"><span class="rel none">Neutral: not a deciding factor between the three</span></div></div>
           </div>
-          <div class="strength">
-            <h4>Moving upmarket</h4>
-            <p><span class="lbl">Evidence</span>Mid-market and enterprise offerings, SSO, custom roles and custom ERP integrations.</p>
-            <p class="so"><span class="lbl">So what</span>Larger customers spend more than they keep on deposit, which makes the prepaid ceiling more visible.</p>
+          <div class="sw-panel" role="tabpanel" id="sw-p-dep" aria-labelledby="sw-t-dep" hidden>
+            <div><p class="lbl">Evidence</p><p>2% base interest, a promotion up to 3.5%, and no minimum balance.</p></div>
+            <div><p class="lbl so">So what</p><p>Balances are treated as a strategic asset. They are also the cash-flow data a future credit product would underwrite on.</p></div>
+            <div><p class="lbl">Link to the three requests</p><div class="rels"><span class="rel ok"><b>Supports · Credit cards</b>cash-flow data to underwrite on</span><span class="rel ok"><b>Supports · Payroll</b>brings recurring deposits</span></div></div>
+          </div>
+          <div class="sw-panel" role="tabpanel" id="sw-p-up" aria-labelledby="sw-t-up" hidden>
+            <div><p class="lbl">Evidence</p><p>Mid-market and enterprise offerings, SSO, custom roles and custom ERP integrations.</p></div>
+            <div><p class="lbl so">So what</p><p>Larger customers spend more than they keep on deposit, which makes the prepaid ceiling more visible.</p></div>
+            <div><p class="lbl">Link to the three requests</p><div class="rels"><span class="rel ok"><b>Supports · Credit cards</b>larger firms outspend their balances</span><span class="rel ok"><b>Supports · Payroll</b>expected by finance-led teams</span></div></div>
+          </div>
+          <div class="tally">
+            <p class="lbl">Strengths each request would build on</p>
+            <div class="tl-row"><span>Credit cards</span><i><em style="width:100%"></em></i><b>4 of 8</b></div><div class="tl-row"><span>Reimbursements</span><i><em style="width:50%"></em></i><b>2 of 8</b></div><div class="tl-row"><span>Payroll</span><i><em style="width:100%"></em></i><b>4 of 8</b></div>
+            <p class="assume">Credit cards also carry one watch-out: underwriting must not slow Venn's 5-minute onboarding.</p>
           </div>
         </div>
-        <p class="prose"><b>The pattern:</b> Venn's strengths are all about efficiency on money the customer already has. Growth from here comes from attracting more customers with that promise, or deepening each relationship by solving problems beyond cheaper money movement.</p>
+        <aside class="big-insight compact" aria-label="Key insight">
+          <p class="bi-eyebrow">Key insight · Strengths</p>
+          <p class="bi-head">Every strength is about efficiency on money the customer already has.</p>
+          <p class="bi-so"><span>So</span>Growth from here means solving problems beyond cheaper money movement: funding spend, or paying people.</p>
+        </aside>
         <p class="src">Sources: <a href="https://www.venn.ca/" target="_blank" rel="noopener">Venn home</a>, <a href="https://www.venn.ca/pricing" target="_blank" rel="noopener">pricing</a>, <a href="https://www.venn.ca/fall-2026" target="_blank" rel="noopener">Fall 2026 updates</a>, <a href="https://www.venn.ca/resources/venn-vs-big-5-banks-whats-the-best-business-bank-account-in-canada" target="_blank" rel="noopener">Venn vs Big 5</a></p>
       </div>
 
+      <div class="pager"><a class="pg prev" href="#v-lens"><small>&larr; Previous</small><b>1.3 · Mercury + Ramp lens</b></a><a class="pg next" href="#v-goals"><small>Next &rarr;</small><b>1.5 · Goals</b></a></div>
+      </div>
+
+      <div class="sub" id="v-goals" data-sub>
       <div class="block">
-        <h3 id="v-goals">What Venn optimizes for</h3>
+        <h3><span class="subnum">1.5</span>What Venn optimizes for</h3>
         <p class="prose">The two company goals pull in different directions, and the best bet serves both. More active businesses widens the base; higher ARPU deepens each relationship.</p>
         <ul class="bullets">
           <li><b>Active businesses:</b> at least one revenue-generating transaction in a month. A sign-up that never funds or spends doesn't count.</li>
@@ -729,20 +824,53 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
         </ul>
       </div>
 
+      <div class="pager"><a class="pg prev" href="#v-strengths"><small>&larr; Previous</small><b>1.4 · Strengths</b></a><a class="pg next" href="#v-hyp"><small>Next &rarr;</small><b>1.6 · Hypotheses</b></a></div>
+      </div>
+
+      <div class="sub" id="v-hyp" data-sub>
       <div class="block">
-        <h3 id="v-hyp">Hypotheses to validate</h3>
+        <h3><span class="subnum">1.6</span>Hypotheses to validate</h3>
         <p class="prose">These are the questions I would answer with Venn's internal data before committing to a bet.</p>
-        <ol class="hyps">
-          <li><b>The prepaid ceiling is costing card spend.</b><span class="test"><em>Test</em>Card spend relative to balance, and declines caused by insufficient funds.</span></li>
-          <li><b>Many customers are FX-first rather than primary-account users.</b><span class="test"><em>Test</em>Share of active businesses whose payroll, rent or tax payments leave from Venn.</span></li>
-          <li><b>"Active" and "signed up" differ meaningfully.</b><span class="test"><em>Test</em>Monthly active rate by sign-up cohort and plan.</span></li>
-          <li><b>The card program is already credit-adjacent.</b> Venn's public disclosure calls it a charge card, while the case describes a pre-funded model.<span class="test"><em>Test</em>Confirm the current program and what credit would require from the issuing partner.</span></li>
-          <li><b>Reimbursements are partially built.</b> Today they appear only on the Custom plan.<span class="test"><em>Test</em>Demand from lower plans, and how much of the workflow already exists.</span></li>
+        <ol class="hyps2">
+          <li class="hyp">
+            <span class="hnum">H1</span>
+            <div class="hbody"><b>The prepaid ceiling is costing card spend.</b><p>Customers keep only part of their operating cash in Venn, so card spend is capped below real demand.</p></div>
+            <div class="htest"><p class="lbl">How I'd test it</p><p>Card spend relative to balance, and declines caused by insufficient funds.</p></div>
+            <div class="hinf"><p class="lbl">Informs</p><span class="pill ok">Credit cards</span></div>
+          </li>
+          <li class="hyp">
+            <span class="hnum">H2</span>
+            <div class="hbody"><b>Many customers are FX-first, not primary-account users.</b><p>They come for cheap FX and keep their main account at a bank.</p></div>
+            <div class="htest"><p class="lbl">How I'd test it</p><p>Share of active businesses whose payroll, rent or tax payments leave from Venn.</p></div>
+            <div class="hinf"><p class="lbl">Informs</p><span class="pill ok">Payroll</span></div>
+          </li>
+          <li class="hyp">
+            <span class="hnum">H3</span>
+            <div class="hbody"><b>"Active" and "signed up" differ meaningfully.</b><p>The 15,000+ figure likely counts sign-ups, not monthly actives.</p></div>
+            <div class="htest"><p class="lbl">How I'd test it</p><p>Monthly active rate by sign-up cohort and plan.</p></div>
+            <div class="hinf"><p class="lbl">Informs</p><span class="pill ok">All three</span></div>
+          </li>
+          <li class="hyp">
+            <span class="hnum">H4</span>
+            <div class="hbody"><b>The card program is already credit-adjacent.</b><p>Venn's public disclosure calls it a charge card, while the case describes a pre-funded model.</p></div>
+            <div class="htest"><p class="lbl">How I'd test it</p><p>Confirm the current program and what credit would require from the issuing partner.</p></div>
+            <div class="hinf"><p class="lbl">Informs</p><span class="pill ok">Credit cards</span></div>
+          </li>
+          <li class="hyp">
+            <span class="hnum">H5</span>
+            <div class="hbody"><b>Reimbursements are partially built.</b><p>Today they appear only on the Custom plan.</p></div>
+            <div class="htest"><p class="lbl">How I'd test it</p><p>Demand from lower plans, and how much of the workflow already exists.</p></div>
+            <div class="hinf"><p class="lbl">Informs</p><span class="pill ok">Reimbursements</span></div>
+          </li>
         </ol>
       </div>
 
+      <div class="pager"><a class="pg prev" href="#v-goals"><small>&larr; Previous</small><b>1.5 · Goals</b></a><a class="pg next" href="#v-criteria"><small>Next &rarr;</small><b>1.7 · Criteria</b></a></div>
+      </div>
+
+      <div class="sub" id="v-criteria" data-sub>
       <div class="block">
-        <h3 id="v-criteria">Criteria carried into Section 3</h3>
+        <h3><span class="subnum">1.7</span>Criteria carried into Section 3</h3>
         <p class="prose">Section 1 produces five criteria for scoring each opportunity. Each comes directly from how Venn makes money and what it optimizes for.</p>
         <div class="tbl">
           <table>
@@ -757,7 +885,8 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
           </table>
         </div>
       </div>
-      <div class="pager"><a class="pg prev" href="#approach"><small>&larr; Previous</small><b>00 · Approach</b></a><a class="pg next" href="#market"><small>Next section &rarr;</small><b>02 · Customer and market</b></a></div>
+      <div class="pager"><a class="pg prev" href="#v-hyp"><small>&larr; Previous</small><b>1.6 · Hypotheses</b></a><a class="pg next" href="#market"><small>Next section &rarr;</small><b>02 · Customer and market</b></a></div>
+      </div>
     </section>
 
     <!-- 02 Customer and market -->
@@ -968,41 +1097,58 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
   var panels = Array.prototype.slice.call(document.querySelectorAll('main > section.part'));
   var ids = panels.map(function (p) { return p.id; });
   var navLinks = document.querySelectorAll('nav.index a[data-nav]');
+  var subLinks = document.querySelectorAll('[data-subnav]');
   var shell = document.querySelector('.shell');
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  function panelFor(id) {
-    if (ids.indexOf(id) > -1) return id;
+  function resolve(id) {
+    if (ids.indexOf(id) > -1) {
+      var panel = document.getElementById(id);
+      var first = panel.querySelector('[data-sub]');
+      return { panel: id, sub: first ? first.id : null, inner: null };
+    }
     var el = document.getElementById(id);
-    var host = el && el.closest('section.part');
-    return host ? host.id : null;
+    if (!el) return null;
+    var host = el.closest('section.part');
+    if (!host) return null;
+    var sub = el.hasAttribute('data-sub') ? el : el.closest('[data-sub]');
+    return { panel: host.id, sub: sub ? sub.id : null, inner: (sub && sub === el) ? null : el };
   }
   function show(target, push) {
-    var pid = panelFor(target) || 'approach';
-    panels.forEach(function (p) { p.hidden = p.id !== pid; });
+    var r = resolve(target) || resolve('approach');
+    panels.forEach(function (p) { p.hidden = p.id !== r.panel; });
+    var panelEl = document.getElementById(r.panel);
+    panelEl.querySelectorAll('[data-sub]').forEach(function (sb) { sb.hidden = sb.id !== r.sub; });
     navLinks.forEach(function (a) {
-      var on = a.dataset.nav === pid;
+      var on = a.dataset.nav === r.panel;
       a.classList.toggle('on', on);
       if (on) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
+      var li = a.closest('li.has-sub');
+      if (li) li.classList.toggle('open', on);
     });
+    subLinks.forEach(function (a) {
+      var on = a.dataset.subnav === r.sub;
+      a.classList.toggle('on', on);
+      if (on) a.setAttribute('aria-current', 'step'); else a.removeAttribute('aria-current');
+    });
+    var active = document.querySelector('.substep a.on');
+    if (active && active.scrollIntoView) active.scrollIntoView({ block: 'nearest', inline: 'center' });
     if (push) { try { history.pushState(null, '', '#' + target); } catch (e) {} }
-    var dest = (target !== pid) ? document.getElementById(target) : shell;
-    if (dest) dest.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+    var dest = r.inner || shell;
+    if (push !== null) dest.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
   }
   document.addEventListener('click', function (e) {
     var a = e.target.closest('a[href^="#"]');
     if (!a) return;
     var id = a.getAttribute('href').slice(1);
-    if (!id || !panelFor(id)) return;
+    if (!id || !resolve(id)) return;
     e.preventDefault();
     show(id, true);
   });
   window.addEventListener('popstate', function () { show(location.hash.slice(1) || 'approach', false); });
   var start = location.hash.slice(1);
-  var pid = panelFor(start) || 'approach';
-  panels.forEach(function (p) { p.hidden = p.id !== pid; });
-  navLinks.forEach(function (a) { a.classList.toggle('on', a.dataset.nav === pid); });
-  if (start && start !== pid) { var el = document.getElementById(start); if (el) el.scrollIntoView(); }
+  show(resolve(start) ? start : 'approach', null);
+  if (start && resolve(start) && resolve(start).inner) resolve(start).inner.scrollIntoView();
 })();
 </script>
 <script>
@@ -1100,6 +1246,29 @@ footer .wrap { padding-block: 24px 40px; font-size: 13px; color: var(--muted); d
   });
   select('fx');
   render();
+})();
+</script>
+<script>
+(function () {
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.sw-tile'));
+  function select(t, focus) {
+    tabs.forEach(function (x) {
+      var on = x === t;
+      x.setAttribute('aria-selected', on ? 'true' : 'false');
+      x.tabIndex = on ? 0 : -1;
+      document.getElementById(x.getAttribute('aria-controls')).hidden = !on;
+    });
+    if (focus) t.focus();
+  }
+  tabs.forEach(function (t, i) {
+    t.addEventListener('click', function () { select(t); });
+    t.addEventListener('keydown', function (e) {
+      var d = (e.key === 'ArrowRight' || e.key === 'ArrowDown') ? 1 : (e.key === 'ArrowLeft' || e.key === 'ArrowUp') ? -1 : 0;
+      if (!d) return;
+      e.preventDefault();
+      select(tabs[(i + d + tabs.length) % tabs.length], true);
+    });
+  });
 })();
 </script>
 </body>
